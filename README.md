@@ -42,6 +42,8 @@ Existing solutions are fragmented: one library detects cycles, another enforces 
 | Async support (hung coroutine) | ✅ | ❌ | ❌ | ❌ |
 | Adaptive thresholds (diversity-aware) | ✅ | ❌ | ❌ | ❌ |
 | Stuck report (with token waste) | ✅ | ❌ | ❌ | ✅ |
+| Parameter noise reduction (UUID/TS) | ✅ | ❌ | ❌ | ❌ |
+| Nested dict structure similarity | ✅ | ❌ | ❌ | ❌ |
 | Zero dependencies | ✅ | ✅ | ❌ | ✅ (Node) |
 
 ---
@@ -335,6 +337,41 @@ with LoopBuster(stasis_steps=5) as lb:
 ---
 
 ## Integrations
+
+LoopBuster comes with built-in, drop-in integration callbacks for major agent frameworks.
+
+### LangChain
+
+```python
+from loopbuster import LoopBuster
+from loopbuster.integrations.langchain import LoopBusterCallback
+from langchain.agents import AgentExecutor
+
+lb = LoopBuster(budget_usd=5.0, max_repeats=3)
+callback = LoopBusterCallback(lb)
+
+# Just attach the callback to your existing AgentExecutor
+agent_executor = AgentExecutor.from_agent_and_tools(
+    agent=agent, 
+    tools=tools, 
+    callbacks=[callback]
+)
+result = agent_executor.run("Find the capital of France")
+```
+
+### LlamaIndex
+
+```python
+from loopbuster import LoopBuster
+from loopbuster.integrations.llamaindex import LoopBusterCallback
+from llama_index.core import Settings
+
+lb = LoopBuster(budget_usd=5.0, max_repeats=3)
+callback = LoopBusterCallback(lb)
+
+# Attach to global callback manager
+Settings.callback_manager.add_handler(callback)
+```
 
 ### Generic callback (any framework)
 
