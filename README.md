@@ -39,6 +39,9 @@ Existing solutions are fragmented: one library detects cycles, another enforces 
 | Context manager | ✅ | ❌ | ✅ | ❌ |
 | Framework-agnostic | ✅ | ✅ | ❌ | ❌ (MCP) |
 | Callback integration | ✅ | ✅ | ❌ | ❌ |
+| Async support (hung coroutine) | ✅ | ❌ | ❌ | ❌ |
+| Adaptive thresholds (diversity-aware) | ✅ | ❌ | ❌ | ❌ |
+| Stuck report (with token waste) | ✅ | ❌ | ❌ | ✅ |
 | Zero dependencies | ✅ | ✅ | ❌ | ✅ (Node) |
 
 ---
@@ -168,7 +171,102 @@ config = ActionConfig(
 lb = LoopBuster(action_config=config)
 ```
 
+
+## Adaptive Thresholds
+
+Standard thresholds are static. But an agent iterating on diverse subtasks should be treated differently from one stuck on the same action.
+
+**AdaptiveActionConfig** adjusts thresholds in real time based on action diversity:
+
+- **High diversity** (many unique actions) → thresholds relax (fewer false positives)
+- **Low diversity** (same few actions) → thresholds tighten (catches loops earlier)
+
+```python
+from loopbuster import AdaptiveActionConfig, LoopBuster
+
+config = AdaptiveActionConfig(
+    base_warn=3,
+    base_stop=5,
+    base_escalate=8,
+    min_multiplier=0.5,  # tighten at low diversity
+    max_multiplier=2.0,  # relax at high diversity
+)
+
+with LoopBuster(action_config=config) as lb:
+    for step in agent_loop():
+        decision = lb.check(tool=step.tool, args=step.args)
+        # Thresholds adapt automatically based on action diversity
+```
+
+Diversity ratio = unique action signatures / total actions in a sliding window. At 0.5 ratio (default midpoint), thresholds use `base_*` values. Below 0.5 they tighten, above 0.5 they relax.
+
 ---
+
+## Async Support (Hung Coroutine Detection)
+
+Standard LoopBuster works with synchronous loops. **AsyncLoopBuster** extends the same detection to async/await agents and coroutine-based frameworks.
+
+```python
+from loopbuster import AsyncLoopBuster
+
+async with AsyncLoopBuster(
+    budget_usd=5.0,
+    action_timeout=30.0,      # hung coroutine threshold
+    max_slow_actions=3,        # consecutive slow → ESCALATE
+) as lb:
+    async for action in my_agent_async_gen(task):
+        decision = await lb.acheck(tool=action.tool, args=action.args)
+        if decision.should_stop:
+            break
+```
+
+### Hung Coroutine Detection
+
+If an action takes longer than `action_timeout` seconds, AsyncLoopBuster counts it as a potential hung coroutine. After `max_slow_actions` consecutive slow actions, it escalates with an `ESCALATE` decision and a clear reason.
+
+### Async Generator Wrapper
+
+For async generator-based agent loops, use `AsyncLoopBuster.watch()`:
+
+```python
+async for tool, args, decision in AsyncLoopBuster.watch(
+    my_agent_async_gen(task),
+    budget_usd=5.0,
+    action_timeout=30.0,
+):
+    if decision.should_stop:
+        print(f"🛑 {decision.reason}")
+        break
+    await execute_tool(tool, args)
+```
+
+
+## Stuck Report
+
+After an agent run, generate a diagnostic report:
+
+```python
+with LoopBuster() as lb:
+    for step in agent_loop():
+        lb.check(tool=step.tool, args=step.args)
+    # ...
+
+report = lb.report()
+print(report["diversity_ratio"])         # 0.45
+print(report["estimated_cost_waste_usd"]) # $0.0234
+print(report["recommendations"])          # actionable insights
+print(report["top_repeated_patterns"])    # [(signature, count), ...]
+print(report["recent_timeline"])          # last 10 actions
+```
+
+Inspired by agent-guard-mcp's getStuckReport(). Includes:
+- Action history summary
+- Diversity ratio (unique / total)
+- Top repeated action signatures
+- Estimated token waste (in tokens and USD)
+- Tripped guard information
+- Actionable recommendations
+
 
 ## Hard Guards
 

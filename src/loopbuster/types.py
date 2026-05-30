@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections import deque
 from dataclasses import dataclass, field
 from enum import Enum, auto
 from typing import Any
@@ -59,6 +60,80 @@ class ActionConfig:
         if consecutive_hits >= self.warn_threshold:
             return Action.WARN
         return Action.ALLOW
+
+
+@dataclass
+class AdaptiveActionConfig:
+    """Action config that adapts thresholds based on action diversity.
+
+    When the agent is trying diverse actions (high diversity ratio),
+    thresholds are relaxed to avoid false positives. When it's stuck
+    on a small set of actions (low diversity), thresholds tighten.
+
+    Diversity ratio = unique action signatures / total actions in window
+    """
+
+    # Base thresholds (used at diversity == 0.5)
+    base_warn: int = 3
+    base_stop: int = 5
+    base_escalate: int = 8
+
+    # How much thresholds scale with diversity (multiplier range)
+    min_multiplier: float = 0.5  # tighten at low diversity
+    max_multiplier: float = 2.0  # relax at high diversity
+
+    # Window for diversity calculation
+    diversity_window: int = 20
+
+    reflection_message: str = (
+        "You appear to be stuck in a loop. Try a different approach."
+    )
+
+    # Internal state (not config)
+    _action_history: deque[str] = field(
+        default_factory=lambda: deque(maxlen=20), init=False, repr=False
+    )
+
+    def record_action(self, tool: str) -> None:
+        """Record an action for diversity tracking."""
+        self._action_history.append(tool)
+
+    @property
+    def diversity_ratio(self) -> float:
+        """Ratio of unique actions to total actions in the window."""
+        if not self._action_history:
+            return 1.0
+        return len(set(self._action_history)) / len(self._action_history)
+
+    def _multiplier(self) -> float:
+        """Map diversity ratio [0..1] to multiplier [min..max]."""
+        d = self.diversity_ratio
+        # Linear interpolation: low diversity → tighten, high → relax
+        return self.min_multiplier + (self.max_multiplier - self.min_multiplier) * d
+
+    @property
+    def warn_threshold(self) -> int:
+        return max(1, int(self.base_warn * self._multiplier()))
+
+    @property
+    def stop_threshold(self) -> int:
+        return max(2, int(self.base_stop * self._multiplier()))
+
+    @property
+    def escalate_threshold(self) -> int:
+        return max(3, int(self.base_escalate * self._multiplier()))
+
+    def resolve_action(self, consecutive_hits: int) -> Action:
+        if consecutive_hits >= self.escalate_threshold:
+            return Action.ESCALATE
+        if consecutive_hits >= self.stop_threshold:
+            return Action.STOP
+        if consecutive_hits >= self.warn_threshold:
+            return Action.WARN
+        return Action.ALLOW
+
+    def reset(self) -> None:
+        self._action_history.clear()
 
 
 @dataclass

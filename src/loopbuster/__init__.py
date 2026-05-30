@@ -23,6 +23,7 @@ Hard guards (3):
 from __future__ import annotations
 
 from . import integrations
+from .async_engine import AsyncLoopBuster
 from .circuit import BreakerAction, BreakerDecision, CircuitBreaker
 from .decorator import buster
 from .engine import LoopBuster, current
@@ -34,13 +35,21 @@ from .strategies import (
     FuzzyRepeatStrategy,
     OutputStagnationStrategy,
 )
-from .types import Action, ActionConfig, Decision, TripError, TripReason
+from .types import (
+    Action,
+    ActionConfig,
+    AdaptiveActionConfig,
+    Decision,
+    TripError,
+    TripReason,
+)
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     # Main API
     "LoopBuster",
+    "AsyncLoopBuster",
     "buster",
     "current",
     # Detection strategies
@@ -61,6 +70,7 @@ __all__ = [
     # Types
     "Action",
     "ActionConfig",
+    "AdaptiveActionConfig",
     "Decision",
     "TripError",
     "TripReason",

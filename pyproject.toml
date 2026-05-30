@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "loopbuster"
-version = "0.1.0"
+version = "0.2.0"
 description = "A unified anti-dead-loop toolkit for LLM agents — loop detection, budget ceiling, state stasis guard, and circuit breaker in one library."
 readme = "README.md"
 license = {text = "MIT"}
