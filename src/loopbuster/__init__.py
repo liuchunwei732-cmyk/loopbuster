@@ -28,6 +28,7 @@ from .circuit import BreakerAction, BreakerDecision, CircuitBreaker
 from .decorator import buster
 from .engine import LoopBuster, current
 from .guards import BudgetCeiling, Guard, RepeatCallGuard, StateStasis
+from .similarity import args_similarity
 from .strategies import (
     CompositeStrategy,
     CycleDetectionStrategy,
@@ -58,6 +59,8 @@ __all__ = [
     "FuzzyRepeatStrategy",
     "CycleDetectionStrategy",
     "OutputStagnationStrategy",
+    # Similarity
+    "args_similarity",
     # Guards
     "Guard",
     "BudgetCeiling",
