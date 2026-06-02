@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loopbuster // AGC Dashboard</title>
+  <style>
+    :root {
+      --bg-base: #09090c;
+      --bg-panel: #13131a;
+      --bg-hover: #1c1c26;
+      --border: #2a2a35;
+      --text-main: #e2e2eb;
+      --text-muted: #84849a;
+      
+      --accent-green: #00ff9d;
+      --accent-red: #ff3366;
+      --accent-blue: #00e5ff;
+      
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "Fira Code", "JetBrains Mono", Consolas, "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    header h1 {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    header h1::before {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-color: var(--accent-green);
+      box-shadow: 0 0 10px var(--accent-green);
+    }
+
+    .status-indicator {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent-green);
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .stat-card {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::top {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+
+    .stat-card[data-type="intercepts"] { border-top: 2px solid var(--accent-blue); }
+    .stat-card[data-type="overruns"] { border-top: 2px solid var(--accent-red); }
+    .stat-card[data-type="active"] { border-top: 2px solid var(--accent-green); }
+
+    .stat-title {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      font-family: var(--font-mono);
+      font-size: 2.5rem;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    /* Logs Section */
+    .logs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .logs-header h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .log-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .log-item {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .log-summary {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .log-summary:hover {
+      background-color: var(--bg-hover);
+    }
+
+    .log-time {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      width: 180px;
+      flex-shrink: 0;
+    }
+
+    .log-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-right: 1rem;
+      width: 100px;
+      text-align: center;
+    }
+
+    .badge-intercept { background: rgba(255, 51, 102, 0.15); color: var(--accent-red); border: 1px solid rgba(255, 51, 102, 0.3); }
+    .badge-pass { background: rgba(0, 255, 157, 0.15); color: var(--accent-green); border: 1px solid rgba(0, 255, 157, 0.3); }
+
+    .log-agent {
+      font-weight: 500;
+      color: var(--accent-blue);
+      margin-right: 1rem;
+      width: 150px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .log-reason {
+      flex-grow: 1;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .log-toggle-icon {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      transition: transform 0.3s;
+    }
+
+    .log-item.expanded .log-toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .log-details {
+      display: none;
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+      background-color: rgba(0,0,0,0.2);
+    }
+
+    .log-item.expanded .log-details {
+      display: block;
+    }
+
+    .detail-group {
+      margin-bottom: 1rem;
+    }
+
+    .detail-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      font-family: var(--font-mono);
+    }
+
+    .detail-content {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background-color: var(--bg-base);
+      padding: 1rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      color: #a9a9b3;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    /* Loader */
+    .loading {
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .error-msg {
+      color: var(--accent-red);
+      background: rgba(255, 51, 102, 0.1);
+      padding: 1rem;
+      border: 1px solid rgba(255, 51, 102, 0.3);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>LOOPBUSTER // AGC DASHBOARD</h1>
+      <div class="status-indicator">● SYSTEM ONLINE</div>
+    </header>
+
+    <!-- Error Container -->
+    <div id="error-container"></div>
+
+    <!-- Stats Section -->
+    <section class="stats-grid" id="stats-grid">
+      <div class="stat-card" data-type="intercepts">
+        <div class="stat-title">Total Intercepts</div>
+        <div class="stat-value" id="stat-total-intercepts">--</div>
+      </div>
+      <div class="stat-card" data-type="overruns">
+        <div class="stat-title">Cost Overruns</div>
+        <div class="stat-value" id="stat-cost-overruns">--</div>
+      </div>
+      <div class="stat-card" data-type="active">
+        <div class="stat-title">Total Executions</div>
+        <div class="stat-value" id="stat-total-execs">--</div>
+      </div>
+    </section>
+
+    <!-- Logs Section -->
+    <section class="logs">
+      <div class="logs-header">
+        <h2>Live Intercept Logs</h2>
+      </div>
+      <div class="log-list" id="log-list">
+        <div class="loading">Fetching telemetry data...</div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const API_BASE = 'http://127.0.0.1:8000/api';
+
+    // Format date string
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      if (isNaN(d.getTime())) return dateStr;
+      
+      const pad = (n) => n.toString().padStart(2, '0');
+      return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    }
+
+    // Render error
+    function showError(message) {
+      const errContainer = document.getElementById('error-container');
+      errContainer.innerHTML = `<div class="error-msg">ERR: ${message}</div>`;
+    }
+
+    // Fetch and render Stats
+    async function fetchStats() {
+      try {
+        const res = await fetch(`${API_BASE}/stats`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        
+        // Use generic keys assuming typical backend responses, 
+        // will fallback to 0 if key is different
+        document.getElementById('stat-total-intercepts').textContent = data.total_intercepts || data.intercepts || 0;
+        document.getElementById('stat-cost-overruns').textContent = data.cost_overruns || data.overruns || 0;
+        document.getElementById('stat-total-execs').textContent = data.total_executions || data.executions || data.total || 0;
+      } catch (err) {
+        console.error('Failed to fetch stats:', err);
+        showError('Connection refused to backend API (/api/stats). Is the server running?');
+      }
+    }
+
+    // Fetch and render Logs
+    async function fetchLogs() {
+      try {
+        const res = await fetch(`${API_BASE}/logs`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const logs = await res.json();
+        
+        const listContainer = document.getElementById('log-list');
+        listContainer.innerHTML = '';
+        
+        if (!logs || logs.length === 0) {
+          listContainer.innerHTML = '<div class="loading">No telemetry data found.</div>';
+          return;
+        }
+
+        logs.forEach(log => {
+          // Normalize status
+          const isIntercepted = log.status === 'blocked' || log.status === 'intercepted' || log.action === 'intercept';
+          const badgeClass = isIntercepted ? 'badge-intercept' : 'badge-pass';
+          const badgeText = isIntercepted ? 'INTERCEPT' : 'PASS';
+          
+          const time = formatDate(log.timestamp || log.time || '');
+          const agent = log.agent || log.agent_id || 'Unknown';
+          const reason = log.reason || log.message || log.details || 'No reason provided';
+          const prompt = log.prompt || log.input || 'N/A';
+          const context = log.context ? JSON.stringify(log.context, null, 2) : 'N/A';
+
+          const logItem = document.createElement('div');
+          logItem.className = 'log-item';
+          logItem.innerHTML = `
+            <div class="log-summary">
+              <div class="log-time">${time}</div>
+              <div class="log-badge ${badgeClass}">${badgeText}</div>
+              <div class="log-agent">${agent}</div>
+              <div class="log-reason">${reason}</div>
+              <div class="log-toggle-icon">▼</div>
+            </div>
+            <div class="log-details">
+              <div class="detail-group">
+                <div class="detail-label">Prompt / Input</div>
+                <div class="detail-content">${prompt}</div>
+              </div>
+              <div class="detail-group">
+                <div class="detail-label">Context / State</div>
+                <div class="detail-content">${context}</div>
+              </div>
+            </div>
+          `;
+
+          // Toggle expand
+          logItem.querySelector('.log-summary').addEventListener('click', () => {
+            logItem.classList.toggle('expanded');
+            const icon = logItem.querySelector('.log-toggle-icon');
+            icon.textContent = logItem.classList.contains('expanded') ? '▲' : '▼';
+          });
+
+          listContainer.appendChild(logItem);
+        });
+
+      } catch (err) {
+        console.error('Failed to fetch logs:', err);
+        const listContainer = document.getElementById('log-list');
+        listContainer.innerHTML = '<div class="error-msg" style="border:none; margin:0;">Failed to load log data. Check console.</div>';
+      }
+    }
+
+    // Init
+    function init() {
+      fetchStats();
+      fetchLogs();
+      
+      // Auto-refresh every 5 seconds (optional for a live dashboard)
+      // setInterval(() => { fetchStats(); fetchLogs(); }, 5000);
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
