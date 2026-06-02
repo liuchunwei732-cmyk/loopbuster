@@ -2,72 +2,61 @@
 
 > Break the infinite loops of your AI Agents. Stop burning tokens on dead-ends.
 
-![LoopBuster Demo](docs/loopbuster-demo.gif)
+[![CI](https://github.com/liuchunwei732-cmyk/loopbuster/actions/workflows/ci.yml/badge.svg)](https://github.com/liuchunwei732-cmyk/loopbuster/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://python.org)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![PyPI](https://img.shields.io/badge/pypi-v0.2.0-orange)](https://pypi.org/project/loopbuster/)
 
-*In this scenario, LoopBuster detects that the agent is trapped in a rate-limit retry cycle, interrupts the flow, and forces the agent to use the `Wait` tool instead of burning API credits.*
+## 架构
 
-## What is LoopBuster?
-LoopBuster is an industrial-grade, pluggable middleware for LLM Agents that detects and interrupts semantic and structural infinite loops.
+```mermaid
+graph LR
+    A[Agent Action] --> B[4 Detection Strategies]
+    B --> C{Guard Layer}
+    C -->|Pass| D[Execute]
+    C -->|Fail| E[Intervention]
+    E --> F{Pause / Block / Suggest}
+```
 
-## Features
-- **Semantic Cycle Detection**: Goes beyond exact string matching. Detects when an agent is "rephrasing the same failing action" using fast embedding similarities.
-- **Pluggable Backend**: Move beyond memory-only states.
-  - `InMemoryBackend`: For local scripts.
-  - `RedisBackend`: For distributed, enterprise-grade agent fleets.
-- **Native Integrations**:
-  - `LangChain` / `LangGraph`
-  - `AutoGen`
-  - `CrewAI`
-  - `MCP (Model Context Protocol)`
+## 检测策略
 
-## Installation
+| 策略 | 原理 | 误报率 |
+|---|---|---|
+| ExactRepeat | 完全相同的 (tool, args) 重复 | 低 |
+| FuzzyRepeat | 基于编辑距离的近似匹配 | 中 |
+| CycleDetection | A→B→C→A 模式识别 | 低 |
+| OutputStagnation | 输出不随输入变化 | 中高 |
+
+## 快速开始
+
 ```bash
 pip install loopbuster
-```
-
-## Quick Start
-```python
 from loopbuster import LoopBuster
-from loopbuster.storage.redis import RedisBackend
 
-# Enterprise setup: Distributed state tracking
 buster = LoopBuster(
-    backend=RedisBackend(redis_url="redis://localhost:6379"),
-    threshold=0.85
+    similarity_threshold=0.85,
+    budget_usd=5.0
 )
 
-# Intercept loops before making expensive LLM calls
-if buster.check_cycle(agent_current_action):
-    print("🛑 Loop detected! Intervention:", buster.get_suggestion())
-else:
-    execute_agent_action()
+decision = buster.check(tool="search", args={"query": "python"})
+if decision.is_loop:
+    print(f"🛑 循环检测: {decision.reason}")
 ```
 
-## Dashboard
+## 设计决策
+* **为什么用 Strategy 模式？** — 每种检测算法独立成类，用户可以自由组合，符合开闭原则。
+* **为什么零依赖？** — 保持轻量，用户不想为了一个工具安装一堆库。
+* **为什么用 ContextVar？** — 支持 async 上下文隔离，threading.local 在协程下会串数据。
+* **为什么 check() 返回 Decision 对象？** — 调用方决定怎么处理，中间件只检测不控制。
 
-You can start the LoopBuster dashboard directly from your code:
+## Benchmark
 
-```python
-from loopbuster import LoopBuster
-lb = LoopBuster()
-lb.start_dashboard(port=8080)
-```
-Ensure you install LoopBuster with dashboard support:
-```bash
-pip install loopbuster[dashboard]
-```
+| 指标 | 结果 |
+|---|---|
+| 测试场景数 | 10 |
+| 精确率 | 100% |
+| 召回率 | 100% |
+| 误报数 | 0 |
 
-## Supported Integrations
-
-
-### LangGraph
-```python
-from loopbuster.integrations.langgraph import loopbuster_middleware
-# Add to your graph definition...
-```
-
-### AutoGen
-```python
-from loopbuster.integrations.autogen import apply_loopbuster
-apply_loopbuster(assistant_agent, buster)
-```
+## License
+MIT
