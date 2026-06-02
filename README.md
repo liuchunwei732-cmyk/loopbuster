@@ -43,7 +43,22 @@ else:
     execute_agent_action()
 ```
 
+## Dashboard
+
+You can start the LoopBuster dashboard directly from your code:
+
+```python
+from loopbuster import LoopBuster
+lb = LoopBuster()
+lb.start_dashboard(port=8080)
+```
+Ensure you install LoopBuster with dashboard support:
+```bash
+pip install loopbuster[dashboard]
+```
+
 ## Supported Integrations
+
 
 ### LangGraph
 ```python

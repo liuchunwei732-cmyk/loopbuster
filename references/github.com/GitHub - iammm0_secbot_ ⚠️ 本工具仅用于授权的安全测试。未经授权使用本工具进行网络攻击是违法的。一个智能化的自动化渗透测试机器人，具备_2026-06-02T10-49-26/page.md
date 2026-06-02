@@ -7,7 +7,7 @@
 [![npm version](images/img_000.svg)](https://www.npmjs.com/package/@opensec/secbot)
 [![npm downloads](images/img_001.svg)](https://www.npmjs.com/package/@opensec/secbot)
 [![Node.js](images/img_002.svg)](https://nodejs.org/)
-[![License](images/img_003.svg)](https://github.com/iammm0/secbot/blob/npm-release/LICENSE)
+[![License](images/img_003.svg)](https://github.com/iammm0/secbot/blob/release/LICENSE)
 
 
 Secbot is an AI-powered TypeScript security automation workspace with a NestJS backend and an Ink-based terminal UI.
@@ -16,7 +16,7 @@ Secbot is an AI-powered TypeScript security automation workspace with a NestJS b
 > Security notice: this package is for authorized security testing, research, and education only. Do not run scans or exploitation tasks against targets without explicit permission.
 
 
-[![Secbot main UI](images/img_004.png)](images/img_004.png)
+[*[图片未能下载: Secbot main UI]*](https://raw.githubusercontent.com/iammm0/secbot/main-ts-version/assets/secbot-main.png)
 
 
 - End-to-end TypeScript architecture (`NestJS + Ink + SQLite`).
@@ -28,7 +28,7 @@ Secbot is an AI-powered TypeScript security automation workspace with a NestJS b
 - Built-in security tool modules for web, network, OSINT, defense, and reporting workflows.
 
 
-From the repository checkout, `ChatService` routes each turn through **`IntentRouter`** (single LLM classify), optionally **`ExploreAgent`** (ReAct with `vuln_db_query` / `browser_session`, no sensitive tools), then **`ContextAssemblerService`** + **`ContextStore`** under a per-model context budget. SSE events include `intent_decision`, `explore_*`, and **`context_usage`** for the TUI token meter. **`task_simple`** skips the planner; **`SummaryAgent`** runs only when `needs_report` is true. Contributor-oriented details live in **[`CLAUDE.md`](https://github.com/iammm0/secbot/blob/npm-release/CLAUDE.md)**; longer user docs: [`README_CN.md`](https://github.com/iammm0/secbot/blob/npm-release/README_CN.md) / [`README_EN.md`](https://github.com/iammm0/secbot/blob/npm-release/README_EN.md).
+From the repository checkout, `ChatService` routes each turn through **`IntentRouter`** (single LLM classify), optionally **`ExploreAgent`** (ReAct with `vuln_db_query` / `browser_session`, no sensitive tools), then **`ContextAssemblerService`** + **`ContextStore`** under a per-model context budget. SSE events include `intent_decision`, `explore_*`, and **`context_usage`** for the TUI token meter. **`task_simple`** skips the planner; **`SummaryAgent`** runs only when `needs_report` is true. Contributor-oriented details live in **[`CLAUDE.md`](https://github.com/iammm0/secbot/blob/release/CLAUDE.md)**; longer user docs: [`README_CN.md`](https://github.com/iammm0/secbot/blob/release/README_CN.md) / [`README_EN.md`](https://github.com/iammm0/secbot/blob/release/README_EN.md).
 
 
 - Node.js `>= 24`
@@ -189,7 +189,7 @@ SECBOT_TUI_BACKEND=service SECBOT_API_URL=http://127.0.0.1:8000 npm run start:tu
 | `npm run release:verify` | Verify packaged npm release contents |
 
 
-- **[CLAUDE.md](https://github.com/iammm0/secbot/blob/npm-release/CLAUDE.md)** — contributor / AI coding agent guide (orchestration, SSE, env vars)
+- **[CLAUDE.md](https://github.com/iammm0/secbot/blob/release/CLAUDE.md)** — contributor / AI coding agent guide (orchestration, SSE, env vars)
 - [Quickstart](https://github.com/iammm0/secbot/blob/main-ts-version/docs/QUICKSTART.md)
 - [API Reference](https://github.com/iammm0/secbot/blob/main-ts-version/docs/API.md)
 - [LLM Providers](https://github.com/iammm0/secbot/blob/main-ts-version/docs/LLM_PROVIDERS.md)
@@ -206,4 +206,4 @@ SECBOT_TUI_BACKEND=service SECBOT_API_URL=http://127.0.0.1:8000 npm run start:tu
 - Issues: https://github.com/iammm0/secbot/issues
 
 
-This project is licensed under MIT. See [LICENSE](https://github.com/iammm0/secbot/blob/npm-release/LICENSE) for details.
+This project is licensed under MIT. See [LICENSE](https://github.com/iammm0/secbot/blob/release/LICENSE) for details.

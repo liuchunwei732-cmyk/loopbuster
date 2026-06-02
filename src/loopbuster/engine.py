@@ -386,6 +386,13 @@ class LoopBuster:
         self._strategies.reset()
         self._action_history.clear()
 
+    def start_dashboard(self, port: int = 8080):
+        """Start the LoopBuster dashboard on the specified port."""
+        import uvicorn
+        from src.loopbuster.api.server import app
+        logger.info(f"Starting LoopBuster dashboard on port {port}...")
+        uvicorn.run(app, host="0.0.0.0", port=port)
+
     # ------------------------------------------------------------------
     # Properties
     # ------------------------------------------------------------------
