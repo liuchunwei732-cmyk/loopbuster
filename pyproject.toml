@@ -1,42 +1,50 @@
-[build-system] 
-readme = "README.md" 
-license = {text = "MIT"} 
-requires-python = ">=3.9" 
-authors = [{name = "Jake Liu"}] 
-keywords = [ 
-    "agent", "loop", "detection", "guardrail", "safety", 
-    "llm", "ai-agent", "circuit-breaker", "infinite-loop", 
-] 
-classifiers = [ 
-    "Development Status :: 4 - Beta", 
-    "Intended Audience :: Developers", 
-    "License :: OSI Approved :: MIT License", 
-    "Programming Language :: Python :: 3", 
-    "Programming Language :: Python :: 3.9", 
-    "Programming Language :: Python :: 3.10", 
-    "Programming Language :: Python :: 3.11", 
-    "Programming Language :: Python :: 3.12", 
-    "Topic :: Software Development :: Libraries", 
-    "Topic :: Scientific/Engineering :: Artificial Intelligence", 
-] 
-dependencies = [ 
-    "redis", 
-    "fastapi", 
-    "uvicorn", 
-] 
- 
-[project.optional-dependencies] 
-dev = ["pytest>=7.0", "ruff>=0.6", "build>=1.0"] 
-all = ["openai", "anthropic"] 
-dashboard = ["fastapi", "uvicorn"] 
- 
-[project.urls] 
-Homepage = "https://github.com/liuchunwei/loopbuster" 
-Issues = "https://github.com/liuchunwei/loopbuster/issues" 
- 
-[tool.hatch.build.targets.wheel] 
-packages = ["src/loopbuster"] 
- 
-[tool.ruff] 
-line-length = 100 
-target-version = "py39" 
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "loopbuster"
+version = "0.3.0"
+description = "Break the infinite loops of your AI Agents. Pattern detection, budget ceilings, state stasis guards, and circuit breakers in one library."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Jake Liu" }]
+keywords = [
+    "agent", "loop", "detection", "guardrail", "safety",
+    "llm", "ai-agent", "circuit-breaker", "infinite-loop",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-asyncio>=0.21", "ruff>=0.6", "build>=1.0"]
+redis = ["redis"]
+dashboard = ["fastapi", "uvicorn"]
+all = ["redis", "fastapi", "uvicorn"]
+
+[project.urls]
+Homepage = "https://github.com/liuchunwei732-cmyk/loopbuster"
+Issues = "https://github.com/liuchunwei732-cmyk/loopbuster/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/loopbuster"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

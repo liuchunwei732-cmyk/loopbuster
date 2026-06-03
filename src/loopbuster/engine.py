@@ -102,8 +102,10 @@ class LoopBuster:
         # Auto-halt on ESCALATE
         auto_halt: bool = False,
     ):
-        # --- Detection strategies ---
+        # --- Detection strategies (pass threshold through to strategies) ---
         self._strategies = CompositeStrategy()
+        self._strategies.fuzzy.similarity_threshold = similarity_threshold
+        self._strategies.stagnation.similarity_threshold = similarity_threshold
         # --- Action config (supports AdaptiveActionConfig) ---
         self._action_config = action_config or ActionConfig()
         self._is_adaptive = isinstance(self._action_config, AdaptiveActionConfig)
