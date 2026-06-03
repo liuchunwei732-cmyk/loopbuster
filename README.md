@@ -60,6 +60,8 @@ for step in agent_loop():
         break
 ```
 
+> 📓 **[Interactive Demo Notebook](notebooks/loopbuster_demo.ipynb)** — Step through exact repeat, fuzzy repeat, cycle detection, adaptive thresholds, and more in a Jupyter notebook.
+
 ---
 
 ## Architecture
