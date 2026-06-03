@@ -188,9 +188,9 @@ class LoopBuster:
         record = ActionRecord(tool=tool, args=args, output=output, step=self._step)
         self._action_history.append(record)
 
-        # Track diversity for adaptive config
+        # Track diversity for adaptive config (includes args hash)
         if self._is_adaptive:
-            self._action_config.record_action(tool)  # type: ignore[union-attr]
+            self._action_config.record_action(tool, args)  # type: ignore[union-attr]
 
         # Circuit breaker records
         if self._circuit_breaker:
@@ -246,6 +246,50 @@ class LoopBuster:
             reason = g.observe_state(state)
             if reason is not None:
                 self._trip(reason)
+
+    # ------------------------------------------------------------------
+    # Runtime configuration
+    # ------------------------------------------------------------------
+
+    def configure(
+        self,
+        similarity_threshold: float | None = None,
+        warn_threshold: int | None = None,
+        stop_threshold: int | None = None,
+        escalate_threshold: int | None = None,
+    ) -> dict[str, Any]:
+        """Update configuration at runtime. Returns the keys that changed.
+
+        Only parameters explicitly provided are updated.
+        """
+        changed: dict[str, Any] = {}
+
+        if similarity_threshold is not None:
+            if not 0.0 <= similarity_threshold <= 1.0:
+                raise ValueError("similarity_threshold must be between 0.0 and 1.0")
+            self._similarity_threshold = similarity_threshold
+            self._strategies.fuzzy.similarity_threshold = similarity_threshold
+            self._strategies.stagnation.similarity_threshold = similarity_threshold
+            changed["similarity_threshold"] = similarity_threshold
+
+        if warn_threshold is not None or stop_threshold is not None or escalate_threshold is not None:
+            if not isinstance(self._action_config, ActionConfig):
+                raise TypeError("Cannot update thresholds on AdaptiveActionConfig via configure()")
+            new_warn = warn_threshold if warn_threshold is not None else self._action_config.warn_threshold
+            new_stop = stop_threshold if stop_threshold is not None else self._action_config.stop_threshold
+            new_esc = escalate_threshold if escalate_threshold is not None else self._action_config.escalate_threshold
+            self._action_config = ActionConfig(
+                warn_threshold=new_warn,
+                stop_threshold=new_stop,
+                escalate_threshold=new_esc,
+            )
+            changed["action_config"] = {
+                "warn_threshold": new_warn,
+                "stop_threshold": new_stop,
+                "escalate_threshold": new_esc,
+            }
+
+        return changed
 
     # ------------------------------------------------------------------
     # Circuit breaker pre-flight check
@@ -389,9 +433,12 @@ class LoopBuster:
         self._action_history.clear()
 
     def start_dashboard(self, port: int = 8080):
-        """Start the LoopBuster dashboard on the specified port."""
+        """Start the LoopBuster dashboard on the specified port.
+
+        Requires: pip install loopbuster[dashboard]
+        """
         import uvicorn
-        from src.loopbuster.api.server import app
+        from loopbuster.api.server import app
         logger.info(f"Starting LoopBuster dashboard on port {port}...")
         uvicorn.run(app, host="0.0.0.0", port=port)
 

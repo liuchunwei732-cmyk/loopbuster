@@ -94,9 +94,27 @@ class AdaptiveActionConfig:
         default_factory=lambda: deque(maxlen=20), init=False, repr=False
     )
 
-    def record_action(self, tool: str) -> None:
-        """Record an action for diversity tracking."""
-        self._action_history.append(tool)
+    def record_action(self, tool: str, args: dict | str | None = None) -> None:
+        """Record an action for diversity tracking.
+
+        Args:
+            tool: Tool name (e.g. 'web_search')
+            args: Tool arguments — combined with tool name to form a
+                  diversity signature so that same tool with different
+                  intent is not falsely counted as repetitive.
+        """
+        if args is not None:
+            import hashlib
+            import json
+            try:
+                arg_hash = hashlib.md5(
+                    json.dumps(args, sort_keys=True, default=str).encode()
+                ).hexdigest()[:6]
+            except (TypeError, ValueError):
+                arg_hash = "<unhashable>"
+            self._action_history.append(f"{tool}:{arg_hash}")
+        else:
+            self._action_history.append(tool)
 
     @property
     def diversity_ratio(self) -> float:

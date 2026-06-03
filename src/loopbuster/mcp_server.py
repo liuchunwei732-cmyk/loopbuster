@@ -27,7 +27,6 @@ import traceback
 from typing import Any
 
 from loopbuster import LoopBuster
-from loopbuster.types import ActionConfig
 
 # ── Global session state ─────────────────────────────────────────────
 
@@ -161,35 +160,16 @@ def _handle_reset_session(arguments: dict[str, Any]) -> dict[str, Any]:
 
 def _handle_configure(arguments: dict[str, Any]) -> dict[str, Any]:
     buster = _ensure_buster()
-    threshold = arguments.get("similarity_threshold")
-    changed = {}
-
-    if threshold is not None:
-        if not 0.0 <= threshold <= 1.0:
-            return {"error": "similarity_threshold must be between 0.0 and 1.0"}
-        changed["similarity_threshold"] = threshold
-
-    warn = arguments.get("warn_threshold")
-    stop = arguments.get("stop_threshold")
-    escalate = arguments.get("escalate_threshold")
-
-    if warn is not None or stop is not None or escalate is not None:
-        current_cfg = buster._action_config
-        new_warn = warn if warn is not None else current_cfg.warn_threshold
-        new_stop = stop if stop is not None else current_cfg.stop_threshold
-        new_escalate = escalate if escalate is not None else current_cfg.escalate_threshold
-        buster._action_config = ActionConfig(
-            warn_threshold=new_warn,
-            stop_threshold=new_stop,
-            escalate_threshold=new_escalate,
+    try:
+        changed = buster.configure(
+            similarity_threshold=arguments.get("similarity_threshold"),
+            warn_threshold=arguments.get("warn_threshold"),
+            stop_threshold=arguments.get("stop_threshold"),
+            escalate_threshold=arguments.get("escalate_threshold"),
         )
-        changed["action_config"] = {
-            "warn_threshold": new_warn,
-            "stop_threshold": new_stop,
-            "escalate_threshold": new_escalate,
-        }
-
-    return {"status": "ok", "changed": changed}
+        return {"status": "ok", "changed": changed}
+    except (ValueError, TypeError) as e:
+        return {"error": str(e)}
 
 
 # ── Tool dispatch ────────────────────────────────────────────────────

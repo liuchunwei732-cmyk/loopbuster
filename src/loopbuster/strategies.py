@@ -273,17 +273,50 @@ class CompositeStrategy(DetectionStrategy):
             ("output_stagnation", *self.stagnation.check(record)),
         ]
 
-        best_strategy = ""
-        best_confidence = 0.0
-        best_reason = ""
+        # Collect strategies that exceeded minimum threshold
+        active = [
+            (name, conf, reason)
+            for name, conf, reason in results
+            if conf >= 0.2
+        ]
 
-        for strategy_name, confidence, reason in results:
-            if confidence > best_confidence:
-                best_strategy = strategy_name
-                best_confidence = confidence
-                best_reason = reason
+        if not active:
+            return 0.0, "", ""
 
-        return best_confidence, best_reason, best_strategy
+        if len(active) == 1:
+            name, conf, reason = active[0]
+            return conf, reason, name
+
+        # Multi-strategy consensus: blend confidences weighted by each
+        # strategy's reliability. ExactRepeat and CycleDetection are
+        # lower-noise; FuzzyRepeat and OutputStagnation are weighted down.
+        weights = {
+            "exact_repeat": 1.0,
+            "cycle_detection": 0.9,
+            "fuzzy_repeat": 0.7,
+            "output_stagnation": 0.5,
+        }
+
+        total_weight = 0.0
+        weighted_conf = 0.0
+        for name, conf, _ in active:
+            w = weights.get(name, 0.5)
+            weighted_conf += conf * w
+            total_weight += w
+
+        # Single very high confidence → trust directly (avoids blurring
+        # a clear signal with noisy strategies)
+        max_conf_name, max_conf, max_reason = max(active, key=lambda x: x[1])
+        if max_conf >= 0.9:
+            return max_conf, max_reason, max_conf_name
+
+        # Blend: 70% weighted average + 30% max confidence
+        blended = 0.7 * (weighted_conf / total_weight) + 0.3 * max_conf
+
+        if blended >= 0.5:
+            return blended, max_reason, max_conf_name
+
+        return 0.0, "", ""
 
     def reset(self) -> None:
         for s in (self.exact, self.fuzzy, self.cycle, self.stagnation):

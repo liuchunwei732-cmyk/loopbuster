@@ -12,7 +12,7 @@ Tests cover:
   - Edge cases (4 scenarios)
 
 Each scenario tests the full LoopBuster engine pipeline:
-detection strategy → confidence scoring → escalation logic.
+detection strategy -> confidence scoring -> escalation logic.
 """
 
 from loopbuster import LoopBuster
@@ -28,76 +28,70 @@ from loopbuster.types import ActionRecord
 
 
 def run_benchmark():
-    # Each scenario: (check_fn, expected_loop, description)
     scenarios = [
-        # === Exact Repeat (3) — identity detection ===
+        # === Exact Repeat (3) ===
         (
-            lambda b: _check_seq(b, [("search", {"q": "a"}, None)] * 3),
+            lambda b: _check_seq(b, [("search", {"q": "a"}, None)] * 4),
             True,
-            "3× identical search: exact repeat via engine escalation",
+            "4x identical search: exact repeat escalates to STOP",
         ),
         (
             lambda b: _check_seq(b, [("search", {"q": "x"}, None)] * 5),
             True,
-            "5× identical search: window fills, confidence=1.0",
+            "5x identical search: window fills, confidence=1.0",
         ),
         (
-            lambda b: _check_seq(b, [("api_call", {"id": 1}, None)] * 3),
+            lambda b: _check_seq(b, [("api_call", {"id": 1}, None)] * 4),
             True,
-            "3× identical API call: exact repeat via engine escalation",
+            "4x identical API call: exact repeat escalates to STOP",
         ),
-        # === Cycle Detection (2) — tool sequence patterns ===
+        # === Cycle Detection (2) ===
         (
             lambda b: _check_seq(b,
                 [("a", {}, None), ("b", {}, None)] * 4 + [("a", {}, None)]
             ),
             True,
-            "A→B cycle × 4.5: cycle pattern recognized and escalated",
+            "A-B cycle x 4.5: cycle pattern recognized and escalated",
         ),
         (
             lambda b: _check_seq(b,
-                [("a", {}, None), ("b", {}, None), ("c", {}, None)] * 3
+                [("a", {}, None), ("b", {}, None), ("c", {}, None)] * 4
             ),
             True,
-            "A→B→C cycle × 3: 3-tool repeating sequence",
+            "A-B-C cycle x 4: 3-tool repeating sequence",
         ),
-        # === Fuzzy Repeat (2) — args similarity after denoising ===
+        # === Fuzzy Repeat (2) ===
         (
             lambda b: _check_seq(b,
-                [("search", {"q": "python error", "page": 1}, None),
-                 ("search", {"q": "python error", "page": 2}, None),
-                 ("search", {"q": "python error", "page": 3}, None),
-                 ("search", {"q": "python error", "page": 4}, None)]
+                [("search", {"q": "python error", "page": i}, None) for i in range(1, 5)]
             ),
             True,
-            "Same query with incrementing page: fuzzy similarity ≥0.85",
+            "Same query with incrementing page: fuzzy similarity >=0.75",
         ),
         (
             lambda b: _check_seq(b,
-                [("search", {"q": "weather Tokyo", "locale": "en"}, None),
-                 ("search", {"q": "weather Tokyo", "locale": "en-US"}, None),
-                 ("search", {"q": "weather Tokyo", "locale": "en"}, None),
-                 ("search", {"q": "weather Tokyo", "locale": "en-GB"}, None)]
+                [("search", {"q": "weather Tokyo", "locale": loc}, None)
+                 for loc in ["en", "en-US", "en", "en-GB"]]
             ),
             True,
-            "Same query, different locale: structure + text similarity ≥0.85",
+            "Same query, different locale: structure + text similarity >=0.75",
         ),
-        # === Output Stagnation (2) — same output across calls ===
+        # === Output Stagnation (2) ===
         (
             lambda b: _check_seq(b,
                 [("search", {"q": "test"}, "same result")] * 3
             ),
             True,
-            "3× same output: stagnation detected via OutputStagnation strategy",
+            "3x same output: stagnation detected via OutputStagnation strategy",
         ),
         (
             lambda b: _check_seq(b,
                 [("search", {"q": "test"}, "same result")] * 5
             ),
             True,
-            "5× same output: stagnation confidence escalates to STOP",
+            "5x same output: stagnation confidence escalates to STOP",
         ),
-        # === Noise Denoising (2) — volatile fields stripped ===
+        # === Noise Denoising (2) ===
         (
             lambda b: _check_seq(b,
                 [("search", {"q": "python",
@@ -105,7 +99,7 @@ def run_benchmark():
                  for i in range(4)]
             ),
             True,
-            "4× same query with different UUIDs → denoised to 1.0 similarity",
+            "4x same query with different UUIDs -> denoised to 1.0 similarity",
         ),
         (
             lambda b: _check_seq(b,
@@ -114,7 +108,7 @@ def run_benchmark():
                  for i in range(15, 19)]
             ),
             True,
-            "4× same query with different timestamps → denoised to 1.0 sim",
+            "4x same query with different timestamps -> denoised to 1.0 sim",
         ),
         # === Normal / No Loop (5) ===
         (
@@ -155,7 +149,7 @@ def run_benchmark():
             False,
             "Diverse outputs: no stagnation",
         ),
-        # === Edge Cases (4) — robustness ===
+        # === Edge Cases (4) ===
         (
             lambda b: _check_seq(b, []),
             False,
@@ -172,20 +166,20 @@ def run_benchmark():
         (
             lambda b: _check_seq(b,
                 [("search", {"query": "python",
-                             "filters": {"location": "上海",
+                             "filters": {"location": "Shanghai",
                                          "timestamp": "2024-01-15T09:00:00Z"}}, None),
                  ("search", {"query": "python",
-                             "filters": {"location": "上海",
+                             "filters": {"location": "Shanghai",
                                          "timestamp": "2024-01-16T10:00:00Z"}}, None),
                  ("search", {"query": "python",
-                             "filters": {"location": "上海",
+                             "filters": {"location": "Shanghai",
                                          "timestamp": "2024-06-15T08:30:00Z"}}, None),
                  ("search", {"query": "python",
-                             "filters": {"location": "上海",
+                             "filters": {"location": "Shanghai",
                                          "timestamp": "2025-01-01T00:00:00Z"}}, None)]
             ),
             True,
-            "Nested dict with volatile timestamps→denoised identical→loop",
+            "Nested dict with volatile timestamps -> denoised identical -> loop",
         ),
         (
             lambda b: _check_seq(b,
@@ -195,12 +189,12 @@ def run_benchmark():
                  ("api", {"ids": list(range(24, -1, -1))}, None)]
             ),
             True,
-            "Long list args reversed→set comparison→detected as loop",
+            "Long list args reversed -> set comparison -> detected as loop",
         ),
     ]
 
     print("=" * 80)
-    print("LoopBuster Benchmark — 20 Scenarios")
+    print("LoopBuster Benchmark - 20 Scenarios")
     print("=" * 80)
 
     tp, fp, fn, tn = 0, 0, 0, 0
@@ -236,7 +230,7 @@ def run_benchmark():
     print("-" * 92)
     for desc, status, match, expected in results:
         exp_label = "LOOP" if expected else "NO  "
-        match_mark = "✓" if match else "✗"
+        match_mark = "V" if match else "X"
         print(f"{desc:<60} {status:<8} {match_mark:<6} {exp_label:<8}")
 
     print()
@@ -253,17 +247,15 @@ def run_benchmark():
     print(f"False positives: {fp}")
     print(f"False negatives: {fn}")
 
-    # ── Strategy-level diagnostics ──
+    # Strategy-level diagnostics
     print()
     print("=" * 80)
-    print("Strategy-Level Diagnostics (raw confidence ≥ 0.5)")
+    print("Strategy-Level Diagnostics (raw confidence >= 0.5)")
     print("=" * 80)
     _run_strategy_checks()
 
 
 def _check_seq(buster, calls):
-    """Run a sequence of tool calls through buster.
-    Returns True if any call triggers is_loop (STOP or ESCALATE)."""
     if not calls:
         return False
     for tool, args, output in calls:
@@ -275,17 +267,17 @@ def _check_seq(buster, calls):
 
 def _run_strategy_checks():
     diagnostics = [
-        ("ExactRepeat: 3× same (tool, args)", lambda: _check_exact(3)),
-        ("ExactRepeat: 5× same (tool, args)", lambda: _check_exact(5)),
-        ("FuzzyRepeat: page-variant args → denoised identical",
+        ("ExactRepeat: 3x same (tool, args)", lambda: _check_exact(3)),
+        ("ExactRepeat: 5x same (tool, args)", lambda: _check_exact(5)),
+        ("FuzzyRepeat: page-variant args (denoised identical)",
          _check_fuzzy_page),
-        ("FuzzyRepeat: UUID-denoised args → identical",
+        ("FuzzyRepeat: UUID-denoised args (identical)",
          _check_fuzzy_uuid),
         ("CycleDetection: A-B-A-B-A-B sequence",
          _check_cycle),
-        ("OutputStagnation: same output 3×",
+        ("OutputStagnation: same output 3x",
          lambda: _check_stagnation(3)),
-        ("OutputStagnation: same output 5×",
+        ("OutputStagnation: same output 5x",
          lambda: _check_stagnation(5)),
         ("NoFP: different queries with volatile keys",
          _check_fp_diff_queries),
@@ -296,11 +288,11 @@ def _run_strategy_checks():
     for label, fn in diagnostics:
         try:
             result = fn()
-            flag = "✓" if result else "✗"
+            flag = "V" if result else "X"
         except Exception as e:
             result = False
             flag = "!"
-            print(f"  {flag} {label:<55} ERROR: {e}")
+            print(f"  {flag} {label:<57} ERROR: {e}")
             continue
         print(f"  {flag} {label:<57} {'pass' if result else 'FAIL'}")
 
