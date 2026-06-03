@@ -2,10 +2,15 @@
 
 from __future__ import annotations
 
+from __future__ import annotations
+
 from collections import deque
 from dataclasses import dataclass, field
 from enum import Enum, auto
-from typing import Any
+from typing import Any, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from loopbuster.explain import LoopExplanation, RootCauseAnalyzer
 
 
 class Action(Enum):
@@ -38,6 +43,27 @@ class Decision:
     @property
     def should_stop(self) -> bool:
         return self.action in (Action.STOP, Action.ESCALATE)
+
+    def explain(self, history: list[ActionRecord] | None = None) -> LoopExplanation:
+        """Generate a root-cause explanation for this decision.
+
+        Requires a list of ActionRecord history to analyze patterns.
+        If not provided, a basic explanation is returned based on
+        the decision metadata alone.
+
+        Usage:
+            with LoopBuster() as lb:
+                # ... run agent ...
+                decision = lb.check(tool, args)
+                if decision.is_loop:
+                    expl = decision.explain(lb.action_history)
+                    print(expl.summary)
+                    print(f"💡 {expl.suggestion}")
+        """
+        from loopbuster.explain import RootCauseAnalyzer
+
+        analyzer = RootCauseAnalyzer()
+        return analyzer.explain(self, history or [])
 
 
 @dataclass

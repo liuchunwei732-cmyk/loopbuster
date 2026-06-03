@@ -40,8 +40,11 @@ class MemoryBackend(StateBackend):
     async def set_metadata(self, session_id: str, metadata: Dict[str, Any]) -> None:
         self._metadata[session_id] = metadata
 
-class RedisBackend(StateBackend):
-    """Redis-based state backend for distributed environments."""
+class AsyncRedisBackend(StateBackend):
+    """Async Redis-based state backend for distributed environments.
+
+    Uses redis.asyncio for non-blocking operations.
+    """
     def __init__(self, redis_url: str = "redis://localhost", prefix: str = "loopbuster:"):
         if Redis is None:
             raise ImportError("redis package is required for RedisBackend. Install it with `pip install redis`.")
