@@ -1,0 +1,30 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Steps to reproduce
+      placeholder: |
+        1. Import LoopBuster
+        2. Call check() with...
+        3. See error
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: pip show loopbuster

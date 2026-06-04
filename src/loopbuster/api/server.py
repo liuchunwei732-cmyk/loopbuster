@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
 import os
 import json
-from loopbuster.storage.redis import RedisBackend
+from loopbuster.backends import RedisBackend
 
 app = FastAPI(title="LoopBuster Dashboard API", version="0.1.0")
 
