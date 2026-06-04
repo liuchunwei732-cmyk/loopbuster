@@ -1,0 +1,156 @@
+{
+  "trajectory_id": "synth_normal_0044",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (16步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (16步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence."
+      },
+      "output": "Sentiment: neutral (confidence: 0.52)"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "./web-app/README.md",
+        "content": "# API Service\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 16384 bytes to package.json"
+    },
+    {
+      "step": 3,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' /home/user/projects"
+      },
+      "output": "total 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 4,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Computer Vision"
+      },
+      "output": "Machine Learning: Python is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.nginx.com/v1/messages",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "HTTP 301: {\"error\": \"not found\"}"
+    },
+    {
+      "step": 6,
+      "tool": "python_repl",
+      "args": {
+        "code": "merge('titanic.csv')"
+      },
+      "output": "Execution result:\nHello, World!"
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses"
+      },
+      "output": "Search results for 'CI/CD pipeline setup':\n1. Python is a versatile programming language used in web development and data science.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 8,
+      "tool": "create_document",
+      "args": {
+        "title": "Technical Documentation",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Created: Meeting Summary.md"
+    },
+    {
+      "step": 9,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Operating Systems"
+      },
+      "output": "Page loaded: Hacker News - Latest Discussions. 5 paragraphs found."
+    },
+    {
+      "step": 10,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "Python is a high-level programming language."
+      },
+      "output": "Sentiment: negative (confidence: 0.95)"
+    },
+    {
+      "step": 11,
+      "tool": "write_file",
+      "args": {
+        "path": "./frontend/README.md",
+        "content": "# Web Application\n\nA sample description for the project."
+      },
+      "output": "File saved: /etc/config.yaml"
+    },
+    {
+      "step": 12,
+      "tool": "bash_shell",
+      "args": {
+        "command": "cat package.json"
+      },
+      "output": "Command executed. Output:\ntotal 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 13,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Database Systems"
+      },
+      "output": "Wikipedia: Algorithm Design\nPython is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 14,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.nginx.com/v1/posts",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "404 OK\n{\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 15,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(2 + 2)"
+      },
+      "output": "Execution result:\n[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 16,
+      "tool": "web_search",
+      "args": {
+        "query": "CI/CD pipeline setup"
+      },
+      "output": "Top result for Rust memory safety: Kubernetes automates deployment, scaling, and management of containerized applications. (relevance: 0.87)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 16,
+    "generator": "gen_normal_progressive"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "trajectory_id": "synth_exact_repeat_0145",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (python_replx4间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (python_replx4间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pytest\nprint(pandas.__version__)"
+      },
+      "output": "> numpy version: 1.24.3"
+    },
+    {
+      "step": 2,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2024-06-30 09:15:00"
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "/data"
+      },
+      "output": "Found 12 items in /home/user/projects"
+    },
+    {
+      "step": 4,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pytest\nprint(pandas.__version__)"
+      },
+      "output": "> numpy version: 1.24.3"
+    },
+    {
+      "step": 5,
+      "tool": "summarize_text",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "max_length": "100"
+      },
+      "output": "Key points:\n- Data was collected from 1000 participants\n- Further research is needed"
+    },
+    {
+      "step": 6,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Artificial Intelligence"
+      },
+      "output": "Fetched page https://example.com: MDN Web Docs - JavaScript Guide\nContent length: 16384 bytes"
+    },
+    {
+      "step": 7,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pytest\nprint(pandas.__version__)"
+      },
+      "output": "> numpy version: 1.24.3"
+    },
+    {
+      "step": 8,
+      "tool": "create_document",
+      "args": {
+        "title": "Technical Documentation",
+        "content": "Lorem ipsum dolor sit amet.",
+        "format": "markdown"
+      },
+      "output": "Created: Analysis Report.md"
+    },
+    {
+      "step": 9,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python generate_report.py --input log.txt --output output.json"
+      },
+      "output": "Exit code: 0\ntotal 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 10,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pytest\nprint(pandas.__version__)"
+      },
+      "output": "> numpy version: 1.24.3"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 10,
+    "generator": "gen_interleaved_repeat"
+  }
+}

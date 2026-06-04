@@ -1,0 +1,88 @@
+{
+  "trajectory_id": "synth_mixed_0344",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup4+loop4)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup4+loop4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "write_file",
+      "args": {
+        "path": "./cli-tool/README.md",
+        "content": "# CLI Tool\n\nThis project handles data processing tasks."
+      },
+      "output": "File saved: Makefile"
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "max_length": "100"
+      },
+      "output": "Summary (75% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 3,
+      "tool": "translate",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "source_lang": "en",
+        "target_lang": "ja"
+      },
+      "output": "Translation (fr → ja):\nこんにちは、世界！"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM products WHERE cloudy"
+      },
+      "output": "Query returned 25 rows:\nNo matching records found."
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "Operating Systems vs Vue"
+      },
+      "output": "Found 20 results for Git branching strategies. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "Operating Systems vs Vue"
+      },
+      "output": "Found 20 results for Git branching strategies. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "Operating Systems vs Vue"
+      },
+      "output": "Found 20 results for Git branching strategies. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    },
+    {
+      "step": 8,
+      "tool": "web_search",
+      "args": {
+        "query": "Operating Systems vs Vue"
+      },
+      "output": "Found 20 results for Git branching strategies. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_mixed"
+  }
+}

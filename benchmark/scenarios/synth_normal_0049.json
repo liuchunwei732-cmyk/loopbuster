@@ -1,0 +1,114 @@
+{
+  "trajectory_id": "synth_normal_0049",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (11步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (11步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "calculate",
+      "args": {
+        "expression": "sum(range(100))"
+      },
+      "output": "2 + 2 = 3.14"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/models.css",
+        "content": "Lorem ipsum dolor sit amet."
+      },
+      "output": "File saved: /etc/config.yaml"
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM sessions WHERE cloudy"
+      },
+      "output": "Query returned 100 rows:\nNo matching records found."
+    },
+    {
+      "step": 4,
+      "tool": "translate",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "source_lang": "es",
+        "target_lang": "ja"
+      },
+      "output": "Hola, ¿cómo estás?"
+    },
+    {
+      "step": 5,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/facebook/vscode"
+      },
+      "output": "Fetched page https://demo.io: Wikipedia - Artificial Intelligence\nContent length: 8192 bytes"
+    },
+    {
+      "step": 6,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "Python is a high-level programming language."
+      },
+      "output": "negative (0.45)"
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "CI/CD pipeline setup 2026"
+      },
+      "output": "Top result for HTTP status codes: Docker containers provide a consistent environment for application deployment. (relevance: 0.92)"
+    },
+    {
+      "step": 8,
+      "tool": "calculate",
+      "args": {
+        "expression": "sorted([5, 3, 8, 1])"
+      },
+      "output": "Result: 4"
+    },
+    {
+      "step": 9,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/config.yaml",
+        "content": "This is a sample content for testing."
+      },
+      "output": "Written 16384 bytes to /etc/config.yaml"
+    },
+    {
+      "step": 10,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM analytics_events"
+      },
+      "output": "Found 5 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 11,
+      "tool": "translate",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "source_lang": "ja",
+        "target_lang": "es"
+      },
+      "output": "你好，世界！"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 11,
+    "generator": "gen_normal_progressive"
+  }
+}

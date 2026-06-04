@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0183",
+  "source": "synthetic",
+  "task_description": "同一工具，参数变化较大但意图相同 (web_searchx3fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 2,
+    "description": "同一工具，参数变化较大但意图相同 (web_searchx3fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Toronto area"
+      },
+      "output": "Found 20 results for React vs Vue comparison. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Osaka population"
+      },
+      "output": "Found 10 results for clean code principles. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Vancouver population"
+      },
+      "output": "Top result for best machine learning courses: Kubernetes automates deployment, scaling, and management of containerized applications. (relevance: 0.95)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

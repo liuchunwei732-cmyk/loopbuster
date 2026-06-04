@@ -1,0 +1,77 @@
+{
+  "trajectory_id": "synth_mixed_0363",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后段进入 cycle (warmup3+loop4)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "前 3~5 步正常，后段进入 cycle (warmup3+loop4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence."
+      },
+      "output": "positive (0.52)"
+    },
+    {
+      "step": 2,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' ./config"
+      },
+      "output": "total 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 3,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "max_length": "100"
+      },
+      "output": "Summary (60% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "Melbourne area"
+      },
+      "output": "Search results for 'SQL vs NoSQL databases':\n1. Docker containers provide a consistent environment for application deployment.\n2. Deep learning models require large amounts of data and computational resources."
+    },
+    {
+      "step": 5,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/netflix/react"
+      },
+      "output": "Page loaded: GitHub - TensorFlow Repository. 12 paragraphs found."
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "Data Structures vs SQL"
+      },
+      "output": "Found 10 results for Rust memory safety. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 7,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=78901"
+      },
+      "output": "Fetched page https://test.org: Wikipedia - Artificial Intelligence\nContent length: 8192 bytes"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_mixed"
+  }
+}

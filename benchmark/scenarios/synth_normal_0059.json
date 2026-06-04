@@ -1,0 +1,136 @@
+{
+  "trajectory_id": "synth_normal_0059",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (13步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (13步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "send_email",
+      "args": {
+        "to": "team@startup.io",
+        "subject": "Bug Report",
+        "body": "Let's schedule a meeting."
+      },
+      "output": "Message delivered: <abc123@mail.example.com>"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Hong Kong weather"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. JavaScript is commonly used for front-end web development alongside HTML and CSS."
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "import torch\nprint(pandas.__version__)"
+      },
+      "output": "Execution result:\npandas version: 2.0.3"
+    },
+    {
+      "step": 4,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "max_length": "100"
+      },
+      "output": "Summary (80% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 5,
+      "tool": "create_document",
+      "args": {
+        "title": "Project Proposal",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Document 'Project Proposal' created (500 words)"
+    },
+    {
+      "step": 6,
+      "tool": "send_email",
+      "args": {
+        "to": "user@example.com",
+        "subject": "Weekly Report",
+        "body": "Let's schedule a meeting."
+      },
+      "output": "Message delivered: <abc123@mail.example.com>"
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "Git branching strategies 2026"
+      },
+      "output": "Top result for Python async programming: Python is a versatile programming language used in web development and data science. (relevance: 0.78)"
+    },
+    {
+      "step": 8,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_json('<file>')\ndf.head()"
+      },
+      "output": "> pandas version: 2.0.3"
+    },
+    {
+      "step": 9,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "max_length": "500"
+      },
+      "output": "Summary (75% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 10,
+      "tool": "create_document",
+      "args": {
+        "title": "Technical Documentation",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Created: Meeting Summary.md"
+    },
+    {
+      "step": 11,
+      "tool": "send_email",
+      "args": {
+        "to": "user@example.com",
+        "subject": "Project Update",
+        "body": "Please find the attached report."
+      },
+      "output": "Message delivered: <msg_456@mail.example.com>"
+    },
+    {
+      "step": 12,
+      "tool": "web_search",
+      "args": {
+        "query": "how to test in JavaScript"
+      },
+      "output": "Found 20 results for Linux file permissions. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 13,
+      "tool": "python_repl",
+      "args": {
+        "code": "train('iris.csv')"
+      },
+      "output": "Execution result:\n42"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 13,
+    "generator": "gen_normal_progressive"
+  }
+}

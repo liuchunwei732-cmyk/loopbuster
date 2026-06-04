@@ -1,0 +1,68 @@
+{
+  "trajectory_id": "synth_stagnation_0272",
+  "source": "synthetic",
+  "task_description": "同一工具，输出完全相同（每次返回一样的结果） (read_filex6stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 3,
+    "description": "同一工具，输出完全相同（每次返回一样的结果） (read_filex6stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/schema.csv"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 2,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/schema.csv"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/schema.csv"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/schema.csv"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/schema.csv"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/schema.csv"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_output_stagnation"
+  }
+}

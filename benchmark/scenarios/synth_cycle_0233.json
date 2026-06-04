@@ -1,0 +1,126 @@
+{
+  "trajectory_id": "synth_cycle_0233",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM logs WHERE cloudy"
+      },
+      "output": "Found 0 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.nginx.com/v1/messages",
+        "method": "GET"
+      },
+      "output": "HTTP 404: {\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "format": "markdown"
+      },
+      "output": "Parsed html: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM transactions WHERE rainy"
+      },
+      "output": "Query returned 5 rows:\n[(42,), (57,), (83,)]"
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/analyze",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "404 OK\n{\"message\": \"success\"}"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "status"
+      },
+      "output": "Extracted author: 42.99"
+    },
+    {
+      "step": 7,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM users"
+      },
+      "output": "Found 10 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 8,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.nginx.com/v1/posts",
+        "method": "GET"
+      },
+      "output": "HTTP 204: {\"message\": \"success\"}"
+    },
+    {
+      "step": 9,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "name"
+      },
+      "output": "Extracted name: 42.99"
+    },
+    {
+      "step": 10,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM sessions WHERE sunny"
+      },
+      "output": "Found 5 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 11,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/users",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "Response from https://demo.io: {\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 12,
+      "tool": "parse_data",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "format": "csv"
+      },
+      "output": "Extracted date: active"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_cycle"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "trajectory_id": "synth_normal_0033",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/search",
+        "method": "GET"
+      },
+      "output": "204 OK\n<html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "price"
+      },
+      "output": "Parsed csv: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 3,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "Latest technology: Tech Company Launches New Product"
+    },
+    {
+      "step": 4,
+      "tool": "translate",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "source_lang": "fr",
+        "target_lang": "ko"
+      },
+      "output": "Translation (en → ko):\nBonjour, comment allez-vous?"
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.redis.com/v1/posts",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "204 OK\n{\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "status"
+      },
+      "output": "Extracted price: Alice"
+    },
+    {
+      "step": 7,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "Latest entertainment: Tech Company Launches New Product"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_normal_progressive"
+  }
+}

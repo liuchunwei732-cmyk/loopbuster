@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0198",
+  "source": "synthetic",
+  "task_description": "同一工具，参数变化较大但意图相同 (search_wikipediax3fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 2,
+    "description": "同一工具，参数变化较大但意图相同 (search_wikipediax3fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Data Structures"
+      },
+      "output": "Operating Systems: Artificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 2,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Computer Networks"
+      },
+      "output": "Natural Language Processing: Machine learning is the study of computer algorithms that improve through experience."
+    },
+    {
+      "step": 3,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Deep Learning"
+      },
+      "output": "Artificial Intelligence: Python is a high-level, interpreted programming language with dynamic semantics."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

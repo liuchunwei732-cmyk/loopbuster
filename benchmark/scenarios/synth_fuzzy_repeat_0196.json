@@ -1,0 +1,65 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0196",
+  "source": "synthetic",
+  "task_description": "同一工具，参数变化较大但意图相同 (web_searchx5fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 2,
+    "description": "同一工具，参数变化较大但意图相同 (web_searchx5fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "SQL vs NoSQL databases",
+        "max_results": "10"
+      },
+      "output": "Found 10 results for Python async programming. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture",
+        "max_results": "10"
+      },
+      "output": "Search results for 'what is Kubernetes':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. PostgreSQL is a powerful open-source relational database management system."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices",
+        "max_results": "10"
+      },
+      "output": "Search results for 'microservices architecture':\n1. React is a JavaScript library for building user interfaces maintained by Meta.\n2. PostgreSQL is a powerful open-source relational database management system."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "CI/CD pipeline setup",
+        "max_results": "10"
+      },
+      "output": "Found 20 results for HTTP status codes. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture",
+        "max_results": "10"
+      },
+      "output": "Found 5 results for CI/CD pipeline setup. Result 1: Docker containers provide a consistent environment for application deployment."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

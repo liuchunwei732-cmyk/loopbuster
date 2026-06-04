@@ -1,0 +1,88 @@
+{
+  "trajectory_id": "synth_cycle_0207",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([read_file→write_file]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([read_file→write_file]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/data.csv"
+      },
+      "output": "Read docker-compose.yml: 42 lines, 2048 characters"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "./frontend/README.md",
+        "content": "# Data Pipeline\n\nA sample description for the project."
+      },
+      "output": "Written 16384 bytes to Makefile"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-06-30/app-server.log"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/config.csv",
+        "content": "This is a sample content for testing."
+      },
+      "output": "Written 2048 bytes to package.json"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "frontend/src/views.py"
+      },
+      "output": "Successfully loaded ./.env (128 KB)"
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "./myapp/README.md",
+        "content": "# API Service\n\nThis project handles data processing tasks."
+      },
+      "output": "File saved: package.json"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/app-server.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 8,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/utils.json",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "File saved: Makefile"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_cycle"
+  }
+}

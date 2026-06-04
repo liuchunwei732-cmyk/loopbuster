@@ -1,0 +1,75 @@
+{
+  "trajectory_id": "synth_normal_0035",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sorted([5, 3, 8, 1]))"
+      },
+      "output": "pandas version: 2.0.3"
+    },
+    {
+      "step": 2,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM analytics_events"
+      },
+      "output": "Query returned 25 rows:\n[(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 3,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2025-03-20 23:45:00"
+    },
+    {
+      "step": 4,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "max_length": "500"
+      },
+      "output": "Summary (75% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 5,
+      "tool": "calculate",
+      "args": {
+        "expression": "2 + 2"
+      },
+      "output": "Result: 15"
+    },
+    {
+      "step": 6,
+      "tool": "python_repl",
+      "args": {
+        "code": "import requests\nprint(torch.__version__)"
+      },
+      "output": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 7,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM analytics_events"
+      },
+      "output": "Found 5 records. [(42,), (57,), (83,)]"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_normal_progressive"
+  }
+}

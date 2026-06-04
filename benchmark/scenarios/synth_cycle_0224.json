@@ -1,0 +1,52 @@
+{
+  "trajectory_id": "synth_cycle_0224",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([web_search→web_fetch]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([web_search→web_fetch]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Machine Learning vs Go"
+      },
+      "output": "Found 5 results for CI/CD pipeline setup. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Artificial Intelligence"
+      },
+      "output": "Page loaded: Hacker News - Latest Discussions. 8 paragraphs found."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Python async programming"
+      },
+      "output": "Top result for Docker compose tutorial: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.78)"
+    },
+    {
+      "step": 4,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=44556"
+      },
+      "output": "Page loaded: Hacker News - Latest Discussions. 5 paragraphs found."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_cycle"
+  }
+}

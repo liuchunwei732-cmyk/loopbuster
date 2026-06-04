@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0181",
+  "source": "synthetic",
+  "task_description": "同一工具，参数变化较大但意图相同 (web_searchx5fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 2,
+    "description": "同一工具，参数变化较大但意图相同 (web_searchx5fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "SQL vs NoSQL databases"
+      },
+      "output": "Found 10 results for SQL vs NoSQL databases. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Linux file permissions"
+      },
+      "output": "Top result for clean code principles: Python is a versatile programming language used in web development and data science. (relevance: 0.87)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python"
+      },
+      "output": "Found 10 results for Docker compose tutorial. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices"
+      },
+      "output": "Top result for Git branching strategies: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.78)"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture"
+      },
+      "output": "Found 5 results for Linux file permissions. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "trajectory_id": "synth_mixed_0367",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后段进入 cycle (warmup3+loop8)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "前 3~5 步正常，后段进入 cycle (warmup3+loop8)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_news",
+      "args": {
+        "category": "technology",
+        "count": "5"
+      },
+      "output": "Latest world: Tech Company Launches New Product"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Data Structures vs SQL"
+      },
+      "output": "Search results for 'how to learn Python':\n1. Python is a versatile programming language used in web development and data science.\n2. Deep learning models require large amounts of data and computational resources."
+    },
+    {
+      "step": 3,
+      "tool": "get_weather",
+      "args": {
+        "city": "Rome"
+      },
+      "output": "Weather in Rome: 35°F, humidity 65%"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "Deep Learning vs Angular"
+      },
+      "output": "Search results for 'REST API best practices':\n1. Docker containers provide a consistent environment for application deployment.\n2. JavaScript is commonly used for front-end web development alongside HTML and CSS."
+    },
+    {
+      "step": 5,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Data Structures"
+      },
+      "output": "Fetched page https://example.com: Wikipedia - Artificial Intelligence\nContent length: 2048 bytes"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "SQL vs NoSQL databases",
+        "max_results": "10"
+      },
+      "output": "Found 10 results for REST API best practices. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 7,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/google/tensorflow"
+      },
+      "output": "Page loaded: MDN Web Docs - JavaScript Guide. 12 paragraphs found."
+    },
+    {
+      "step": 8,
+      "tool": "web_search",
+      "args": {
+        "query": "Tokyo area"
+      },
+      "output": "Search results for 'HTTP status codes':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 9,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Natural Language Processing"
+      },
+      "output": "Page loaded: Wikipedia - Artificial Intelligence. 15 paragraphs found."
+    },
+    {
+      "step": 10,
+      "tool": "web_search",
+      "args": {
+        "query": "Linux file permissions"
+      },
+      "output": "Top result for CI/CD pipeline setup: Kubernetes automates deployment, scaling, and management of containerized applications. (relevance: 0.87)"
+    },
+    {
+      "step": 11,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/facebook/rust"
+      },
+      "output": "Page loaded: GitHub - TensorFlow Repository. 5 paragraphs found."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 11,
+    "generator": "gen_mixed"
+  }
+}

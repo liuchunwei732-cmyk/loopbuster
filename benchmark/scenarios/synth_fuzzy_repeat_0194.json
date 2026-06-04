@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0194",
+  "source": "synthetic",
+  "task_description": "同一工具，参数变化较大但意图相同 (web_searchx5fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 2,
+    "description": "同一工具，参数变化较大但意图相同 (web_searchx5fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "how to test in Go"
+      },
+      "output": "Search results for 'CI/CD pipeline setup':\n1. Docker containers provide a consistent environment for application deployment.\n2. PostgreSQL is a powerful open-source relational database management system."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "how to test in C++"
+      },
+      "output": "Top result for Python async programming: Python is a versatile programming language used in web development and data science. (relevance: 0.87)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "how to test in JavaScript"
+      },
+      "output": "Search results for 'distributed systems design':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. JavaScript is commonly used for front-end web development alongside HTML and CSS."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "how to debug in Java"
+      },
+      "output": "Top result for microservices architecture: Python is a versatile programming language used in web development and data science. (relevance: 0.87)"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "how to optimize in C++"
+      },
+      "output": "Search results for 'Linux file permissions':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Git is a distributed version control system for tracking changes in source code."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

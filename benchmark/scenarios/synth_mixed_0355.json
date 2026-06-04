@@ -1,0 +1,69 @@
+{
+  "trajectory_id": "synth_mixed_0355",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup3+loop3)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup3+loop3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2025-03-20 23:45:00"
+    },
+    {
+      "step": 2,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Deep Learning"
+      },
+      "output": "Wikipedia: Database Systems\nPython is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM sessions"
+      },
+      "output": "Found 10 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 4,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/messages",
+        "method": "GET"
+      },
+      "output": "Response from https://example.com: {\"error\": \"not found\"}"
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/messages",
+        "method": "GET"
+      },
+      "output": "Response from https://example.com: {\"error\": \"not found\"}"
+    },
+    {
+      "step": 6,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/messages",
+        "method": "GET"
+      },
+      "output": "Response from https://example.com: {\"error\": \"not found\"}"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_mixed"
+  }
+}

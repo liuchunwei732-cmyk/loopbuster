@@ -1,0 +1,71 @@
+{
+  "trajectory_id": "synth_cycle_0223",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([search_database→parse_data]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([search_database→parse_data]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM orders"
+      },
+      "output": "Found 0 records. No matching records found."
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "format": "markdown"
+      },
+      "output": "Extracted author: Alice"
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM users WHERE rainy"
+      },
+      "output": "Found 25 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 4,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "title"
+      },
+      "output": "Parsed html: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 5,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM analytics_events"
+      },
+      "output": "Query returned 0 rows:\n[(42,), (57,), (83,)]"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "name"
+      },
+      "output": "Parsed markdown: [Row(id=1), Row(id=2), Row(id=3)]"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_cycle"
+  }
+}

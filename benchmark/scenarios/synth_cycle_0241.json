@@ -1,0 +1,126 @@
+{
+  "trajectory_id": "synth_cycle_0241",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM products WHERE partly cloudy"
+      },
+      "output": "Query returned 10 rows:\nNo matching records found."
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/messages",
+        "method": "GET"
+      },
+      "output": "Response from https://demo.io: {\"message\": \"success\"}"
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "format": "xml"
+      },
+      "output": "Parsed markdown: 3 key-value pairs extracted"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM logs WHERE rainy"
+      },
+      "output": "Query returned 5 rows:\nNo matching records found."
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.postgresql.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "HTTP 201: {\"message\": \"success\"}"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "format": "xml"
+      },
+      "output": "Parsed json: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 7,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM users WHERE sunny"
+      },
+      "output": "Found 0 records. No matching records found."
+    },
+    {
+      "step": 8,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/posts",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "HTTP 400: {\"error\": \"not found\"}"
+    },
+    {
+      "step": 9,
+      "tool": "parse_data",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "format": "xml"
+      },
+      "output": "Extracted count: 42.99"
+    },
+    {
+      "step": 10,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM transactions"
+      },
+      "output": "Query returned 5 rows:\n[(42,), (57,), (83,)]"
+    },
+    {
+      "step": 11,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/messages",
+        "method": "POST",
+        "body": "{\"action\": \"start\"}"
+      },
+      "output": "400 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 12,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "name"
+      },
+      "output": "Parsed csv: {'name': 'Alice', 'age': 30}"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_cycle"
+  }
+}

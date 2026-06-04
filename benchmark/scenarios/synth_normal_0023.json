@@ -1,0 +1,65 @@
+{
+  "trajectory_id": "synth_normal_0023",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (5步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (5步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Database Systems vs Go"
+      },
+      "output": "Top result for Python async programming: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.92)"
+    },
+    {
+      "step": 2,
+      "tool": "create_document",
+      "args": {
+        "title": "Analysis Report",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Created: Analysis Report.md"
+    },
+    {
+      "step": 3,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "max_length": "500"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Results show significant improvement"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "how to test in Java"
+      },
+      "output": "Found 5 results for best machine learning courses. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 5,
+      "tool": "create_document",
+      "args": {
+        "title": "Meeting Summary",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Document 'Project Proposal' created (1000 words)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_normal_progressive"
+  }
+}

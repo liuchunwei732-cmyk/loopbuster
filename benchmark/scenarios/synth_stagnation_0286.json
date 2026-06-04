@@ -1,0 +1,52 @@
+{
+  "trajectory_id": "synth_stagnation_0286",
+  "source": "synthetic",
+  "task_description": "同一工具，输出仅有时间戳/UUID 等噪音不同 (web_searchx4stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 2,
+    "description": "同一工具，输出仅有时间戳/UUID 等噪音不同 (web_searchx4stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "React vs Vue comparison 2024"
+      },
+      "output": "[2024-01-15 09:30:00] Search results for 'CI/CD pipeline setup':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "React vs Vue comparison 2024"
+      },
+      "output": "[2024-01-16 10:30:00] Search results for 'CI/CD pipeline setup':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "React vs Vue comparison 2024"
+      },
+      "output": "[2024-01-17 11:30:00] Search results for 'CI/CD pipeline setup':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "React vs Vue comparison 2024"
+      },
+      "output": "[2024-01-18 12:30:00] Search results for 'CI/CD pipeline setup':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_output_stagnation"
+  }
+}

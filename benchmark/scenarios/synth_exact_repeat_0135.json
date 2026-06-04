@@ -1,0 +1,119 @@
+{
+  "trajectory_id": "synth_exact_repeat_0135",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (read_filex5间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (read_filex5间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "api-service/src/controllers.py"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_json('<file>')\ndf.head()"
+      },
+      "output": "{'name': 'Alice', 'age': 30, 'city': 'New York'}"
+    },
+    {
+      "step": 3,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Reinforcement Learning",
+        "lang": "ja"
+      },
+      "output": "Computer Vision: Python is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "api-service/src/controllers.py"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 5,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "max_length": "100"
+      },
+      "output": "Key points:\n- Data was collected from 1000 participants\n- Further research is needed"
+    },
+    {
+      "step": 6,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius."
+      },
+      "output": "neutral (0.45)"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "api-service/src/controllers.py"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 8,
+      "tool": "parse_data",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "format": "html"
+      },
+      "output": "Parsed html: 3 key-value pairs extracted"
+    },
+    {
+      "step": 9,
+      "tool": "read_file",
+      "args": {
+        "path": "api-service/src/controllers.py"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 10,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2025-03-20 23:45:00"
+    },
+    {
+      "step": 11,
+      "tool": "translate",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "source_lang": "zh",
+        "target_lang": "zh"
+      },
+      "output": "Translation (de → ja):\n你好，世界！"
+    },
+    {
+      "step": 12,
+      "tool": "read_file",
+      "args": {
+        "path": "api-service/src/controllers.py"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_interleaved_repeat"
+  }
+}

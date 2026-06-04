@@ -1,0 +1,70 @@
+{
+  "trajectory_id": "synth_exact_repeat_0138",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (read_filex3间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (read_filex3间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/postgresql.log"
+      },
+      "output": "Successfully loaded package.json (8 KB)"
+    },
+    {
+      "step": 2,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python process_data.py --input source.txt --output output.json"
+      },
+      "output": "Command executed. Output:\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/postgresql.log"
+      },
+      "output": "Successfully loaded package.json (8 KB)"
+    },
+    {
+      "step": 4,
+      "tool": "create_document",
+      "args": {
+        "title": "Meeting Summary",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Document 'Meeting Summary' created (1000 words)"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "Osaka weather"
+      },
+      "output": "Found 5 results for Python async programming. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/postgresql.log"
+      },
+      "output": "Successfully loaded package.json (8 KB)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_interleaved_repeat"
+  }
+}

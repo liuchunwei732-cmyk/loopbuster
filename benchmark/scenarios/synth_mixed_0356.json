@@ -1,0 +1,96 @@
+{
+  "trajectory_id": "synth_mixed_0356",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后段进入 cycle (warmup5+loop4)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "前 3~5 步正常，后段进入 cycle (warmup5+loop4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_news",
+      "args": {
+        "category": "science",
+        "count": "5"
+      },
+      "output": "Latest sports: Tech Company Launches New Product"
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "price"
+      },
+      "output": "Extracted count: active"
+    },
+    {
+      "step": 3,
+      "tool": "calculate",
+      "args": {
+        "expression": "len('hello world')"
+      },
+      "output": "Result: 42"
+    },
+    {
+      "step": 4,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem."
+      },
+      "output": "Sentiment: positive (confidence: 0.52)"
+    },
+    {
+      "step": 5,
+      "tool": "send_email",
+      "args": {
+        "to": "support@service.com",
+        "subject": "Meeting Notes",
+        "body": "Let's schedule a meeting."
+      },
+      "output": "Message delivered: <msg_456@mail.example.com>"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in Python"
+      },
+      "output": "Found 10 results for SQL vs NoSQL databases. Result 1: Docker containers provide a consistent environment for application deployment."
+    },
+    {
+      "step": 7,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=11223"
+      },
+      "output": "Page loaded: GitHub - TensorFlow Repository. 12 paragraphs found."
+    },
+    {
+      "step": 8,
+      "tool": "web_search",
+      "args": {
+        "query": "Sydney history"
+      },
+      "output": "Top result for Linux file permissions: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.87)"
+    },
+    {
+      "step": 9,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/uber/pytorch"
+      },
+      "output": "Page loaded: MDN Web Docs - JavaScript Guide. 12 paragraphs found."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_mixed"
+  }
+}

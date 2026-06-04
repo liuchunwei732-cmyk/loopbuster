@@ -1,0 +1,80 @@
+{
+  "trajectory_id": "synth_normal_0034",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "create_document",
+      "args": {
+        "title": "Analysis Report",
+        "content": "Lorem ipsum dolor sit amet.",
+        "format": "markdown"
+      },
+      "output": "Created: Project Proposal.md"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Python async programming"
+      },
+      "output": "Found 10 results for Docker compose tutorial. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.postgresql.com/v1/search",
+        "method": "GET"
+      },
+      "output": "HTTP 500: {\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 4,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2025-03-20 23:45:00"
+    },
+    {
+      "step": 5,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Database Systems"
+      },
+      "output": "Wikipedia: Software Engineering\nPython is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 6,
+      "tool": "create_document",
+      "args": {
+        "title": "Project Proposal",
+        "content": "Lorem ipsum dolor sit amet.",
+        "format": "markdown"
+      },
+      "output": "Created: Meeting Summary.md"
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "Linux file permissions",
+        "max_results": "10"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. Deep learning models require large amounts of data and computational resources."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_normal_progressive"
+  }
+}

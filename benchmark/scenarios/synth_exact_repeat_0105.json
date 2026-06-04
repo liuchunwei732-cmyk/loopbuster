@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_exact_repeat_0105",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 3~5 次 (read_filex5)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "同 (tool, args) 连续重复 3~5 次 (read_filex5)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "web-app/src/main.py"
+      },
+      "output": "Read package.json: 1024 lines, 16384 characters"
+    },
+    {
+      "step": 2,
+      "tool": "read_file",
+      "args": {
+        "path": "web-app/src/main.py"
+      },
+      "output": "Read package.json: 1024 lines, 16384 characters"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "web-app/src/main.py"
+      },
+      "output": "Read package.json: 1024 lines, 16384 characters"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "web-app/src/main.py"
+      },
+      "output": "Read package.json: 1024 lines, 16384 characters"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "web-app/src/main.py"
+      },
+      "output": "Read package.json: 1024 lines, 16384 characters"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_exact_repeat"
+  }
+}

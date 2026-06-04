@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_stagnation_0259",
+  "source": "synthetic",
+  "task_description": "同一工具，输出完全相同（每次返回一样的结果） (web_searchx3stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 3,
+    "description": "同一工具，输出完全相同（每次返回一样的结果） (web_searchx3stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Software Engineering vs gRPC"
+      },
+      "output": "Top result for clean code principles: Python is a versatile programming language used in web development and data science. (relevance: 0.95)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Software Engineering vs gRPC"
+      },
+      "output": "Top result for clean code principles: Python is a versatile programming language used in web development and data science. (relevance: 0.95)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Software Engineering vs gRPC"
+      },
+      "output": "Top result for clean code principles: Python is a versatile programming language used in web development and data science. (relevance: 0.95)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_output_stagnation"
+  }
+}

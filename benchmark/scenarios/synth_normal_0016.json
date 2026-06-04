@@ -1,0 +1,65 @@
+{
+  "trajectory_id": "synth_normal_0016",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (5步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (5步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_news",
+      "args": {
+        "category": "world",
+        "count": "5"
+      },
+      "output": "Latest science: New AI Model Achieves Breakthrough"
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "max_length": "200"
+      },
+      "output": "Key points:\n- Data was collected from 1000 participants\n- Further research is needed"
+    },
+    {
+      "step": 3,
+      "tool": "calculate",
+      "args": {
+        "expression": "sum(range(100))"
+      },
+      "output": "2 + 2 = 42"
+    },
+    {
+      "step": 4,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/events",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"message\": \"success\"}"
+    },
+    {
+      "step": 5,
+      "tool": "send_email",
+      "args": {
+        "to": "support@service.com",
+        "subject": "Project Update",
+        "body": "Let's schedule a meeting."
+      },
+      "output": "Message delivered: <abc123@mail.example.com>"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_normal_progressive"
+  }
+}

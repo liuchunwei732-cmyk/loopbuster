@@ -1,0 +1,72 @@
+{
+  "trajectory_id": "synth_normal_0025",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (6步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (6步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "list_directory",
+      "args": {
+        "path": "./config"
+      },
+      "output": "Found 3 items in ./tests"
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "max_length": "500"
+      },
+      "output": "Summary (80% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 3,
+      "tool": "read_news",
+      "args": {
+        "category": "world",
+        "count": "5"
+      },
+      "output": "Top entertainment news:\n1. Tech Company Launches New Product\n2. Scientists Discover New Species\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 4,
+      "tool": "list_directory",
+      "args": {
+        "path": "/data"
+      },
+      "output": "Found 12 items in ./tests"
+    },
+    {
+      "step": 5,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "max_length": "500"
+      },
+      "output": "Key points:\n- Data was collected from 1000 participants\n- Results show significant improvement"
+    },
+    {
+      "step": 6,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "Top entertainment news:\n1. New AI Model Achieves Breakthrough\n2. Stock Market Reaches All-Time High\n3. Climate Summit Concludes with Agreement"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_normal_progressive"
+  }
+}

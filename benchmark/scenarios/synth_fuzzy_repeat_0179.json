@@ -1,0 +1,52 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0179",
+  "source": "synthetic",
+  "task_description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx4fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 3,
+    "description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx4fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine examples courses"
+      },
+      "output": "Found 20 results for microservices architecture. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "best advanced learning courses"
+      },
+      "output": "Top result for HTTP status codes: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.92)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "best simple learning courses"
+      },
+      "output": "Search results for 'microservices architecture':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Deep learning models require large amounts of data and computational resources."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "best tutorial learning courses"
+      },
+      "output": "Top result for how to learn Python: Python is a versatile programming language used in web development and data science. (relevance: 0.78)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

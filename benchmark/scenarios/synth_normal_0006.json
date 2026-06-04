@@ -1,0 +1,81 @@
+{
+  "trajectory_id": "synth_normal_0006",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_news",
+      "args": {
+        "category": "science",
+        "count": "5"
+      },
+      "output": "Latest world: Tech Company Launches New Product"
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "price"
+      },
+      "output": "Extracted title: 2024-01-15"
+    },
+    {
+      "step": 3,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/uber/tensorflow"
+      },
+      "output": "Fetched page https://demo.io: Hacker News - Latest Discussions\nContent length: 2048 bytes"
+    },
+    {
+      "step": 4,
+      "tool": "read_news",
+      "args": {
+        "category": "business",
+        "count": "5"
+      },
+      "output": "Top business news:\n1. Tech Company Launches New Product\n2. Scientists Discover New Species\n3. Olympic Games Opening Ceremony"
+    },
+    {
+      "step": 5,
+      "tool": "parse_data",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "format": "html"
+      },
+      "output": "Extracted name: Alice"
+    },
+    {
+      "step": 6,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/apple/rust"
+      },
+      "output": "Page loaded: GitHub - TensorFlow Repository. 5 paragraphs found."
+    },
+    {
+      "step": 7,
+      "tool": "read_news",
+      "args": {
+        "category": "science",
+        "count": "5"
+      },
+      "output": "Latest business: Tech Company Launches New Product"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_normal_progressive"
+  }
+}

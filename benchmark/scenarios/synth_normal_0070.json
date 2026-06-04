@@ -1,0 +1,30 @@
+{
+  "trajectory_id": "synth_normal_0070",
+  "source": "synthetic",
+  "task_description": "单步 action (1步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "单步 action (1步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Project Update",
+        "body": "Please find the attached report."
+      },
+      "output": "Email sent to admin@company.com with subject 'Bug Report'"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 1,
+    "generator": "gen_normal_progressive"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_stagnation_0295",
+  "source": "synthetic",
+  "task_description": "同一工具，输出仅有时间戳/UUID 等噪音不同 (api_callx4stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 2,
+    "description": "同一工具，输出仅有时间戳/UUID 等噪音不同 (api_callx4stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/analyze",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "[2024-01-15 09:30:00] HTTP 204: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/analyze",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "[2024-01-16 10:30:00] HTTP 204: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/analyze",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "[2024-01-17 11:30:00] HTTP 204: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 4,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/analyze",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "[2024-01-18 12:30:00] HTTP 204: {\"id\": 123, \"name\": \"test\"}"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_output_stagnation"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "trajectory_id": "synth_cycle_0212",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([api_call→summarize_text]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([api_call→summarize_text]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/search",
+        "method": "GET"
+      },
+      "output": "HTTP 204: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "max_length": "100"
+      },
+      "output": "Key points:\n- Data was collected from 1000 participants\n- Further research is needed"
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.nginx.com/v1/events",
+        "method": "GET"
+      },
+      "output": "Response from https://test.org: {\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 4,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "max_length": "100"
+      },
+      "output": "Summary (75% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.redis.com/v1/posts",
+        "method": "GET"
+      },
+      "output": "Response from https://test.org: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 6,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "max_length": "100"
+      },
+      "output": "Summary (75% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 7,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "HTTP 500: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 8,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "max_length": "100"
+      },
+      "output": "Key points:\n- Data was collected from 1000 participants\n- Further research is needed"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_cycle"
+  }
+}

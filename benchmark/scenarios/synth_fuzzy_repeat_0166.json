@@ -1,0 +1,52 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0166",
+  "source": "synthetic",
+  "task_description": "同一工具，参数只有微小的文字差异（编辑距离小） (search_databasex4fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 3,
+    "description": "同一工具，参数只有微小的文字差异（编辑距离小） (search_databasex4fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) guide users"
+      },
+      "output": "Found 0 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 2,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) basics users"
+      },
+      "output": "Query returned 5 rows:\n[(42,), (57,), (83,)]"
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "basics COUNT(*) FROM users"
+      },
+      "output": "Found 5 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT advanced FROM users"
+      },
+      "output": "Query returned 100 rows:\nNo matching records found."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

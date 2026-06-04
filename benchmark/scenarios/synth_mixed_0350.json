@@ -1,0 +1,81 @@
+{
+  "trajectory_id": "synth_mixed_0350",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup4+loop3)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup4+loop3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Software Engineering"
+      },
+      "output": "Data Structures: Python is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 2,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM transactions WHERE windy"
+      },
+      "output": "Query returned 10 rows:\n[(42,), (57,), (83,)]"
+    },
+    {
+      "step": 3,
+      "tool": "get_weather",
+      "args": {
+        "city": "Bangkok",
+        "units": "celsius"
+      },
+      "output": "Weather in Taipei: 32°F, humidity 75%"
+    },
+    {
+      "step": 4,
+      "tool": "parse_data",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "format": "html"
+      },
+      "output": "Extracted price: John Doe"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices",
+        "max_results": "10"
+      },
+      "output": "Top result for SQL vs NoSQL databases: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices",
+        "max_results": "10"
+      },
+      "output": "Top result for SQL vs NoSQL databases: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices",
+        "max_results": "10"
+      },
+      "output": "Top result for SQL vs NoSQL databases: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_mixed"
+  }
+}

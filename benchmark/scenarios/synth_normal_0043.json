@@ -1,0 +1,109 @@
+{
+  "trajectory_id": "synth_normal_0043",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (10步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (10步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "import celery\nprint(transformers.__version__)"
+      },
+      "output": "> numpy version: 1.24.3"
+    },
+    {
+      "step": 2,
+      "tool": "send_email",
+      "args": {
+        "to": "team@startup.io",
+        "subject": "Meeting Notes",
+        "body": "Please find the attached report."
+      },
+      "output": "Email sent to user@example.com with subject 'Bug Report'"
+    },
+    {
+      "step": 3,
+      "tool": "get_weather",
+      "args": {
+        "city": "London"
+      },
+      "output": "San Francisco: 30°C, clear"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "./data-pipeline/README.md",
+        "content": "# Web Application\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 32768 bytes to /etc/config.yaml"
+    },
+    {
+      "step": 5,
+      "tool": "create_document",
+      "args": {
+        "title": "Analysis Report",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Document 'Meeting Summary' created (1000 words)"
+    },
+    {
+      "step": 6,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "max_length": "500"
+      },
+      "output": "Summary (80% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 7,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/events",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"message\": \"success\"}"
+    },
+    {
+      "step": 8,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sorted([5, 3, 8, 1]))"
+      },
+      "output": "> 42"
+    },
+    {
+      "step": 9,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Weekly Report",
+        "body": "Let's schedule a meeting."
+      },
+      "output": "Email sent to support@service.com with subject 'Project Update'"
+    },
+    {
+      "step": 10,
+      "tool": "get_weather",
+      "args": {
+        "city": "Melbourne"
+      },
+      "output": "Amsterdam: 15°F, windy"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 10,
+    "generator": "gen_normal_progressive"
+  }
+}

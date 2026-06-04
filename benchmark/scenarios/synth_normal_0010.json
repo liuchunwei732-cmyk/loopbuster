@@ -1,0 +1,79 @@
+{
+  "trajectory_id": "synth_normal_0010",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "calculate",
+      "args": {
+        "expression": "max([3, 7, 2, 9])"
+      },
+      "output": "len('hello world') = 3.14"
+    },
+    {
+      "step": 2,
+      "tool": "read_news",
+      "args": {
+        "category": "technology",
+        "count": "5"
+      },
+      "output": "Latest business: New AI Model Achieves Breakthrough"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Docker compose tutorial",
+        "max_results": "10"
+      },
+      "output": "Found 10 results for Python async programming. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 4,
+      "tool": "calculate",
+      "args": {
+        "expression": "max([3, 7, 2, 9])"
+      },
+      "output": "len('hello world') = 2.71"
+    },
+    {
+      "step": 5,
+      "tool": "read_news",
+      "args": {
+        "category": "sports",
+        "count": "5"
+      },
+      "output": "Top health news:\n1. Tech Company Launches New Product\n2. Scientists Discover New Species\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "Natural Language Processing vs Rust"
+      },
+      "output": "Search results for 'Git branching strategies':\n1. Python is a versatile programming language used in web development and data science.\n2. PostgreSQL is a powerful open-source relational database management system."
+    },
+    {
+      "step": 7,
+      "tool": "calculate",
+      "args": {
+        "expression": "sum(range(100))"
+      },
+      "output": "Result: 42"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_normal_progressive"
+  }
+}

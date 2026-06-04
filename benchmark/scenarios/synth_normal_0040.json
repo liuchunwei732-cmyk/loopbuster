@@ -1,0 +1,74 @@
+{
+  "trajectory_id": "synth_normal_0040",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (6步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (6步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.redis.com/v1/messages",
+        "method": "GET"
+      },
+      "output": "301 OK\n{\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "max_length": "500"
+      },
+      "output": "Summary (80% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "./src"
+      },
+      "output": "Found 3 items in ./tests"
+    },
+    {
+      "step": 4,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.postgresql.com/v1/search",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "Response from https://example.com: {\"message\": \"success\"}"
+    },
+    {
+      "step": 5,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "max_length": "500"
+      },
+      "output": "Summary (75% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 6,
+      "tool": "list_directory",
+      "args": {
+        "path": "./docs",
+        "recursive": "true"
+      },
+      "output": "Found 12 items in ./config"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_normal_progressive"
+  }
+}

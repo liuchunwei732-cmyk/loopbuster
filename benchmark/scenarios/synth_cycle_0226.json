@@ -1,0 +1,70 @@
+{
+  "trajectory_id": "synth_cycle_0226",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([read_file→python_repl→write_file]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([read_file→python_repl→write_file]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "data-pipeline/src/controllers.py"
+      },
+      "output": "Successfully loaded /etc/config.yaml (8 KB)"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(len('hello world'))"
+      },
+      "output": "Execution result:\n42"
+    },
+    {
+      "step": 3,
+      "tool": "write_file",
+      "args": {
+        "path": "./api-service/README.md",
+        "content": "# My Project\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 8192 bytes to Makefile"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/app-server.log"
+      },
+      "output": "Successfully loaded /etc/config.yaml (128 KB)"
+    },
+    {
+      "step": 5,
+      "tool": "python_repl",
+      "args": {
+        "code": "predict('user_behavior.csv')"
+      },
+      "output": "> 3.141592653589793"
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/constants.html",
+        "content": "Lorem ipsum dolor sit amet."
+      },
+      "output": "Written 16384 bytes to docker-compose.yml"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_cycle"
+  }
+}

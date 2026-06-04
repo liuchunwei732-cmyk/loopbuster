@@ -1,0 +1,71 @@
+{
+  "trajectory_id": "synth_cycle_0221",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([read_file→write_file]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([read_file→write_file]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/schema.yaml"
+      },
+      "output": "Successfully loaded ./.env (32 KB)"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "./api-service/README.md",
+        "content": "# Web Application\n\nA sample description for the project."
+      },
+      "output": "Written 16384 bytes to /etc/config.yaml"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-06-30/app-server.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/config.csv",
+        "content": "This is a sample content for testing."
+      },
+      "output": "File saved: Makefile"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/main.html"
+      },
+      "output": "Successfully loaded docker-compose.yml (2 KB)"
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "./web-app/README.md",
+        "content": "# API Service\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 16384 bytes to /etc/config.yaml"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_cycle"
+  }
+}

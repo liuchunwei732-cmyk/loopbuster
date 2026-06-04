@@ -1,0 +1,92 @@
+{
+  "trajectory_id": "synth_exact_repeat_0115",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 6~10 次 (api_callx8)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 4,
+    "description": "同 (tool, args) 连续重复 6~10 次 (api_callx8)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/users",
+        "method": "GET"
+      },
+      "output": "Response from https://demo.io: {\"message\": \"success\"}"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/users",
+        "method": "GET"
+      },
+      "output": "Response from https://demo.io: {\"message\": \"success\"}"
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/users",
+        "method": "GET"
+      },
+      "output": "Response from https://demo.io: {\"message\": \"success\"}"
+    },
+    {
+      "step": 4,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/users",
+        "method": "GET"
+      },
+      "output": "Response from https://demo.io: {\"message\": \"success\"}"
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/users",
+        "method": "GET"
+      },
+      "output": "Response from https://demo.io: {\"message\": \"success\"}"
+    },
+    {
+      "step": 6,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/users",
+        "method": "GET"
+      },
+      "output": "Response from https://demo.io: {\"message\": \"success\"}"
+    },
+    {
+      "step": 7,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/users",
+        "method": "GET"
+      },
+      "output": "Response from https://demo.io: {\"message\": \"success\"}"
+    },
+    {
+      "step": 8,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/users",
+        "method": "GET"
+      },
+      "output": "Response from https://demo.io: {\"message\": \"success\"}"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_exact_repeat"
+  }
+}

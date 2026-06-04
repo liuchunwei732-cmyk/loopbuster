@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0188",
+  "source": "synthetic",
+  "task_description": "同一工具，参数变化较大但意图相同 (web_searchx5fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 2,
+    "description": "同一工具，参数变化较大但意图相同 (web_searchx5fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "React vs Vue comparison 2026"
+      },
+      "output": "Top result for Git branching strategies: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.92)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices 2025"
+      },
+      "output": "Found 5 results for how to learn Python. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "HTTP status codes 2025"
+      },
+      "output": "Top result for what is Kubernetes: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.92)"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses 2025"
+      },
+      "output": "Top result for distributed systems design: Kubernetes automates deployment, scaling, and management of containerized applications. (relevance: 0.78)"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "React vs Vue comparison 2024"
+      },
+      "output": "Found 5 results for distributed systems design. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "trajectory_id": "synth_cycle_0252",
+  "source": "synthetic",
+  "task_description": "4-tool 循环 ([web_search→web_fetch→parse_data→summarize_text]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "4-tool 循环 ([web_search→web_fetch→parse_data→summarize_text]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "how to debug in Rust"
+      },
+      "output": "Top result for microservices architecture: Docker containers provide a consistent environment for application deployment. (relevance: 0.78)"
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=12345"
+      },
+      "output": "Fetched page https://demo.io: Hacker News - Latest Discussions\nContent length: 16384 bytes"
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "format": "json"
+      },
+      "output": "Extracted date: 42.99"
+    },
+    {
+      "step": 4,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "max_length": "200"
+      },
+      "output": "Key points:\n- Data was collected from 1000 participants\n- Results show significant improvement"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "Toronto population"
+      },
+      "output": "Found 10 results for distributed systems design. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 6,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Computer Networks"
+      },
+      "output": "Fetched page https://demo.io: Wikipedia - Artificial Intelligence\nContent length: 8192 bytes"
+    },
+    {
+      "step": 7,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "date"
+      },
+      "output": "Parsed json: 3 key-value pairs extracted"
+    },
+    {
+      "step": 8,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "max_length": "100"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Results show significant improvement"
+    },
+    {
+      "step": 9,
+      "tool": "web_search",
+      "args": {
+        "query": "how to migrate in TypeScript"
+      },
+      "output": "Top result for Rust memory safety: Python is a versatile programming language used in web development and data science. (relevance: 0.95)"
+    },
+    {
+      "step": 10,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/airbnb/tensorflow"
+      },
+      "output": "Fetched page https://example.com: MDN Web Docs - JavaScript Guide\nContent length: 2048 bytes"
+    },
+    {
+      "step": 11,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "name"
+      },
+      "output": "Extracted status: active"
+    },
+    {
+      "step": 12,
+      "tool": "summarize_text",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "max_length": "100"
+      },
+      "output": "Summary (75% reduction):\nThe document discusses machine learning applications in healthcare."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_cycle"
+  }
+}

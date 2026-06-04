@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_normal_0014",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (3步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (3步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "count"
+      },
+      "output": "Extracted count: Alice"
+    },
+    {
+      "step": 2,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2024-06-30 09:15:00"
+    },
+    {
+      "step": 3,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "max_length": "200"
+      },
+      "output": "Summary (60% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_normal_progressive"
+  }
+}

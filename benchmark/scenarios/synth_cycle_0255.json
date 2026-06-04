@@ -1,0 +1,122 @@
+{
+  "trajectory_id": "synth_cycle_0255",
+  "source": "synthetic",
+  "task_description": "4-tool 循环 ([web_search→web_fetch→parse_data→summarize_text]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "4-tool 循环 ([web_search→web_fetch→parse_data→summarize_text]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Osaka economy"
+      },
+      "output": "Found 10 results for Python async programming. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/amazon/vscode"
+      },
+      "output": "Page loaded: MDN Web Docs - JavaScript Guide. 8 paragraphs found."
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "count"
+      },
+      "output": "Parsed markdown: {'name': 'Alice', 'age': 30}"
+    },
+    {
+      "step": 4,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "max_length": "100"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Further research is needed"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "Bangkok area"
+      },
+      "output": "Found 10 results for Docker compose tutorial. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 6,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Software Engineering"
+      },
+      "output": "Page loaded: MDN Web Docs - JavaScript Guide. 8 paragraphs found."
+    },
+    {
+      "step": 7,
+      "tool": "parse_data",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "format": "html"
+      },
+      "output": "Parsed html: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 8,
+      "tool": "summarize_text",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "max_length": "200"
+      },
+      "output": "Summary (60% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 9,
+      "tool": "web_search",
+      "args": {
+        "query": "clean code principles"
+      },
+      "output": "Top result for clean code principles: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.78)"
+    },
+    {
+      "step": 10,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/uber/rust"
+      },
+      "output": "Fetched page https://demo.io: Hacker News - Latest Discussions\nContent length: 8192 bytes"
+    },
+    {
+      "step": 11,
+      "tool": "parse_data",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "format": "json"
+      },
+      "output": "Extracted price: active"
+    },
+    {
+      "step": 12,
+      "tool": "summarize_text",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "max_length": "200"
+      },
+      "output": "Key points:\n- Data was collected from 1000 participants\n- Further research is needed"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_cycle"
+  }
+}

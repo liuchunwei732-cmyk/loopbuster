@@ -1,0 +1,92 @@
+{
+  "trajectory_id": "synth_mixed_0347",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup4+loop5)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup4+loop5)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_news",
+      "args": {
+        "category": "world",
+        "count": "5"
+      },
+      "output": "Latest business: New AI Model Achieves Breakthrough"
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "name"
+      },
+      "output": "Parsed yaml: {'name': 'Alice', 'age': 30}"
+    },
+    {
+      "step": 3,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2024-01-15 14:30:00"
+    },
+    {
+      "step": 4,
+      "tool": "list_directory",
+      "args": {
+        "path": "./src"
+      },
+      "output": "Found 12 items in ./docs"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 8,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 9,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_mixed"
+  }
+}

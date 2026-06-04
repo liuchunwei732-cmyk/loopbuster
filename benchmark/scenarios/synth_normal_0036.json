@@ -1,0 +1,62 @@
+{
+  "trajectory_id": "synth_normal_0036",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (5步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (5步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Rust memory safety"
+      },
+      "output": "Found 10 results for CI/CD pipeline setup. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "max_length": "500"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Further research is needed"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/postgresql.log"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "HTTP status codes"
+      },
+      "output": "Search results for 'distributed systems design':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 5,
+      "tool": "summarize_text",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "max_length": "500"
+      },
+      "output": "Key points:\n- Data was collected from 1000 participants\n- Results show significant improvement"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_normal_progressive"
+  }
+}

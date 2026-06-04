@@ -1,0 +1,52 @@
+{
+  "trajectory_id": "synth_cycle_0206",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([web_search→web_fetch]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([web_search→web_fetch]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "clean code principles 2024"
+      },
+      "output": "Found 5 results for Rust memory safety. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=78901"
+      },
+      "output": "Fetched page https://demo.io: GitHub - TensorFlow Repository\nContent length: 4096 bytes"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Berlin weather"
+      },
+      "output": "Search results for 'CI/CD pipeline setup':\n1. React is a JavaScript library for building user interfaces maintained by Meta.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 4,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=12345"
+      },
+      "output": "Page loaded: Wikipedia - Artificial Intelligence. 12 paragraphs found."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_cycle"
+  }
+}

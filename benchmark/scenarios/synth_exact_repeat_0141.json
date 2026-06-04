@@ -1,0 +1,109 @@
+{
+  "trajectory_id": "synth_exact_repeat_0141",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (web_searchx5间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (web_searchx5间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in TypeScript"
+      },
+      "output": "Search results for 'Linux file permissions':\n1. Python is a versatile programming language used in web development and data science.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 2,
+      "tool": "get_weather",
+      "args": {
+        "city": "Berlin",
+        "units": "fahrenheit"
+      },
+      "output": "Weather in Taipei: 30°C, humidity 55%"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in TypeScript"
+      },
+      "output": "Search results for 'Linux file permissions':\n1. Python is a versatile programming language used in web development and data science.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 4,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Software Engineering"
+      },
+      "output": "Operating Systems: Python is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 5,
+      "tool": "translate",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "source_lang": "ja",
+        "target_lang": "fr"
+      },
+      "output": "Translation (fr → ko):\n你好，世界！"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in TypeScript"
+      },
+      "output": "Search results for 'Linux file permissions':\n1. Python is a versatile programming language used in web development and data science.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "data-pipeline/src/controllers.py"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 8,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2024-01-15 14:30:00"
+    },
+    {
+      "step": 9,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in TypeScript"
+      },
+      "output": "Search results for 'Linux file permissions':\n1. Python is a versatile programming language used in web development and data science.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 10,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM products WHERE foggy"
+      },
+      "output": "Found 100 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 11,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in TypeScript"
+      },
+      "output": "Search results for 'Linux file permissions':\n1. Python is a versatile programming language used in web development and data science.\n2. Vue.js is a progressive framework for building user interfaces."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 11,
+    "generator": "gen_interleaved_repeat"
+  }
+}

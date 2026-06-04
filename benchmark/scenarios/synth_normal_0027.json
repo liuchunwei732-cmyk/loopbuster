@@ -1,0 +1,91 @@
+{
+  "trajectory_id": "synth_normal_0027",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "price"
+      },
+      "output": "Extracted date: 2024-01-15"
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "max_length": "100"
+      },
+      "output": "Summary (80% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "./docs",
+        "recursive": "true"
+      },
+      "output": "Contents of ./docs:\nindex.html\nstyle.css\napp.js\nimages/"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-01-15/prometheus.log"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 5,
+      "tool": "translate",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "source_lang": "fr",
+        "target_lang": "es"
+      },
+      "output": "Translation (de → ko):\n你好，世界！"
+    },
+    {
+      "step": 6,
+      "tool": "python_repl",
+      "args": {
+        "code": "import transformers\nprint(django.__version__)"
+      },
+      "output": "> 3.141592653589793"
+    },
+    {
+      "step": 7,
+      "tool": "parse_data",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "format": "yaml"
+      },
+      "output": "Parsed csv: 3 key-value pairs extracted"
+    },
+    {
+      "step": 8,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "max_length": "500"
+      },
+      "output": "Summary (75% reduction):\nThe document discusses machine learning applications in healthcare."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_normal_progressive"
+  }
+}

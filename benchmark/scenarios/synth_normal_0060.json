@@ -1,0 +1,147 @@
+{
+  "trajectory_id": "synth_normal_0060",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (14步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (14步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "create_document",
+      "args": {
+        "title": "Analysis Report",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Document 'Meeting Summary' created (2000 words)"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "import flask\nprint(pandas.__version__)"
+      },
+      "output": "Execution result:\n{'name': 'Alice', 'age': 30, 'city': 'New York'}"
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "format": "markdown"
+      },
+      "output": "Parsed markdown: 3 key-value pairs extracted"
+    },
+    {
+      "step": 4,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/search",
+        "method": "GET"
+      },
+      "output": "HTTP 204: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 5,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "Top business news:\n1. New AI Model Achieves Breakthrough\n2. Scientists Discover New Species\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 6,
+      "tool": "translate",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "source_lang": "de",
+        "target_lang": "ja"
+      },
+      "output": "Translation (de → ko):\n你好，世界！"
+    },
+    {
+      "step": 7,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la /data"
+      },
+      "output": "Exit code: 0\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 8,
+      "tool": "create_document",
+      "args": {
+        "title": "Technical Documentation",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Document 'Analysis Report' created (250 words)"
+    },
+    {
+      "step": 9,
+      "tool": "python_repl",
+      "args": {
+        "code": "import numpy\nprint(requests.__version__)"
+      },
+      "output": "Execution result:\nnumpy version: 1.24.3"
+    },
+    {
+      "step": 10,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "title"
+      },
+      "output": "Extracted status: 2024-01-15"
+    },
+    {
+      "step": 11,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/messages",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "HTTP 400: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 12,
+      "tool": "read_news",
+      "args": {
+        "category": "technology",
+        "count": "5"
+      },
+      "output": "Latest business: New AI Model Achieves Breakthrough"
+    },
+    {
+      "step": 13,
+      "tool": "translate",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "source_lang": "ko",
+        "target_lang": "de"
+      },
+      "output": "Translation (fr → fr):\nBonjour, comment allez-vous?"
+    },
+    {
+      "step": 14,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python train_model.py --input log.txt --output results.csv"
+      },
+      "output": "Command executed. Output:\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 14,
+    "generator": "gen_normal_progressive"
+  }
+}

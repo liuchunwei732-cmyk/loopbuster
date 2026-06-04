@@ -1,0 +1,74 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0157",
+  "source": "synthetic",
+  "task_description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx6fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 3,
+    "description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx6fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "beginner to learn Python",
+        "max_results": "10"
+      },
+      "output": "Top result for clean code principles: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.87)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "overview to learn Python",
+        "max_results": "10"
+      },
+      "output": "Found 20 results for what is Kubernetes. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "tips to learn Python",
+        "max_results": "10"
+      },
+      "output": "Top result for Git branching strategies: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn examples",
+        "max_results": "10"
+      },
+      "output": "Found 5 results for what is Kubernetes. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "how to beginner Python",
+        "max_results": "10"
+      },
+      "output": "Search results for 'Docker compose tutorial':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. Deep learning models require large amounts of data and computational resources."
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "how to tutorial Python",
+        "max_results": "10"
+      },
+      "output": "Top result for Docker compose tutorial: Python is a versatile programming language used in web development and data science. (relevance: 0.95)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

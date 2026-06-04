@@ -1,0 +1,54 @@
+{
+  "trajectory_id": "synth_cycle_0225",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([read_file→write_file]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([read_file→write_file]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "api-service/src/controllers.py"
+      },
+      "output": "Successfully loaded ./.env (8 KB)"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "./web-app/README.md",
+        "content": "# Data Pipeline\n\nA sample description for the project."
+      },
+      "output": "Written 2048 bytes to Makefile"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "frontend/src/controllers.py"
+      },
+      "output": "Read ./.env: 1024 lines, 16384 characters"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "./myapp/README.md",
+        "content": "# CLI Tool\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 2048 bytes to package.json"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_cycle"
+  }
+}

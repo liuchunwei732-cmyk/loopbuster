@@ -1,0 +1,111 @@
+{
+  "trajectory_id": "synth_exact_repeat_0142",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (python_replx5间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (python_replx5间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_excel('<file>')\ndf.head()"
+      },
+      "output": "Execution result:\npandas version: 2.0.3"
+    },
+    {
+      "step": 2,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Artificial Intelligence",
+        "lang": "en"
+      },
+      "output": "Deep Learning: Python is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 3,
+      "tool": "create_document",
+      "args": {
+        "title": "Analysis Report",
+        "content": "Lorem ipsum dolor sit amet.",
+        "format": "markdown"
+      },
+      "output": "Document 'Analysis Report' created (1000 words)"
+    },
+    {
+      "step": 4,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_excel('<file>')\ndf.head()"
+      },
+      "output": "Execution result:\npandas version: 2.0.3"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/schema.js"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "Database Systems vs GraphQL"
+      },
+      "output": "Found 20 results for SQL vs NoSQL databases. Result 1: Docker containers provide a consistent environment for application deployment."
+    },
+    {
+      "step": 7,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_excel('<file>')\ndf.head()"
+      },
+      "output": "Execution result:\npandas version: 2.0.3"
+    },
+    {
+      "step": 8,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM sessions"
+      },
+      "output": "Found 5 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 9,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_excel('<file>')\ndf.head()"
+      },
+      "output": "Execution result:\npandas version: 2.0.3"
+    },
+    {
+      "step": 10,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The Earth orbits around the Sun."
+      },
+      "output": "Sentiment: neutral (confidence: 0.95)"
+    },
+    {
+      "step": 11,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_excel('<file>')\ndf.head()"
+      },
+      "output": "Execution result:\npandas version: 2.0.3"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 11,
+    "generator": "gen_interleaved_repeat"
+  }
+}

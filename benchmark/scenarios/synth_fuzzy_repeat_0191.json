@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0191",
+  "source": "synthetic",
+  "task_description": "同一工具，参数变化较大但意图相同 (web_searchx5fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 2,
+    "description": "同一工具，参数变化较大但意图相同 (web_searchx5fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Operating Systems vs React"
+      },
+      "output": "Search results for 'what is Kubernetes':\n1. Python is a versatile programming language used in web development and data science.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Operating Systems vs Python"
+      },
+      "output": "Top result for Docker compose tutorial: Python is a versatile programming language used in web development and data science. (relevance: 0.95)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Algorithm Design vs Svelte"
+      },
+      "output": "Top result for how to learn Python: Kubernetes automates deployment, scaling, and management of containerized applications. (relevance: 0.92)"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "Artificial Intelligence vs Solid.js"
+      },
+      "output": "Top result for Docker compose tutorial: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.95)"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "Reinforcement Learning vs GraphQL"
+      },
+      "output": "Search results for 'clean code principles':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. PostgreSQL is a powerful open-source relational database management system."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

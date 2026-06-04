@@ -1,0 +1,68 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0171",
+  "source": "synthetic",
+  "task_description": "同一工具，参数只有微小的文字差异（编辑距离小） (search_databasex6fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 3,
+    "description": "同一工具，参数只有微小的文字差异（编辑距离小） (search_databasex6fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM overview WHERE clear"
+      },
+      "output": "Found 25 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 2,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT overview FROM logs WHERE clear"
+      },
+      "output": "Query returned 10 rows:\n[(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT best FROM logs WHERE clear"
+      },
+      "output": "Query returned 10 rows:\n[(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT guide FROM logs WHERE clear"
+      },
+      "output": "Found 5 records. No matching records found."
+    },
+    {
+      "step": 5,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * tips logs WHERE clear"
+      },
+      "output": "Query returned 100 rows:\n[(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 6,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM logs WHERE overview"
+      },
+      "output": "Found 0 records. [(42,), (57,), (83,)]"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "trajectory_id": "synth_normal_0026",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "list_directory",
+      "args": {
+        "path": "./config"
+      },
+      "output": "Found 3 items in ./docs"
+    },
+    {
+      "step": 2,
+      "tool": "calculate",
+      "args": {
+        "expression": "max([3, 7, 2, 9])"
+      },
+      "output": "Result: 3.14"
+    },
+    {
+      "step": 3,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The capital of France is Paris."
+      },
+      "output": "Sentiment: negative (confidence: 0.87)"
+    },
+    {
+      "step": 4,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Natural Language Processing"
+      },
+      "output": "Page loaded: MDN Web Docs - JavaScript Guide. 12 paragraphs found."
+    },
+    {
+      "step": 5,
+      "tool": "list_directory",
+      "args": {
+        "path": "./config"
+      },
+      "output": "Contents of /home/user/projects:\nindex.html\nstyle.css\napp.js\nimages/"
+    },
+    {
+      "step": 6,
+      "tool": "calculate",
+      "args": {
+        "expression": "sorted([5, 3, 8, 1])"
+      },
+      "output": "Result: 3.14"
+    },
+    {
+      "step": 7,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem."
+      },
+      "output": "neutral (0.52)"
+    },
+    {
+      "step": 8,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=67890"
+      },
+      "output": "Fetched page https://test.org: GitHub - TensorFlow Repository\nContent length: 16384 bytes"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_normal_progressive"
+  }
+}

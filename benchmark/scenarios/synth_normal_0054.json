@@ -1,0 +1,119 @@
+{
+  "trajectory_id": "synth_normal_0054",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (12步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (12步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The capital of France is Paris."
+      },
+      "output": "Sentiment: positive (confidence: 0.52)"
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "max_length": "500"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Further research is needed"
+    },
+    {
+      "step": 3,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "Top technology news:\n1. Tech Company Launches New Product\n2. Scientists Discover New Species\n3. Olympic Games Opening Ceremony"
+    },
+    {
+      "step": 4,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2025-03-20 23:45:00"
+    },
+    {
+      "step": 5,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Reinforcement Learning"
+      },
+      "output": "Artificial Intelligence: Artificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/main.ts",
+        "content": "Lorem ipsum dolor sit amet."
+      },
+      "output": "Written 2048 bytes to ./.env"
+    },
+    {
+      "step": 7,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/search",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "Response from https://example.com: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 8,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 9,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The Earth orbits around the Sun."
+      },
+      "output": "mixed (0.52)"
+    },
+    {
+      "step": 10,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "max_length": "500"
+      },
+      "output": "Summary (75% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 11,
+      "tool": "read_news",
+      "args": {
+        "category": "science",
+        "count": "5"
+      },
+      "output": "Latest sports: Tech Company Launches New Product"
+    },
+    {
+      "step": 12,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2025-03-20 23:45:00"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_normal_progressive"
+  }
+}

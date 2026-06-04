@@ -1,0 +1,88 @@
+{
+  "trajectory_id": "synth_normal_0038",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "calculate",
+      "args": {
+        "expression": "sorted([5, 3, 8, 1])"
+      },
+      "output": "Result: 100"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "./frontend/README.md",
+        "content": "# API Service\n\nThis project handles data processing tasks."
+      },
+      "output": "File saved: docker-compose.yml"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "cli-tool/src/utils.py"
+      },
+      "output": "Successfully loaded /etc/config.yaml (128 KB)"
+    },
+    {
+      "step": 4,
+      "tool": "get_weather",
+      "args": {
+        "city": "Singapore"
+      },
+      "output": "Beijing: 28°F, partly cloudy"
+    },
+    {
+      "step": 5,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Bug Report",
+        "body": "Please find the attached report."
+      },
+      "output": "Message delivered: <abc123@mail.example.com>"
+    },
+    {
+      "step": 6,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' /var/log"
+      },
+      "output": "Command executed. Output:\ntotal 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 7,
+      "tool": "calculate",
+      "args": {
+        "expression": "len('hello world')"
+      },
+      "output": "Result: 15"
+    },
+    {
+      "step": 8,
+      "tool": "write_file",
+      "args": {
+        "path": "./cli-tool/README.md",
+        "content": "# CLI Tool\n\nThis project handles data processing tasks."
+      },
+      "output": "File saved: ./.env"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_normal_progressive"
+  }
+}

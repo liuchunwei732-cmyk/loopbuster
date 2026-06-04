@@ -1,0 +1,95 @@
+{
+  "trajectory_id": "synth_mixed_0341",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup5+loop4)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup5+loop4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "create_document",
+      "args": {
+        "title": "Project Proposal",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Created: Project Proposal.md"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "transform('sales_data.csv')"
+      },
+      "output": "Execution result:\n[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 3,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/facebook/go"
+      },
+      "output": "Fetched page https://test.org: Wikipedia - Artificial Intelligence\nContent length: 16384 bytes"
+    },
+    {
+      "step": 4,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog."
+      },
+      "output": "mixed (0.52)"
+    },
+    {
+      "step": 5,
+      "tool": "parse_data",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "format": "html"
+      },
+      "output": "Parsed markdown: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "Amsterdam weather"
+      },
+      "output": "Found 10 results for Rust memory safety. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "Amsterdam weather"
+      },
+      "output": "Found 10 results for Rust memory safety. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 8,
+      "tool": "web_search",
+      "args": {
+        "query": "Amsterdam weather"
+      },
+      "output": "Found 10 results for Rust memory safety. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 9,
+      "tool": "web_search",
+      "args": {
+        "query": "Amsterdam weather"
+      },
+      "output": "Found 10 results for Rust memory safety. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_mixed"
+  }
+}

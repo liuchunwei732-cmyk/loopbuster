@@ -1,0 +1,116 @@
+{
+  "trajectory_id": "synth_mixed_0359",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后段进入 cycle (warmup3+loop8)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "前 3~5 步正常，后段进入 cycle (warmup3+loop8)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Database Systems",
+        "lang": "en"
+      },
+      "output": "Wikipedia: Algorithm Design\nArtificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 2,
+      "tool": "create_document",
+      "args": {
+        "title": "Analysis Report",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Document 'Technical Documentation' created (500 words)"
+    },
+    {
+      "step": 3,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "Top sports news:\n1. New AI Model Achieves Breakthrough\n2. Stock Market Reaches All-Time High\n3. Olympic Games Opening Ceremony"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/views.py"
+      },
+      "output": "Read Makefile: 128 lines, 16384 characters"
+    },
+    {
+      "step": 5,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/data.csv",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "Written 2048 bytes to package.json"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/schema.py"
+      },
+      "output": "Read docker-compose.yml: 256 lines, 32768 characters"
+    },
+    {
+      "step": 7,
+      "tool": "write_file",
+      "args": {
+        "path": "./data-pipeline/README.md",
+        "content": "# API Service\n\nA sample description for the project."
+      },
+      "output": "File saved: docker-compose.yml"
+    },
+    {
+      "step": 8,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/app-server.log"
+      },
+      "output": "Successfully loaded /etc/config.yaml (2 KB)"
+    },
+    {
+      "step": 9,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/config.csv",
+        "content": "Lorem ipsum dolor sit amet."
+      },
+      "output": "File saved: docker-compose.yml"
+    },
+    {
+      "step": 10,
+      "tool": "read_file",
+      "args": {
+        "path": "data-pipeline/src/controllers.py"
+      },
+      "output": "Read Makefile: 1024 lines, 32768 characters"
+    },
+    {
+      "step": 11,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/main.js",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "Written 32768 bytes to package.json"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 11,
+    "generator": "gen_mixed"
+  }
+}

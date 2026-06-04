@@ -1,0 +1,73 @@
+{
+  "trajectory_id": "synth_cycle_0240",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM products WHERE cloudy"
+      },
+      "output": "Found 5 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.postgresql.com/v1/users",
+        "method": "GET"
+      },
+      "output": "Response from https://test.org: {\"message\": \"success\"}"
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "format": "xml"
+      },
+      "output": "Parsed yaml: 3 key-value pairs extracted"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM analytics_events"
+      },
+      "output": "Query returned 25 rows:\nNo matching records found."
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.nginx.com/v1/users",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "204 OK\n<html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "format": "xml"
+      },
+      "output": "Parsed json: 3 key-value pairs extracted"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_cycle"
+  }
+}

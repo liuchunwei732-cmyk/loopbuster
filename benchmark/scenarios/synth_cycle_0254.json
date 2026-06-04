@@ -1,0 +1,119 @@
+{
+  "trajectory_id": "synth_cycle_0254",
+  "source": "synthetic",
+  "task_description": "4-tool 循环 ([read_file→python_repl→bash_shell→write_file]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "4-tool 循环 ([read_file→python_repl→bash_shell→write_file]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/postgresql.log"
+      },
+      "output": "Read Makefile: 256 lines, 32768 characters"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "predict('iris.csv')"
+      },
+      "output": "Hello, World!"
+    },
+    {
+      "step": 3,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' ./config"
+      },
+      "output": "Found 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "./myapp/README.md",
+        "content": "# API Service\n\nA sample description for the project."
+      },
+      "output": "Written 32768 bytes to /etc/config.yaml"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-01-15/prometheus.log"
+      },
+      "output": "Successfully loaded package.json (32 KB)"
+    },
+    {
+      "step": 6,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_excel('<file>')\ndf.head()"
+      },
+      "output": "Execution result:\n42"
+    },
+    {
+      "step": 7,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' /data"
+      },
+      "output": "total 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 8,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/test_main.html",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "File saved: docker-compose.yml"
+    },
+    {
+      "step": 9,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/data.py"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 10,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_sql('<file>')\ndf.head()"
+      },
+      "output": "Execution result:\n{'name': 'Alice', 'age': 30, 'city': 'New York'}"
+    },
+    {
+      "step": 11,
+      "tool": "bash_shell",
+      "args": {
+        "command": "cat /etc/config.yaml"
+      },
+      "output": "Exit code: 0\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 12,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/main.json",
+        "content": "This is a sample content for testing."
+      },
+      "output": "Written 8192 bytes to package.json"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_cycle"
+  }
+}

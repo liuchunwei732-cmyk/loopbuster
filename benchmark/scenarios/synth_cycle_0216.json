@@ -1,0 +1,88 @@
+{
+  "trajectory_id": "synth_cycle_0216",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([read_file→write_file]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([read_file→write_file]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/schema.txt"
+      },
+      "output": "Read docker-compose.yml: 42 lines, 2048 characters"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "./frontend/README.md",
+        "content": "# Web Application\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 32768 bytes to docker-compose.yml"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/postgresql.log"
+      },
+      "output": "Read /etc/config.yaml: 512 lines, 2048 characters"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/data.md",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "File saved: Makefile"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/app-server.log"
+      },
+      "output": "Read package.json: 256 lines, 8192 characters"
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/models.yaml",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "File saved: package.json"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "frontend/src/handlers.py"
+      },
+      "output": "Read Makefile: 512 lines, 16384 characters"
+    },
+    {
+      "step": 8,
+      "tool": "write_file",
+      "args": {
+        "path": "./web-app/README.md",
+        "content": "# API Service\n\nA sample description for the project."
+      },
+      "output": "Written 32768 bytes to Makefile"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_cycle"
+  }
+}

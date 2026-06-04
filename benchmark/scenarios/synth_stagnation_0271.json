@@ -1,0 +1,68 @@
+{
+  "trajectory_id": "synth_stagnation_0271",
+  "source": "synthetic",
+  "task_description": "同一工具，输出完全相同（每次返回一样的结果） (read_filex6stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 3,
+    "description": "同一工具，输出完全相同（每次返回一样的结果） (read_filex6stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-06-30/redis.log"
+      },
+      "output": "Successfully loaded Makefile (128 KB)"
+    },
+    {
+      "step": 2,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-06-30/redis.log"
+      },
+      "output": "Successfully loaded Makefile (128 KB)"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-06-30/redis.log"
+      },
+      "output": "Successfully loaded Makefile (128 KB)"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-06-30/redis.log"
+      },
+      "output": "Successfully loaded Makefile (128 KB)"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-06-30/redis.log"
+      },
+      "output": "Successfully loaded Makefile (128 KB)"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-06-30/redis.log"
+      },
+      "output": "Successfully loaded Makefile (128 KB)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_output_stagnation"
+  }
+}

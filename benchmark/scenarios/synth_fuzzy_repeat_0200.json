@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0200",
+  "source": "synthetic",
+  "task_description": "同一工具，参数变化较大但意图相同 (web_searchx3fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 2,
+    "description": "同一工具，参数变化较大但意图相同 (web_searchx3fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Paris economy"
+      },
+      "output": "Top result for how to learn Python: Docker containers provide a consistent environment for application deployment. (relevance: 0.87)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Vancouver population"
+      },
+      "output": "Top result for microservices architecture: Docker containers provide a consistent environment for application deployment. (relevance: 0.78)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Berlin area"
+      },
+      "output": "Search results for 'what is Kubernetes':\n1. React is a JavaScript library for building user interfaces maintained by Meta.\n2. Git is a distributed version control system for tracking changes in source code."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

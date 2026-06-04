@@ -1,0 +1,62 @@
+{
+  "trajectory_id": "synth_normal_0007",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (5步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (5步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Software Engineering",
+        "lang": "en"
+      },
+      "output": "Wikipedia: Artificial Intelligence\nArtificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=44556"
+      },
+      "output": "Fetched page https://example.com: Wikipedia - Artificial Intelligence\nContent length: 16384 bytes"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/config.json"
+      },
+      "output": "Successfully loaded Makefile (2 KB)"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "./myapp/README.md",
+        "content": "# Data Pipeline\n\nA sample description for the project."
+      },
+      "output": "Written 16384 bytes to docker-compose.yml"
+    },
+    {
+      "step": 5,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Computer Networks"
+      },
+      "output": "Wikipedia: Software Engineering\nMachine learning is the study of computer algorithms that improve through experience."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_normal_progressive"
+  }
+}

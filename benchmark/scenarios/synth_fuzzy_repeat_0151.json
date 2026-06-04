@@ -1,0 +1,68 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0151",
+  "source": "synthetic",
+  "task_description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx6fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 3,
+    "description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx6fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices tutorial"
+      },
+      "output": "Top result for HTTP status codes: Kubernetes automates deployment, scaling, and management of containerized applications. (relevance: 0.95)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best tutorial 2025"
+      },
+      "output": "Top result for REST API best practices: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.92)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices tutorial"
+      },
+      "output": "Found 5 results for REST API best practices. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "REST overview best practices 2025"
+      },
+      "output": "Top result for CI/CD pipeline setup: Python is a versatile programming language used in web development and data science. (relevance: 0.92)"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices examples"
+      },
+      "output": "Found 10 results for REST API best practices. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices best"
+      },
+      "output": "Search results for 'Linux file permissions':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Deep learning models require large amounts of data and computational resources."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

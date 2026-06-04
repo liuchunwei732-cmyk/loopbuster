@@ -1,0 +1,71 @@
+{
+  "trajectory_id": "synth_cycle_0213",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([read_file→write_file]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([read_file→write_file]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/models.py"
+      },
+      "output": "Read docker-compose.yml: 1024 lines, 16384 characters"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/test_main.md",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "Written 16384 bytes to Makefile"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "Read Makefile: 1024 lines, 16384 characters"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/models.csv",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "Written 32768 bytes to Makefile"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-01-15/redis.log"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "./myapp/README.md",
+        "content": "# Web Application\n\nThis project handles data processing tasks."
+      },
+      "output": "File saved: /etc/config.yaml"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_cycle"
+  }
+}

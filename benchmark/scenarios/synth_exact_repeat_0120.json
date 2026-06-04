@@ -1,0 +1,110 @@
+{
+  "trajectory_id": "synth_exact_repeat_0120",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 6~10 次 (api_callx10)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 4,
+    "description": "同 (tool, args) 连续重复 6~10 次 (api_callx10)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 4,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 6,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 7,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 8,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 9,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 10,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"error\": \"not found\"}"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 10,
+    "generator": "gen_exact_repeat"
+  }
+}

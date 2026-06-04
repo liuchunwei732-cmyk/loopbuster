@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_stagnation_0275",
+  "source": "synthetic",
+  "task_description": "同一工具，输出完全相同（每次返回一样的结果） (read_filex3stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 3,
+    "description": "同一工具，输出完全相同（每次返回一样的结果） (read_filex3stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "frontend/src/models.py"
+      },
+      "output": "Read package.json: 128 lines, 16384 characters"
+    },
+    {
+      "step": 2,
+      "tool": "read_file",
+      "args": {
+        "path": "frontend/src/models.py"
+      },
+      "output": "Read package.json: 128 lines, 16384 characters"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "frontend/src/models.py"
+      },
+      "output": "Read package.json: 128 lines, 16384 characters"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_output_stagnation"
+  }
+}

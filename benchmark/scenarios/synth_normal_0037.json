@@ -1,0 +1,84 @@
+{
+  "trajectory_id": "synth_normal_0037",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2025-03-20 23:45:00"
+    },
+    {
+      "step": 2,
+      "tool": "translate",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "source_lang": "fr",
+        "target_lang": "ko"
+      },
+      "output": "Hola, ¿cómo estás?"
+    },
+    {
+      "step": 3,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/uber/linux"
+      },
+      "output": "Fetched page https://example.com: Wikipedia - Artificial Intelligence\nContent length: 16384 bytes"
+    },
+    {
+      "step": 4,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2024-06-30 09:15:00"
+    },
+    {
+      "step": 5,
+      "tool": "translate",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "source_lang": "de",
+        "target_lang": "es"
+      },
+      "output": "Translation (es → de):\n你好，世界！"
+    },
+    {
+      "step": 6,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/uber/tensorflow"
+      },
+      "output": "Fetched page https://example.com: Hacker News - Latest Discussions\nContent length: 2048 bytes"
+    },
+    {
+      "step": 7,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2024-06-30 09:15:00"
+    },
+    {
+      "step": 8,
+      "tool": "translate",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "source_lang": "es",
+        "target_lang": "ko"
+      },
+      "output": "Translation (de → zh):\n你好，世界！"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_normal_progressive"
+  }
+}

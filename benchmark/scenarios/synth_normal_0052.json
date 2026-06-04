@@ -1,0 +1,142 @@
+{
+  "trajectory_id": "synth_normal_0052",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (14步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (14步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "translate",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "source_lang": "es",
+        "target_lang": "fr"
+      },
+      "output": "Translation (ja → fr):\nBonjour, comment allez-vous?"
+    },
+    {
+      "step": 2,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "Latest sports: New AI Model Achieves Breakthrough"
+    },
+    {
+      "step": 3,
+      "tool": "get_weather",
+      "args": {
+        "city": "Tokyo"
+      },
+      "output": "New York: 30°C, partly cloudy"
+    },
+    {
+      "step": 4,
+      "tool": "calculate",
+      "args": {
+        "expression": "max([3, 7, 2, 9])"
+      },
+      "output": "max([3, 7, 2, 9]) = 4"
+    },
+    {
+      "step": 5,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Software Engineering"
+      },
+      "output": "Page loaded: Wikipedia - Artificial Intelligence. 15 paragraphs found."
+    },
+    {
+      "step": 6,
+      "tool": "translate",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "source_lang": "zh",
+        "target_lang": "fr"
+      },
+      "output": "Translation (ja → zh):\nこんにちは、世界！"
+    },
+    {
+      "step": 7,
+      "tool": "read_news",
+      "args": {
+        "category": "world",
+        "count": "5"
+      },
+      "output": "Latest world: Tech Company Launches New Product"
+    },
+    {
+      "step": 8,
+      "tool": "get_weather",
+      "args": {
+        "city": "Sydney"
+      },
+      "output": "Sydney: 32°F, windy"
+    },
+    {
+      "step": 9,
+      "tool": "calculate",
+      "args": {
+        "expression": "sum(range(100))"
+      },
+      "output": "Result: 2.71"
+    },
+    {
+      "step": 10,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Machine Learning"
+      },
+      "output": "Fetched page https://demo.io: GitHub - TensorFlow Repository\nContent length: 8192 bytes"
+    },
+    {
+      "step": 11,
+      "tool": "translate",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "source_lang": "en",
+        "target_lang": "de"
+      },
+      "output": "Translation (de → es):\n你好，世界！"
+    },
+    {
+      "step": 12,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "Top world news:\n1. Tech Company Launches New Product\n2. Stock Market Reaches All-Time High\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 13,
+      "tool": "get_weather",
+      "args": {
+        "city": "San Francisco",
+        "units": "celsius"
+      },
+      "output": "Melbourne: 18°C, partly cloudy"
+    },
+    {
+      "step": 14,
+      "tool": "calculate",
+      "args": {
+        "expression": "len('hello world')"
+      },
+      "output": "2 + 2 = 0"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 14,
+    "generator": "gen_normal_progressive"
+  }
+}

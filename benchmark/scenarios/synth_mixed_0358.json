@@ -1,0 +1,88 @@
+{
+  "trajectory_id": "synth_mixed_0358",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后段进入 cycle (warmup3+loop5)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "前 3~5 步正常，后段进入 cycle (warmup3+loop5)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Machine Learning"
+      },
+      "output": "Wikipedia: Deep Learning\nPython is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "max_length": "200"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Results show significant improvement"
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "/data",
+        "recursive": "true"
+      },
+      "output": "Contents of /home/user/projects:\nmain.py\nutils.py\nmodels.py\ntests/\nREADME.md\nrequirements.txt"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2026-02-14/postgresql.log"
+      },
+      "output": "Read package.json: 42 lines, 8192 characters"
+    },
+    {
+      "step": 5,
+      "tool": "write_file",
+      "args": {
+        "path": "./cli-tool/README.md",
+        "content": "# API Service\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 16384 bytes to docker-compose.yml"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/data.html"
+      },
+      "output": "Read package.json: 42 lines, 16384 characters"
+    },
+    {
+      "step": 7,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/data.py",
+        "content": "Lorem ipsum dolor sit amet."
+      },
+      "output": "Written 32768 bytes to ./.env"
+    },
+    {
+      "step": 8,
+      "tool": "read_file",
+      "args": {
+        "path": "backend/src/handlers.py"
+      },
+      "output": "Successfully loaded docker-compose.yml (128 KB)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_mixed"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "trajectory_id": "synth_cycle_0236",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM sessions"
+      },
+      "output": "Found 5 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/messages",
+        "method": "GET"
+      },
+      "output": "201 OK\n<html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "author"
+      },
+      "output": "Extracted count: 2024-01-15"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM orders WHERE clear"
+      },
+      "output": "Query returned 0 rows:\n[(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.nginx.com/v1/users",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "500 OK\n{\"message\": \"success\"}"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "format": "html"
+      },
+      "output": "Parsed yaml: 3 key-value pairs extracted"
+    },
+    {
+      "step": 7,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM products"
+      },
+      "output": "Found 100 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 8,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.postgresql.com/v1/posts",
+        "method": "GET"
+      },
+      "output": "301 OK\n{\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 9,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "count"
+      },
+      "output": "Extracted title: 42.99"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_cycle"
+  }
+}

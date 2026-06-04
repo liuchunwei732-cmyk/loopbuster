@@ -1,0 +1,85 @@
+{
+  "trajectory_id": "synth_cycle_0215",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([web_search→web_fetch]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([web_search→web_fetch]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "what is Kubernetes 2025"
+      },
+      "output": "Found 5 results for best machine learning courses. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=11223"
+      },
+      "output": "Fetched page https://example.com: GitHub - TensorFlow Repository\nContent length: 8192 bytes"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "London economy"
+      },
+      "output": "Top result for CI/CD pipeline setup: Kubernetes automates deployment, scaling, and management of containerized applications. (relevance: 0.87)"
+    },
+    {
+      "step": 4,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/airbnb/vscode"
+      },
+      "output": "Fetched page https://test.org: GitHub - TensorFlow Repository\nContent length: 8192 bytes"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in Java"
+      },
+      "output": "Found 5 results for distributed systems design. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 6,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Reinforcement Learning"
+      },
+      "output": "Fetched page https://example.com: GitHub - TensorFlow Repository\nContent length: 16384 bytes"
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture",
+        "max_results": "10"
+      },
+      "output": "Found 10 results for Rust memory safety. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 8,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=12345"
+      },
+      "output": "Fetched page https://demo.io: Hacker News - Latest Discussions\nContent length: 8192 bytes"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_cycle"
+  }
+}

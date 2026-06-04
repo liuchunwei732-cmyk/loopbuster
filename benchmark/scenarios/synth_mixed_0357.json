@@ -1,0 +1,95 @@
+{
+  "trajectory_id": "synth_mixed_0357",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后段进入 cycle (warmup3+loop6)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "前 3~5 步正常，后段进入 cycle (warmup3+loop6)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-06-30/celery-worker.log"
+      },
+      "output": "Read docker-compose.yml: 512 lines, 8192 characters"
+    },
+    {
+      "step": 2,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./tests"
+      },
+      "output": "Exit code: 0\ntotal 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/users",
+        "method": "POST",
+        "body": "{\"action\": \"start\"}"
+      },
+      "output": "Response from https://demo.io: {\"error\": \"not found\"}"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "distributed systems design 2024"
+      },
+      "output": "Top result for Docker compose tutorial: Kubernetes automates deployment, scaling, and management of containerized applications. (relevance: 0.95)"
+    },
+    {
+      "step": 5,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/netflix/linux"
+      },
+      "output": "Fetched page https://test.org: GitHub - TensorFlow Repository\nContent length: 8192 bytes"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "what is Kubernetes"
+      },
+      "output": "Search results for 'React vs Vue comparison':\n1. Docker containers provide a consistent environment for application deployment.\n2. JavaScript is commonly used for front-end web development alongside HTML and CSS."
+    },
+    {
+      "step": 7,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/uber/react"
+      },
+      "output": "Fetched page https://demo.io: Hacker News - Latest Discussions\nContent length: 2048 bytes"
+    },
+    {
+      "step": 8,
+      "tool": "web_search",
+      "args": {
+        "query": "Rust memory safety",
+        "max_results": "10"
+      },
+      "output": "Found 5 results for Rust memory safety. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 9,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Computer Networks"
+      },
+      "output": "Fetched page https://test.org: Hacker News - Latest Discussions\nContent length: 4096 bytes"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_mixed"
+  }
+}

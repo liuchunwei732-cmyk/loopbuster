@@ -1,0 +1,99 @@
+{
+  "trajectory_id": "synth_exact_repeat_0147",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (python_replx5间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (python_replx5间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "train('user_behavior.csv')"
+      },
+      "output": "> 42"
+    },
+    {
+      "step": 2,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM analytics_events"
+      },
+      "output": "Found 5 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "train('user_behavior.csv')"
+      },
+      "output": "> 42"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/redis.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 5,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2024-01-15 14:30:00"
+    },
+    {
+      "step": 6,
+      "tool": "python_repl",
+      "args": {
+        "code": "train('user_behavior.csv')"
+      },
+      "output": "> 42"
+    },
+    {
+      "step": 7,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "Top business news:\n1. New AI Model Achieves Breakthrough\n2. Stock Market Reaches All-Time High\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 8,
+      "tool": "python_repl",
+      "args": {
+        "code": "train('user_behavior.csv')"
+      },
+      "output": "> 42"
+    },
+    {
+      "step": 9,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM analytics_events"
+      },
+      "output": "Found 100 records. No matching records found."
+    },
+    {
+      "step": 10,
+      "tool": "python_repl",
+      "args": {
+        "code": "train('user_behavior.csv')"
+      },
+      "output": "> 42"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 10,
+    "generator": "gen_interleaved_repeat"
+  }
+}

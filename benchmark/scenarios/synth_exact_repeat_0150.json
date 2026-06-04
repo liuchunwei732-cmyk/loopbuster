@@ -1,0 +1,89 @@
+{
+  "trajectory_id": "synth_exact_repeat_0150",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (read_filex4间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (read_filex4间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/utils.yaml"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 2,
+      "tool": "send_email",
+      "args": {
+        "to": "support@service.com",
+        "subject": "Project Update",
+        "body": "Let's schedule a meeting."
+      },
+      "output": "Message delivered: <msg_456@mail.example.com>"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/utils.yaml"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 4,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' /var/log"
+      },
+      "output": "Exit code: 0\ntotal 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/utils.yaml"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 6,
+      "tool": "translate",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "source_lang": "en",
+        "target_lang": "zh"
+      },
+      "output": "Translation (es → en):\n你好，世界！"
+    },
+    {
+      "step": 7,
+      "tool": "summarize_text",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "max_length": "500"
+      },
+      "output": "Summary (80% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 8,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/utils.yaml"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_interleaved_repeat"
+  }
+}

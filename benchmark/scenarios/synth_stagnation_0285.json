@@ -1,0 +1,65 @@
+{
+  "trajectory_id": "synth_stagnation_0285",
+  "source": "synthetic",
+  "task_description": "同一工具，输出仅有时间戳/UUID 等噪音不同 (read_newsx5stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 2,
+    "description": "同一工具，输出仅有时间戳/UUID 等噪音不同 (read_newsx5stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "[2024-01-15 09:30:00] Latest technology: Tech Company Launches New Product"
+    },
+    {
+      "step": 2,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "[2024-01-16 10:30:00] Latest technology: Tech Company Launches New Product"
+    },
+    {
+      "step": 3,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "[2024-01-17 11:30:00] Latest technology: Tech Company Launches New Product"
+    },
+    {
+      "step": 4,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "[2024-01-18 12:30:00] Latest technology: Tech Company Launches New Product"
+    },
+    {
+      "step": 5,
+      "tool": "read_news",
+      "args": {
+        "category": "entertainment",
+        "count": "5"
+      },
+      "output": "[2024-01-19 13:30:00] Latest technology: Tech Company Launches New Product"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_output_stagnation"
+  }
+}

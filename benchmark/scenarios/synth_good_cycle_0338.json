@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_good_cycle_0338",
+  "source": "synthetic",
+  "task_description": "迭代优化：每次修改代码/文本，逐步改善 (good_cycle_iterative_improvement)",
+  "task_category": "good_cycle",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": "good_cycle",
+    "severity": 0,
+    "description": "迭代优化：每次修改代码/文本，逐步改善 (good_cycle_iterative_improvement)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/draft_v1.md"
+      },
+      "output": "Written version 1 (265 words)"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/draft_v2.md"
+      },
+      "output": "Written version 2 (472 words)"
+    },
+    {
+      "step": 3,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/draft_v3.md"
+      },
+      "output": "Written version 3 (498 words)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_good_cycle_progressive"
+  }
+}

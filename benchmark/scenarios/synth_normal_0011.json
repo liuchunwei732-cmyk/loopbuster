@@ -1,0 +1,73 @@
+{
+  "trajectory_id": "synth_normal_0011",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (6步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (6步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "send_email",
+      "args": {
+        "to": "user@example.com",
+        "subject": "Bug Report",
+        "body": "Let's schedule a meeting."
+      },
+      "output": "Email sent to user@example.com with subject 'Feature Request'"
+    },
+    {
+      "step": 2,
+      "tool": "translate",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "source_lang": "ko",
+        "target_lang": "es"
+      },
+      "output": "Translation (fr → zh):\nBonjour, comment allez-vous?"
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "/home/user/projects"
+      },
+      "output": "Contents of ./src:\nmain.py\nutils.py\nmodels.py\ntests/\nREADME.md\nrequirements.txt"
+    },
+    {
+      "step": 4,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python generate_report.py --input log.txt --output output.json"
+      },
+      "output": "total 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 5,
+      "tool": "read_news",
+      "args": {
+        "category": "sports",
+        "count": "5"
+      },
+      "output": "Top health news:\n1. New AI Model Achieves Breakthrough\n2. Scientists Discover New Species\n3. Olympic Games Opening Ceremony"
+    },
+    {
+      "step": 6,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM logs"
+      },
+      "output": "Query returned 25 rows:\n[(42,), (57,), (83,)]"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_normal_progressive"
+  }
+}

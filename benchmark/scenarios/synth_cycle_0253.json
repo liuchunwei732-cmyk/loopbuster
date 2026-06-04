@@ -1,0 +1,119 @@
+{
+  "trajectory_id": "synth_cycle_0253",
+  "source": "synthetic",
+  "task_description": "4-tool 循环 ([read_file→python_repl→bash_shell→write_file]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "4-tool 循环 ([read_file→python_repl→bash_shell→write_file]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/utils.js"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "validate('user_behavior.csv')"
+      },
+      "output": "Execution result:\n3.141592653589793"
+    },
+    {
+      "step": 3,
+      "tool": "bash_shell",
+      "args": {
+        "command": "cat ./.env"
+      },
+      "output": "Command executed. Output:\ntotal 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "./api-service/README.md",
+        "content": "# CLI Tool\n\nThis project handles data processing tasks."
+      },
+      "output": "File saved: docker-compose.yml"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/models.yaml"
+      },
+      "output": "Successfully loaded ./.env (128 KB)"
+    },
+    {
+      "step": 6,
+      "tool": "python_repl",
+      "args": {
+        "code": "merge('stock_prices.csv')"
+      },
+      "output": "Execution result:\nnumpy version: 1.24.3"
+    },
+    {
+      "step": 7,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' /home/user/projects"
+      },
+      "output": "Exit code: 0\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 8,
+      "tool": "write_file",
+      "args": {
+        "path": "./api-service/README.md",
+        "content": "# Web Application\n\nA sample description for the project."
+      },
+      "output": "File saved: package.json"
+    },
+    {
+      "step": 9,
+      "tool": "read_file",
+      "args": {
+        "path": "web-app/src/controllers.py"
+      },
+      "output": "Read ./.env: 1024 lines, 16384 characters"
+    },
+    {
+      "step": 10,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_json('<file>')\ndf.head()"
+      },
+      "output": "Execution result:\nTrue"
+    },
+    {
+      "step": 11,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' ./src"
+      },
+      "output": "Command executed. Output:\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 12,
+      "tool": "write_file",
+      "args": {
+        "path": "./backend/README.md",
+        "content": "# API Service\n\nThis project handles data processing tasks."
+      },
+      "output": "File saved: package.json"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_cycle"
+  }
+}

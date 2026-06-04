@@ -1,0 +1,100 @@
+{
+  "trajectory_id": "synth_mixed_0370",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后段进入 cycle (warmup3+loop6)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "前 3~5 步正常，后段进入 cycle (warmup3+loop6)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "create_document",
+      "args": {
+        "title": "Project Proposal",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Document 'Analysis Report' created (2000 words)"
+    },
+    {
+      "step": 2,
+      "tool": "translate",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "source_lang": "fr",
+        "target_lang": "de"
+      },
+      "output": "你好，世界！"
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "author"
+      },
+      "output": "Parsed yaml: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "web-app/src/middleware.py"
+      },
+      "output": "Successfully loaded ./.env (2 KB)"
+    },
+    {
+      "step": 5,
+      "tool": "write_file",
+      "args": {
+        "path": "./data-pipeline/README.md",
+        "content": "# Data Pipeline\n\nThis project handles data processing tasks."
+      },
+      "output": "File saved: ./.env"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "api-service/src/middleware.py"
+      },
+      "output": "Read Makefile: 1024 lines, 8192 characters"
+    },
+    {
+      "step": 7,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/test_main.txt",
+        "content": "Lorem ipsum dolor sit amet."
+      },
+      "output": "Written 2048 bytes to package.json"
+    },
+    {
+      "step": 8,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/celery-worker.log"
+      },
+      "output": "Successfully loaded ./.env (2 KB)"
+    },
+    {
+      "step": 9,
+      "tool": "write_file",
+      "args": {
+        "path": "./data-pipeline/README.md",
+        "content": "# CLI Tool\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 32768 bytes to Makefile"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_mixed"
+  }
+}

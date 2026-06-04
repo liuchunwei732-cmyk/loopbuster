@@ -1,0 +1,56 @@
+{
+  "trajectory_id": "synth_normal_0015",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "translate",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "source_lang": "en",
+        "target_lang": "ko"
+      },
+      "output": "Translation (es → es):\nこんにちは、世界！"
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Machine Learning"
+      },
+      "output": "Page loaded: MDN Web Docs - JavaScript Guide. 12 paragraphs found."
+    },
+    {
+      "step": 3,
+      "tool": "bash_shell",
+      "args": {
+        "command": "cat docker-compose.yml"
+      },
+      "output": "Exit code: 0\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 4,
+      "tool": "translate",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "source_lang": "es",
+        "target_lang": "ja"
+      },
+      "output": "你好，世界！"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_normal_progressive"
+  }
+}

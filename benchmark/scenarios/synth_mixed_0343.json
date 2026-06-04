@@ -1,0 +1,78 @@
+{
+  "trajectory_id": "synth_mixed_0343",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup3+loop4)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup3+loop4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "bash_shell",
+      "args": {
+        "command": "cat docker-compose.yml"
+      },
+      "output": "Command executed. Output:\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 2,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Meeting Notes",
+        "body": "The deployment was successful."
+      },
+      "output": "Email sent to admin@company.com with subject 'Project Update'"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/models.yaml"
+      },
+      "output": "Successfully loaded docker-compose.yml (128 KB)"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_mixed"
+  }
+}

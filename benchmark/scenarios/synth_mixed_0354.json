@@ -1,0 +1,69 @@
+{
+  "trajectory_id": "synth_mixed_0354",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup3+loop3)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup3+loop3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/config.yaml"
+      },
+      "output": "Read Makefile: 512 lines, 8192 characters"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "./web-app/README.md",
+        "content": "# API Service\n\nThis project handles data processing tasks."
+      },
+      "output": "File saved: ./.env"
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sorted([5, 3, 8, 1]))"
+      },
+      "output": "numpy version: 1.24.3"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/postgresql.log"
+      },
+      "output": "Successfully loaded docker-compose.yml (32 KB)"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/postgresql.log"
+      },
+      "output": "Successfully loaded docker-compose.yml (32 KB)"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/postgresql.log"
+      },
+      "output": "Successfully loaded docker-compose.yml (32 KB)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_mixed"
+  }
+}

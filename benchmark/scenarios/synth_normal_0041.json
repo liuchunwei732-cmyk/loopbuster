@@ -1,0 +1,156 @@
+{
+  "trajectory_id": "synth_normal_0041",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (16步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (16步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.postgresql.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "HTTP 301: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 2,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' ./docs"
+      },
+      "output": "Exit code: 0\ntotal 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 3,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Algorithm Design",
+        "lang": "en"
+      },
+      "output": "Wikipedia: Software Engineering\nArtificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 4,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "max_length": "500"
+      },
+      "output": "Summary (60% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 5,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "status"
+      },
+      "output": "Parsed json: {'name': 'Alice', 'age': 30}"
+    },
+    {
+      "step": 6,
+      "tool": "list_directory",
+      "args": {
+        "path": "./docs"
+      },
+      "output": "Contents of /home/user/projects:\nindex.html\nstyle.css\napp.js\nimages/"
+    },
+    {
+      "step": 7,
+      "tool": "calculate",
+      "args": {
+        "expression": "sum(range(100))"
+      },
+      "output": "Result: 100"
+    },
+    {
+      "step": 8,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/users",
+        "method": "GET"
+      },
+      "output": "Response from https://test.org: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 9,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Command executed. Output:\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 10,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Algorithm Design"
+      },
+      "output": "Database Systems: Artificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 11,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "max_length": "100"
+      },
+      "output": "Summary (75% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 12,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "author"
+      },
+      "output": "Extracted status: Alice"
+    },
+    {
+      "step": 13,
+      "tool": "list_directory",
+      "args": {
+        "path": "./docs"
+      },
+      "output": "Found 8 items in ./src"
+    },
+    {
+      "step": 14,
+      "tool": "calculate",
+      "args": {
+        "expression": "2 + 2"
+      },
+      "output": "Result: 3.14"
+    },
+    {
+      "step": 15,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "HTTP 301: {\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 16,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python cleanup_logs.py --input data.csv --output output.json"
+      },
+      "output": "Command executed. Output:\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 16,
+    "generator": "gen_normal_progressive"
+  }
+}

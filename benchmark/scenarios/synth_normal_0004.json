@@ -1,0 +1,54 @@
+{
+  "trajectory_id": "synth_normal_0004",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/data.md",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "File saved: /etc/config.yaml"
+    },
+    {
+      "step": 2,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Computer Networks"
+      },
+      "output": "Computer Vision: Artificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 3,
+      "tool": "read_news",
+      "args": {
+        "category": "business",
+        "count": "5"
+      },
+      "output": "Top technology news:\n1. Tech Company Launches New Product\n2. Scientists Discover New Species\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 4,
+      "tool": "python_repl",
+      "args": {
+        "code": "validate('sales_data.csv')"
+      },
+      "output": "> numpy version: 1.24.3"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_normal_progressive"
+  }
+}

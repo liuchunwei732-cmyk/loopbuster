@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_stagnation_0287",
+  "source": "synthetic",
+  "task_description": "同一工具，输出仅有时间戳/UUID 等噪音不同 (web_searchx5stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 2,
+    "description": "同一工具，输出仅有时间戳/UUID 等噪音不同 (web_searchx5stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture 2024"
+      },
+      "output": "[2024-01-15 09:30:00] Found 10 results for clean code principles. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture 2024"
+      },
+      "output": "[2024-01-16 10:30:00] Found 10 results for clean code principles. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture 2024"
+      },
+      "output": "[2024-01-17 11:30:00] Found 10 results for clean code principles. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture 2024"
+      },
+      "output": "[2024-01-18 12:30:00] Found 10 results for clean code principles. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture 2024"
+      },
+      "output": "[2024-01-19 13:30:00] Found 10 results for clean code principles. Result 1: Python is a versatile programming language used in web development and data science."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_output_stagnation"
+  }
+}

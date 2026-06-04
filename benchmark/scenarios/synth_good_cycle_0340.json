@@ -1,0 +1,52 @@
+{
+  "trajectory_id": "synth_good_cycle_0340",
+  "source": "synthetic",
+  "task_description": "迭代优化：每次修改代码/文本，逐步改善 (good_cycle_iterative_improvement)",
+  "task_category": "good_cycle",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": "good_cycle",
+    "severity": 0,
+    "description": "迭代优化：每次修改代码/文本，逐步改善 (good_cycle_iterative_improvement)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "print('hello world')"
+      },
+      "output": "Output 1: 3.14"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "import random\nprint(random.randint(1, 100))"
+      },
+      "output": "Output 2: hello"
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "import random\nfor i in range(5):\n    print(random.randint(1, 100))"
+      },
+      "output": "Output 3: 42"
+    },
+    {
+      "step": 4,
+      "tool": "python_repl",
+      "args": {
+        "code": "import random\nfor i in range(5):\n    print(random.randint(1, 100))"
+      },
+      "output": "Output 3: 3.14"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_good_cycle_progressive"
+  }
+}

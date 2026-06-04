@@ -1,0 +1,55 @@
+{
+  "trajectory_id": "synth_normal_0022",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Osaka weather"
+      },
+      "output": "Found 5 results for microservices architecture. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 2,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Feature Request",
+        "body": "The deployment was successful."
+      },
+      "output": "Message delivered: <abc123@mail.example.com>"
+    },
+    {
+      "step": 3,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la /data"
+      },
+      "output": "Exit code: 0\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "./backend/README.md",
+        "content": "# Data Pipeline\n\nA sample description for the project."
+      },
+      "output": "Written 16384 bytes to Makefile"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_normal_progressive"
+  }
+}

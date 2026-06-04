@@ -1,0 +1,54 @@
+{
+  "trajectory_id": "synth_cycle_0217",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([search_database→parse_data]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([search_database→parse_data]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM products WHERE partly cloudy"
+      },
+      "output": "Query returned 5 rows:\n[(42,), (57,), (83,)]"
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "format": "html"
+      },
+      "output": "Extracted author: active"
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM users WHERE sunny"
+      },
+      "output": "Found 5 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 4,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "title"
+      },
+      "output": "Extracted price: 42.99"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_cycle"
+  }
+}

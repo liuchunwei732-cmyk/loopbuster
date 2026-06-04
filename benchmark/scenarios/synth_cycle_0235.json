@@ -1,0 +1,120 @@
+{
+  "trajectory_id": "synth_cycle_0235",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([read_file→python_repl→write_file]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([read_file→python_repl→write_file]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "web-app/src/main.py"
+      },
+      "output": "Read /etc/config.yaml: 42 lines, 2048 characters"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sum(range(100)))"
+      },
+      "output": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 3,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/schema.ts",
+        "content": "This is a sample content for testing."
+      },
+      "output": "File saved: docker-compose.yml"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "Read Makefile: 42 lines, 2048 characters"
+    },
+    {
+      "step": 5,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(max([3, 7, 2, 9]))"
+      },
+      "output": "> 42"
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/schema.yaml",
+        "content": "This is a sample content for testing."
+      },
+      "output": "File saved: /etc/config.yaml"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/constants.json"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 8,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(2 + 2)"
+      },
+      "output": "3.141592653589793"
+    },
+    {
+      "step": 9,
+      "tool": "write_file",
+      "args": {
+        "path": "./myapp/README.md",
+        "content": "# CLI Tool\n\nA sample description for the project."
+      },
+      "output": "File saved: docker-compose.yml"
+    },
+    {
+      "step": 10,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/models.yaml"
+      },
+      "output": "Successfully loaded Makefile (128 KB)"
+    },
+    {
+      "step": 11,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_excel('<file>')\ndf.head()"
+      },
+      "output": "Execution result:\npandas version: 2.0.3"
+    },
+    {
+      "step": 12,
+      "tool": "write_file",
+      "args": {
+        "path": "./frontend/README.md",
+        "content": "# My Project\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 2048 bytes to /etc/config.yaml"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_cycle"
+  }
+}

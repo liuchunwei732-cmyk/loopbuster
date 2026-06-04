@@ -1,0 +1,100 @@
+{
+  "trajectory_id": "synth_exact_repeat_0126",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 6~10 次 (web_searchx10)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 4,
+    "description": "同 (tool, args) 连续重复 6~10 次 (web_searchx10)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in Rust"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in Rust"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in Rust"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in Rust"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in Rust"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in Rust"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in Rust"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 8,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in Rust"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 9,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in Rust"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 10,
+      "tool": "web_search",
+      "args": {
+        "query": "how to refactor in Rust"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Docker containers provide a consistent environment for application deployment.\n2. Git is a distributed version control system for tracking changes in source code."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 10,
+    "generator": "gen_exact_repeat"
+  }
+}

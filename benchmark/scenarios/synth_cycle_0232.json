@@ -1,0 +1,70 @@
+{
+  "trajectory_id": "synth_cycle_0232",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([read_file→python_repl→write_file]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([read_file→python_repl→write_file]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/config.js"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "train('titanic.csv')"
+      },
+      "output": "> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 3,
+      "tool": "write_file",
+      "args": {
+        "path": "./frontend/README.md",
+        "content": "# API Service\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 8192 bytes to package.json"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "Read Makefile: 512 lines, 32768 characters"
+    },
+    {
+      "step": 5,
+      "tool": "python_repl",
+      "args": {
+        "code": "import django\nprint(numpy.__version__)"
+      },
+      "output": "Execution result:\n{'name': 'Alice', 'age': 30, 'city': 'New York'}"
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/schema.css",
+        "content": "Lorem ipsum dolor sit amet."
+      },
+      "output": "File saved: ./.env"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_cycle"
+  }
+}

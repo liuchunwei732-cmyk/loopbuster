@@ -1,0 +1,46 @@
+{
+  "trajectory_id": "synth_normal_0028",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (3步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (3步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web."
+      },
+      "output": "Sentiment: negative (confidence: 0.87)"
+    },
+    {
+      "step": 2,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python process_data.py --input input.json --output output.json"
+      },
+      "output": "Command executed. Output:\ntotal 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.postgresql.com/v1/users",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "Response from https://test.org: {\"id\": 123, \"name\": \"test\"}"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_normal_progressive"
+  }
+}

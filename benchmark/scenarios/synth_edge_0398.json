@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_edge_0398",
+  "source": "synthetic",
+  "task_description": "空参数重复（tool 被调但没有 args） (list_directoryx4_empty_args)",
+  "task_category": "edge",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 2,
+    "description": "空参数重复（tool 被调但没有 args） (list_directoryx4_empty_args)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "list_directory",
+      "args": {},
+      "output": "Contents of /data:\nindex.html\nstyle.css\napp.js\nimages/"
+    },
+    {
+      "step": 2,
+      "tool": "list_directory",
+      "args": {},
+      "output": "Found 12 items in ./docs"
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {},
+      "output": "Contents of ./docs:\nmain.py\nutils.py\nmodels.py\ntests/\nREADME.md\nrequirements.txt"
+    },
+    {
+      "step": 4,
+      "tool": "list_directory",
+      "args": {},
+      "output": "Contents of /var/log:\nindex.html\nstyle.css\napp.js\nimages/"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_edge_empty_args"
+  }
+}

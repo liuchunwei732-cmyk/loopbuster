@@ -1,0 +1,88 @@
+{
+  "trajectory_id": "synth_cycle_0211",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([search_database→parse_data]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([search_database→parse_data]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM users WHERE rainy"
+      },
+      "output": "Found 0 records. No matching records found."
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "format": "html"
+      },
+      "output": "Extracted status: John Doe"
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM products WHERE cloudy"
+      },
+      "output": "Query returned 25 rows:\nNo matching records found."
+    },
+    {
+      "step": 4,
+      "tool": "parse_data",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "format": "xml"
+      },
+      "output": "Parsed xml: 3 key-value pairs extracted"
+    },
+    {
+      "step": 5,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM sessions"
+      },
+      "output": "Query returned 100 rows:\n[(42,), (57,), (83,)]"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "format": "xml"
+      },
+      "output": "Extracted count: active"
+    },
+    {
+      "step": 7,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM sessions WHERE clear"
+      },
+      "output": "Found 10 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 8,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "date"
+      },
+      "output": "Extracted title: 2024-01-15"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_cycle"
+  }
+}

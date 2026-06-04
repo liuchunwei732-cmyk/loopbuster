@@ -1,0 +1,57 @@
+{
+  "trajectory_id": "synth_normal_0018",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "send_email",
+      "args": {
+        "to": "team@startup.io",
+        "subject": "Bug Report",
+        "body": "Please find the attached report."
+      },
+      "output": "Message delivered: <msg_456@mail.example.com>"
+    },
+    {
+      "step": 2,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM products"
+      },
+      "output": "Query returned 25 rows:\nNo matching records found."
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.redis.com/v1/search",
+        "method": "GET"
+      },
+      "output": "500 OK\n{\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 4,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Meeting Notes",
+        "body": "Please find the attached report."
+      },
+      "output": "Message delivered: <abc123@mail.example.com>"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_normal_progressive"
+  }
+}

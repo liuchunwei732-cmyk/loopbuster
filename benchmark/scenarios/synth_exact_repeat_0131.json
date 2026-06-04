@@ -1,0 +1,85 @@
+{
+  "trajectory_id": "synth_exact_repeat_0131",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (read_filex4间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (read_filex4间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/views.py"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sorted([5, 3, 8, 1]))"
+      },
+      "output": "> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "./docs"
+      },
+      "output": "Found 12 items in ./docs"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/views.py"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 5,
+      "tool": "parse_data",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "format": "yaml"
+      },
+      "output": "Parsed html: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/views.py"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "Madrid weather"
+      },
+      "output": "Top result for React vs Vue comparison: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.95)"
+    },
+    {
+      "step": 8,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/views.py"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_interleaved_repeat"
+  }
+}

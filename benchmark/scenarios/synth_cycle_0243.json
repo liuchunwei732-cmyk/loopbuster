@@ -1,0 +1,98 @@
+{
+  "trajectory_id": "synth_cycle_0243",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM users"
+      },
+      "output": "Found 0 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.redis.com/v1/users",
+        "method": "GET"
+      },
+      "output": "HTTP 200: {\"message\": \"success\"}"
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "author"
+      },
+      "output": "Parsed csv: 3 key-value pairs extracted"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM users WHERE foggy"
+      },
+      "output": "Query returned 25 rows:\nNo matching records found."
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.postgresql.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "HTTP 404: {\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "date"
+      },
+      "output": "Parsed html: {'name': 'Alice', 'age': 30}"
+    },
+    {
+      "step": 7,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM users"
+      },
+      "output": "Query returned 10 rows:\nNo matching records found."
+    },
+    {
+      "step": 8,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.nginx.com/v1/posts",
+        "method": "GET"
+      },
+      "output": "204 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 9,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "status"
+      },
+      "output": "Extracted name: 42.99"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_cycle"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "trajectory_id": "synth_stagnation_0273",
+  "source": "synthetic",
+  "task_description": "同一工具，输出完全相同（每次返回一样的结果） (get_weatherx4stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 3,
+    "description": "同一工具，输出完全相同（每次返回一样的结果） (get_weatherx4stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "get_weather",
+      "args": {
+        "city": "Mumbai",
+        "units": "fahrenheit"
+      },
+      "output": "Berlin: 15°C, foggy"
+    },
+    {
+      "step": 2,
+      "tool": "get_weather",
+      "args": {
+        "city": "Mumbai",
+        "units": "fahrenheit"
+      },
+      "output": "Berlin: 15°C, foggy"
+    },
+    {
+      "step": 3,
+      "tool": "get_weather",
+      "args": {
+        "city": "Mumbai",
+        "units": "fahrenheit"
+      },
+      "output": "Berlin: 15°C, foggy"
+    },
+    {
+      "step": 4,
+      "tool": "get_weather",
+      "args": {
+        "city": "Mumbai",
+        "units": "fahrenheit"
+      },
+      "output": "Berlin: 15°C, foggy"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_output_stagnation"
+  }
+}

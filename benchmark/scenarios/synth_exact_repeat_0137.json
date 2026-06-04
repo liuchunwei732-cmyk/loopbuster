@@ -1,0 +1,77 @@
+{
+  "trajectory_id": "synth_exact_repeat_0137",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (web_searchx3间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (web_searchx3间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Reinforcement Learning vs Svelte"
+      },
+      "output": "Found 10 results for Docker compose tutorial. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 2,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web."
+      },
+      "output": "negative (0.52)"
+    },
+    {
+      "step": 3,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog."
+      },
+      "output": "Sentiment: negative (confidence: 0.52)"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "Reinforcement Learning vs Svelte"
+      },
+      "output": "Found 10 results for Docker compose tutorial. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 5,
+      "tool": "list_directory",
+      "args": {
+        "path": "./config",
+        "recursive": "true"
+      },
+      "output": "Contents of ./config:\nindex.html\nstyle.css\napp.js\nimages/"
+    },
+    {
+      "step": 6,
+      "tool": "calculate",
+      "args": {
+        "expression": "len('hello world')"
+      },
+      "output": "Result: 3.14"
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "Reinforcement Learning vs Svelte"
+      },
+      "output": "Found 10 results for Docker compose tutorial. Result 1: Python is a versatile programming language used in web development and data science."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_interleaved_repeat"
+  }
+}

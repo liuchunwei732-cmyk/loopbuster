@@ -1,0 +1,28 @@
+{
+  "trajectory_id": "synth_normal_0077",
+  "source": "synthetic",
+  "task_description": "单步 action (1步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "单步 action (1步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "list_directory",
+      "args": {
+        "path": "./src"
+      },
+      "output": "Contents of ./tests:\nindex.html\nstyle.css\napp.js\nimages/"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 1,
+    "generator": "gen_normal_progressive"
+  }
+}

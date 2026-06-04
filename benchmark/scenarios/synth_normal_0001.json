@@ -1,0 +1,56 @@
+{
+  "trajectory_id": "synth_normal_0001",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "author"
+      },
+      "output": "Extracted title: 2024-01-15"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/schema.py",
+        "content": "Lorem ipsum dolor sit amet."
+      },
+      "output": "File saved: Makefile"
+    },
+    {
+      "step": 3,
+      "tool": "read_news",
+      "args": {
+        "category": "health",
+        "count": "5"
+      },
+      "output": "Latest business: New AI Model Achieves Breakthrough"
+    },
+    {
+      "step": 4,
+      "tool": "parse_data",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "format": "json"
+      },
+      "output": "Parsed json: 3 key-value pairs extracted"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_normal_progressive"
+  }
+}
