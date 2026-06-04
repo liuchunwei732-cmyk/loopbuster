@@ -90,14 +90,22 @@ class ExactRepeatStrategy(DetectionStrategy):
 
 @dataclass
 class FuzzyRepeatStrategy(DetectionStrategy):
-    """Detect near-identical actions using similarity scoring.
+    """Detect near-identical actions using hybrid tool-frequency + similarity scoring.
 
-    Uses Jaccard + edit distance to catch agents trying slightly different
-    arguments but repeating the same tool call pattern.
+    Two signals blended:
+      1. Tool-frequency: how often this tool appears in the window (high = stuck
+         on a tool even if args change)
+      2. Args-similarity: how similar recent args are to current args
+
+    Previous version only used args-similarity as a gate, which meant agents
+    calling the same tool with genuinely different args (e.g. different search
+    queries) were never flagged. Blending both signals catches both cases.
     """
 
     window_size: int = 5
     similarity_threshold: float = 0.85
+    # Weight of tool-frequency signal vs args-similarity in the final blend
+    tool_frequency_weight: float = 0.6
     _history: deque[ActionRecord] = field(default_factory=deque, init=False, repr=False)
 
     def check(self, record: ActionRecord) -> tuple[float, str]:
@@ -108,23 +116,50 @@ class FuzzyRepeatStrategy(DetectionStrategy):
         if len(self._history) < 2:
             return 0.0, ""
 
+        # --- Signal 1: tool-frequency ---
+        same_tool_count = sum(1 for r in self._history if r.tool == record.tool)
+        tool_freq_conf = (same_tool_count - 1) / (self.window_size - 1)  # 0~1
+
+        # --- Signal 2: args-similarity (only for same-tool prev calls) ---
         high_sim_count = 0
         max_sim = 0.0
+        total_same_tool = 0
         for prev in list(self._history)[:-1]:
             if record.tool != prev.tool:
                 continue
+            total_same_tool += 1
             sim = args_similarity(record.args, prev.args)
             max_sim = max(max_sim, sim)
             if sim >= self.similarity_threshold:
                 high_sim_count += 1
 
-        if high_sim_count == 0:
+        # Args-similarity confidence: fraction of same-tool prev calls above threshold
+        args_conf = high_sim_count / max(total_same_tool, 1)
+
+        # --- Blend ---
+        # High tool frequency + low args sim = stuck on a tool (moderate confidence)
+        # Low tool frequency + high args sim = unlikely to be a loop (low confidence)
+        # Both high = definite fuzzy repeat (high confidence)
+        w = self.tool_frequency_weight
+        confidence = w * tool_freq_conf + (1 - w) * args_conf
+        confidence = max(0.0, min(1.0, confidence))
+
+        # 保底：如果同一种工具占据 window 过半，至少给 0.35 的置信度
+        # （引擎的阈值是 > 0.3，所以保底必须大于 0.3 才能触发 consecutive_hits）
+        if same_tool_count > self.window_size // 2:
+            confidence = max(confidence, 0.35)
+        elif confidence < 0.1:
             return 0.0, ""
 
-        confidence = min(1.0, high_sim_count / (self.window_size - 1))
+        # Build detail string
+        parts = []
+        if tool_freq_conf > 0.3:
+            parts.append(f"used {same_tool_count}/{self.window_size} times")
+        if args_conf > 0.3:
+            parts.append(f"args sim {max_sim:.2f}")
+
         return confidence, (
-            f"Fuzzy repeat: '{record.tool}' similar to {high_sim_count} recent calls "
-            f"(max similarity: {max_sim:.2f})"
+            f"Fuzzy repeat: '{record.tool}' " + ", ".join(parts)
         )
 
     def reset(self) -> None:

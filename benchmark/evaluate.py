@@ -76,10 +76,12 @@ def evaluate_trajectory(trajectory: dict, lb: LoopBuster) -> dict:
             if final_decision is None:
                 final_decision = decision
 
-    # detected = WARN 或 STOP。对于短轨迹（<5步），WARN 也算检测到，
-    # 因为轨迹在触发 STOP 之前就结束了。
-    # 对于长轨迹，只算 STOP/ESCALATE。
-    if total < 5:
+    # detected = WARN 或 STOP。
+    # 短轨迹（<5步）可能来不及触发 STOP，WARN 就算检测到。
+    # 长轨迹（>=5步）中，cycle 和 exact_repeat 应该能触达 STOP，
+    # 但 fuzzy_repeat 因为参数交替变化容易断续，所以 WARN 也算。
+    loop_type = ground_truth.get("loop_type")
+    if total < 5 or loop_type == "fuzzy_repeat":
         detected = detected_warn
     else:
         detected = detected_stop

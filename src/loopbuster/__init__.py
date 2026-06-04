@@ -32,6 +32,13 @@ from .guards import BudgetCeiling, Guard, RepeatCallGuard, StateStasis
 from .progress import ProgressReport, ProgressSignal
 from .risk import RiskReport, RiskScorer
 from .similarity import args_similarity
+from .similarity_backend import (
+    BACKENDS,
+    DefaultSimilarityBackend,
+    EmbeddingSimilarityBackend,
+    SimilarityBackend,
+    get_backend,
+)
 from .strategies import (
     CompositeStrategy,
     CycleDetectionStrategy,

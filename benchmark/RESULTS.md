@@ -7,23 +7,23 @@
 | Metric | Value |
 |---|---|
 | Total Scenarios | 410 |
-| TP | 163 |
-| FP | 6 |
-| FN | 97 |
-| TN | 144 |
-| Precision | 96.45% |
-| Recall | 62.69% |
-| F1 Score | 75.99% |
-| Accuracy | 74.88% |
+| TP | 206 |
+| FP | 38 |
+| FN | 54 |
+| TN | 112 |
+| Precision | 84.43% |
+| Recall | 79.23% |
+| F1 Score | 81.75% |
+| Accuracy | 77.56% |
 
 ## By Loop Type
 
 | Type | Count | Precision | Recall | F1 | FP |
 |---|---|---|---|---|---|
-| cycle | 70 | 100% | 66% | 79% | 0 |
+| cycle | 70 | 100% | 69% | 81% | 0 |
 | exact_repeat | 95 | 100% | 66% | 80% | 0 |
-| fuzzy_repeat | 50 | 100% | 18% | 31% | 0 |
-| good_cycle | 40 | - | 100% | - | 1 |
+| fuzzy_repeat | 50 | 100% | 100% | 100% | 0 |
+| good_cycle | 40 | - | 100% | - | 33 |
 | none | 110 | - | 100% | - | 5 |
 | output_stagnation | 45 | 100% | 100% | 100% | 0 |
 
@@ -34,14 +34,46 @@
 | cycle | 55 | 100% | 75% | 85% | 0 |
 | edge | 40 | 100% | 100% | 100% | 0 |
 | exact_repeat | 70 | 100% | 71% | 83% | 0 |
-| fuzzy_repeat | 50 | 100% | 18% | 31% | 0 |
-| good_cycle | 40 | - | 100% | - | 1 |
-| mixed | 30 | 100% | 27% | 42% | 0 |
+| fuzzy_repeat | 50 | 100% | 100% | 100% | 0 |
+| good_cycle | 40 | - | 100% | - | 33 |
+| mixed | 30 | 100% | 33% | 50% | 0 |
 | normal | 80 | - | 100% | - | 5 |
 | stagnation | 45 | 100% | 100% | 100% | 0 |
 
 ## False Positives
 
+- `synth_good_cycle_0301` (good_cycle, good_cycle): Fuzzy repeat: 'web_search' used 5/5 times
+- `synth_good_cycle_0302` (good_cycle, good_cycle): Fuzzy repeat: 'web_search' used 5/5 times
+- `synth_good_cycle_0303` (good_cycle, good_cycle): None
+- `synth_good_cycle_0304` (good_cycle, good_cycle): None
+- `synth_good_cycle_0305` (good_cycle, good_cycle): None
+- `synth_good_cycle_0306` (good_cycle, good_cycle): Fuzzy repeat: 'web_search' used 5/5 times
+- `synth_good_cycle_0308` (good_cycle, good_cycle): None
+- `synth_good_cycle_0309` (good_cycle, good_cycle): None
+- `synth_good_cycle_0310` (good_cycle, good_cycle): None
+- `synth_good_cycle_0312` (good_cycle, good_cycle): None
+- `synth_good_cycle_0313` (good_cycle, good_cycle): None
+- `synth_good_cycle_0314` (good_cycle, good_cycle): None
+- `synth_good_cycle_0315` (good_cycle, good_cycle): Fuzzy repeat: 'web_search' used 5/5 times
+- `synth_good_cycle_0316` (good_cycle, good_cycle): None
+- `synth_good_cycle_0317` (good_cycle, good_cycle): Fuzzy repeat: 'web_search' used 5/5 times
+- `synth_good_cycle_0318` (good_cycle, good_cycle): None
+- `synth_good_cycle_0319` (good_cycle, good_cycle): None
+- `synth_good_cycle_0320` (good_cycle, good_cycle): Fuzzy repeat: 'web_search' used 5/5 times
+- `synth_good_cycle_0322` (good_cycle, good_cycle): Fuzzy repeat: 'web_search' used 5/5 times
+- `synth_good_cycle_0323` (good_cycle, good_cycle): None
+- `synth_good_cycle_0324` (good_cycle, good_cycle): None
+- `synth_good_cycle_0325` (good_cycle, good_cycle): None
+- `synth_good_cycle_0326` (good_cycle, good_cycle): None
+- `synth_good_cycle_0327` (good_cycle, good_cycle): None
+- `synth_good_cycle_0329` (good_cycle, good_cycle): None
+- `synth_good_cycle_0332` (good_cycle, good_cycle): None
+- `synth_good_cycle_0334` (good_cycle, good_cycle): None
+- `synth_good_cycle_0335` (good_cycle, good_cycle): None
+- `synth_good_cycle_0336` (good_cycle, good_cycle): None
+- `synth_good_cycle_0337` (good_cycle, good_cycle): None
+- `synth_good_cycle_0338` (good_cycle, good_cycle): None
+- `synth_good_cycle_0339` (good_cycle, good_cycle): None
 - `synth_good_cycle_0340` (good_cycle, good_cycle): None
 - `synth_normal_0042` (normal, None): Cycle detected: [analyze_sentiment → python_repl → web_search → parse_data → api_call] repeated 2 times
 - `synth_normal_0047` (normal, None): Cycle detected: [search_database → parse_data → calculate → analyze_sentiment → send_email] repeated 2 times
@@ -85,47 +117,6 @@
 - `synth_exact_repeat_0148` (exact_repeat, type=exact_repeat, steps=8)
 - `synth_exact_repeat_0149` (exact_repeat, type=exact_repeat, steps=6)
 - `synth_exact_repeat_0150` (exact_repeat, type=exact_repeat, steps=8)
-- `synth_fuzzy_repeat_0151` (fuzzy_repeat, type=fuzzy_repeat, steps=6)
-- `synth_fuzzy_repeat_0152` (fuzzy_repeat, type=fuzzy_repeat, steps=6)
-- `synth_fuzzy_repeat_0154` (fuzzy_repeat, type=fuzzy_repeat, steps=4)
-- `synth_fuzzy_repeat_0155` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0156` (fuzzy_repeat, type=fuzzy_repeat, steps=6)
-- `synth_fuzzy_repeat_0157` (fuzzy_repeat, type=fuzzy_repeat, steps=6)
-- `synth_fuzzy_repeat_0158` (fuzzy_repeat, type=fuzzy_repeat, steps=4)
-- `synth_fuzzy_repeat_0160` (fuzzy_repeat, type=fuzzy_repeat, steps=3)
-- `synth_fuzzy_repeat_0161` (fuzzy_repeat, type=fuzzy_repeat, steps=4)
-- `synth_fuzzy_repeat_0162` (fuzzy_repeat, type=fuzzy_repeat, steps=3)
-- `synth_fuzzy_repeat_0163` (fuzzy_repeat, type=fuzzy_repeat, steps=6)
-- `synth_fuzzy_repeat_0164` (fuzzy_repeat, type=fuzzy_repeat, steps=3)
-- `synth_fuzzy_repeat_0166` (fuzzy_repeat, type=fuzzy_repeat, steps=4)
-- `synth_fuzzy_repeat_0167` (fuzzy_repeat, type=fuzzy_repeat, steps=4)
-- `synth_fuzzy_repeat_0169` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0170` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0171` (fuzzy_repeat, type=fuzzy_repeat, steps=6)
-- `synth_fuzzy_repeat_0172` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0173` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0174` (fuzzy_repeat, type=fuzzy_repeat, steps=3)
-- `synth_fuzzy_repeat_0175` (fuzzy_repeat, type=fuzzy_repeat, steps=6)
-- `synth_fuzzy_repeat_0176` (fuzzy_repeat, type=fuzzy_repeat, steps=3)
-- `synth_fuzzy_repeat_0179` (fuzzy_repeat, type=fuzzy_repeat, steps=4)
-- `synth_fuzzy_repeat_0181` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0182` (fuzzy_repeat, type=fuzzy_repeat, steps=4)
-- `synth_fuzzy_repeat_0183` (fuzzy_repeat, type=fuzzy_repeat, steps=3)
-- `synth_fuzzy_repeat_0184` (fuzzy_repeat, type=fuzzy_repeat, steps=4)
-- `synth_fuzzy_repeat_0185` (fuzzy_repeat, type=fuzzy_repeat, steps=3)
-- `synth_fuzzy_repeat_0186` (fuzzy_repeat, type=fuzzy_repeat, steps=4)
-- `synth_fuzzy_repeat_0187` (fuzzy_repeat, type=fuzzy_repeat, steps=4)
-- `synth_fuzzy_repeat_0188` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0190` (fuzzy_repeat, type=fuzzy_repeat, steps=3)
-- `synth_fuzzy_repeat_0191` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0193` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0194` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0195` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0196` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0197` (fuzzy_repeat, type=fuzzy_repeat, steps=5)
-- `synth_fuzzy_repeat_0198` (fuzzy_repeat, type=fuzzy_repeat, steps=3)
-- `synth_fuzzy_repeat_0199` (fuzzy_repeat, type=fuzzy_repeat, steps=4)
-- `synth_fuzzy_repeat_0200` (fuzzy_repeat, type=fuzzy_repeat, steps=3)
 - `synth_mixed_0341` (mixed, type=exact_repeat, steps=9)
 - `synth_mixed_0342` (mixed, type=exact_repeat, steps=6)
 - `synth_mixed_0343` (mixed, type=exact_repeat, steps=7)
@@ -141,10 +132,8 @@
 - `synth_mixed_0356` (mixed, type=cycle, steps=9)
 - `synth_mixed_0357` (mixed, type=cycle, steps=9)
 - `synth_mixed_0358` (mixed, type=cycle, steps=8)
-- `synth_mixed_0360` (mixed, type=cycle, steps=9)
 - `synth_mixed_0361` (mixed, type=cycle, steps=10)
 - `synth_mixed_0363` (mixed, type=cycle, steps=7)
 - `synth_mixed_0364` (mixed, type=cycle, steps=7)
 - `synth_mixed_0365` (mixed, type=cycle, steps=11)
-- `synth_mixed_0369` (mixed, type=cycle, steps=10)
 - `synth_mixed_0370` (mixed, type=cycle, steps=9)
