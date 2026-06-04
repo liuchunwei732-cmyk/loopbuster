@@ -37,7 +37,7 @@ class LoopBusterCallback:
         on_escalate: Any = None,
     ):
         from loopbuster.strategies import CompositeStrategy
-        from loopbuster.types import Action, ActionConfig, ActionRecord
+        from loopbuster.types import ActionConfig
 
         self._strategies = CompositeStrategy()
         self._action_config = ActionConfig()

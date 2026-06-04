@@ -9,12 +9,10 @@ from __future__ import annotations
 from typing import Any
 
 from loopbuster import LoopBuster
-from loopbuster.types import Decision
 
 # LangChain is optional; fail gracefully if not installed
 try:
     from langchain.callbacks.base import BaseCallbackHandler
-    from langchain.schema import AgentAction, AgentFinish
 except ImportError as _exc:  # pragma: no cover
     raise ImportError(
         "langchain is required for this integration. "

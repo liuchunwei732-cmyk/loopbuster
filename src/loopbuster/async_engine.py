@@ -13,22 +13,16 @@ Key differences from LoopBuster:
 
 from __future__ import annotations
 
-import asyncio
 import time
 from typing import Any, AsyncIterator, Callable
 
-from loopbuster.circuit import BreakerAction, BreakerDecision, CircuitBreaker
+from loopbuster.circuit import CircuitBreaker
 from loopbuster.engine import LoopBuster
-from loopbuster.guards import BudgetCeiling, Guard, RepeatCallGuard, StateStasis
-from loopbuster.strategies import CompositeStrategy
+from loopbuster.guards import Guard
 from loopbuster.types import (
     Action,
     ActionConfig,
-    ActionRecord,
     Decision,
-    TokenUsage,
-    ToolCall,
-    TripError,
     TripReason,
 )
 

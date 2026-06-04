@@ -10,11 +10,10 @@ import logging
 from collections import deque
 from typing import Any, Callable
 
-from loopbuster.circuit import BreakerAction, BreakerDecision, CircuitBreaker
+from loopbuster.circuit import BreakerDecision, CircuitBreaker
 from loopbuster.guards import BudgetCeiling, Guard, RepeatCallGuard, StateStasis
 from loopbuster.strategies import CompositeStrategy
 from loopbuster.types import (
-    Action,
     ActionConfig,
     ActionRecord,
     AdaptiveActionConfig,
@@ -461,7 +460,8 @@ class LoopBuster:
 
 def _sig_of(args: dict | str | None) -> str:
     """Stable hash of args for signature generation."""
-    import hashlib, json
+    import hashlib
+    import json
 
     if args is None:
         return ""

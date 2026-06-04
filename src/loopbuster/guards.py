@@ -13,7 +13,7 @@ import hashlib
 import json
 import logging
 import re
-from abc import ABC, abstractmethod
+from abc import ABC
 from collections import deque
 from typing import Any, Callable
 

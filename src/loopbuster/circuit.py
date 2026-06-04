@@ -113,9 +113,9 @@ class CircuitBreaker:
                 ),
                 times_repeated=times,
                 alternative_suggestion=(
-                    f"Consider: (1) changing input arguments, "
-                    f"(2) using a different tool, "
-                    f"(3) asking the user for clarification."
+                    "Consider: (1) changing input arguments, "
+                    "(2) using a different tool, "
+                    "(3) asking the user for clarification."
                 ),
             )
 
@@ -128,8 +128,8 @@ class CircuitBreaker:
             ),
             times_repeated=times,
             alternative_suggestion=(
-                f"This action is becoming repetitive. "
-                f"Consider whether you are making progress or stuck in a loop."
+                "This action is becoming repetitive. "
+                "Consider whether you are making progress or stuck in a loop."
             ),
         )
 

@@ -11,7 +11,6 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from collections import deque
 from dataclasses import dataclass, field
-from typing import Any
 
 from loopbuster.similarity import args_similarity
 from loopbuster.types import ActionRecord

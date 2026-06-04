@@ -1,9 +1,8 @@
 from fastapi import FastAPI, Depends, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from typing import List, Optional
+from typing import Optional
 import os
 import json
-import redis
 from loopbuster.storage.redis import RedisBackend
 
 app = FastAPI(title="LoopBuster Dashboard API", version="0.1.0")
