@@ -1,0 +1,52 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0189",
+  "source": "synthetic",
+  "task_description": "同一工具，参数变化较大但意图相同 (search_wikipediax4fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 2,
+    "description": "同一工具，参数变化较大但意图相同 (search_wikipediax4fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Computer Networks"
+      },
+      "output": "Wikipedia: Database Systems\nPython is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 2,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Artificial Intelligence"
+      },
+      "output": "Wikipedia: Algorithm Design\nArtificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 3,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Software Engineering"
+      },
+      "output": "Wikipedia: Natural Language Processing\nMachine learning is the study of computer algorithms that improve through experience."
+    },
+    {
+      "step": 4,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Computer Vision"
+      },
+      "output": "Wikipedia: Database Systems\nPython is a high-level, interpreted programming language with dynamic semantics."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

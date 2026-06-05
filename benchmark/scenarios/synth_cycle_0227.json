@@ -1,0 +1,120 @@
+{
+  "trajectory_id": "synth_cycle_0227",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([read_file→python_repl→write_file]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([read_file→python_repl→write_file]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-01-15/app-server.log"
+      },
+      "output": "Read docker-compose.yml: 512 lines, 2048 characters"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "import django\nprint(requests.__version__)"
+      },
+      "output": "> Hello, World!"
+    },
+    {
+      "step": 3,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/utils.txt",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "Written 8192 bytes to package.json"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-11-08/prometheus.log"
+      },
+      "output": "Read docker-compose.yml: 1024 lines, 8192 characters"
+    },
+    {
+      "step": 5,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(2 + 2)"
+      },
+      "output": "Execution result:\n42"
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/data.js",
+        "content": "This is a sample content for testing."
+      },
+      "output": "File saved: /etc/config.yaml"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-06-30/prometheus.log"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 8,
+      "tool": "python_repl",
+      "args": {
+        "code": "import torch\nprint(numpy.__version__)"
+      },
+      "output": "Execution result:\n[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 9,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/models.html",
+        "content": "This is a sample content for testing."
+      },
+      "output": "File saved: Makefile"
+    },
+    {
+      "step": 10,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2026-02-14/app-server.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 11,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sum(range(100)))"
+      },
+      "output": "3.141592653589793"
+    },
+    {
+      "step": 12,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/test_main.css",
+        "content": "This is a sample content for testing."
+      },
+      "output": "File saved: Makefile"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_cycle"
+  }
+}

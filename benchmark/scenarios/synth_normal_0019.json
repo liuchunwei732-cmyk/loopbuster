@@ -1,0 +1,89 @@
+{
+  "trajectory_id": "synth_normal_0019",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "translate",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "source_lang": "ja",
+        "target_lang": "de"
+      },
+      "output": "你好，世界！"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "./myapp/README.md",
+        "content": "# API Service\n\nThis project handles data processing tasks."
+      },
+      "output": "File saved: package.json"
+    },
+    {
+      "step": 3,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2024-06-30 09:15:00"
+    },
+    {
+      "step": 4,
+      "tool": "translate",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "source_lang": "en",
+        "target_lang": "en"
+      },
+      "output": "Translation (fr → fr):\nHola, ¿cómo estás?"
+    },
+    {
+      "step": 5,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/config.md",
+        "content": "This is a sample content for testing."
+      },
+      "output": "Written 32768 bytes to docker-compose.yml"
+    },
+    {
+      "step": 6,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2025-03-20 23:45:00"
+    },
+    {
+      "step": 7,
+      "tool": "translate",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "source_lang": "zh",
+        "target_lang": "ko"
+      },
+      "output": "Translation (es → en):\nHola, ¿cómo estás?"
+    },
+    {
+      "step": 8,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/main.ts",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "File saved: /etc/config.yaml"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_normal_progressive"
+  }
+}

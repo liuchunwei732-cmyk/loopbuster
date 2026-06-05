@@ -1,0 +1,87 @@
+{
+  "trajectory_id": "synth_normal_0024",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "create_document",
+      "args": {
+        "title": "Meeting Summary",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Created: Analysis Report.md"
+    },
+    {
+      "step": 2,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python backup_db.py --input data.csv --output results.csv"
+      },
+      "output": "total 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "./docs",
+        "recursive": "true"
+      },
+      "output": "Found 8 items in /var/log"
+    },
+    {
+      "step": 4,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2025-03-20 23:45:00"
+    },
+    {
+      "step": 5,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The Earth orbits around the Sun."
+      },
+      "output": "positive (0.45)"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/utils.py"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 7,
+      "tool": "create_document",
+      "args": {
+        "title": "Project Proposal",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Document 'Meeting Summary' created (2000 words)"
+    },
+    {
+      "step": 8,
+      "tool": "bash_shell",
+      "args": {
+        "command": "cat package.json"
+      },
+      "output": "Found 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_normal_progressive"
+  }
+}

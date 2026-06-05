@@ -1,0 +1,100 @@
+{
+  "trajectory_id": "synth_cycle_0237",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM orders WHERE clear"
+      },
+      "output": "Found 5 records. No matching records found."
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "format": "markdown"
+      },
+      "output": "Parsed html: 3 key-value pairs extracted"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM products"
+      },
+      "output": "Found 25 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/events",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "HTTP 404: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "date"
+      },
+      "output": "Extracted date: active"
+    },
+    {
+      "step": 7,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM products"
+      },
+      "output": "Query returned 0 rows:\n[(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 8,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.redis.com/v1/search",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "Response from https://demo.io: {\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 9,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "date"
+      },
+      "output": "Parsed yaml: {'name': 'Alice', 'age': 30}"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_cycle"
+  }
+}

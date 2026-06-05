@@ -1,0 +1,70 @@
+{
+  "trajectory_id": "synth_cycle_0242",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([read_file→python_repl→write_file]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([read_file→python_repl→write_file]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2026-02-14/celery-worker.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "analyze('titanic.csv')"
+      },
+      "output": "Execution result:\nHello, World!"
+    },
+    {
+      "step": 3,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/constants.py",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "File saved: docker-compose.yml"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-06-30/nginx.log"
+      },
+      "output": "Read Makefile: 512 lines, 32768 characters"
+    },
+    {
+      "step": 5,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_json('<file>')\ndf.head()"
+      },
+      "output": "Execution result:\n[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/utils.js",
+        "content": "This is a sample content for testing."
+      },
+      "output": "Written 8192 bytes to package.json"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_cycle"
+  }
+}

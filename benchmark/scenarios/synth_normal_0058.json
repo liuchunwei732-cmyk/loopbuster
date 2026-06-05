@@ -1,0 +1,187 @@
+{
+  "trajectory_id": "synth_normal_0058",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (19步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (19步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "list_directory",
+      "args": {
+        "path": "./tests",
+        "recursive": "true"
+      },
+      "output": "Found 12 items in ./config"
+    },
+    {
+      "step": 2,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2025-03-20 23:45:00"
+    },
+    {
+      "step": 3,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Artificial Intelligence"
+      },
+      "output": "Page loaded: GitHub - TensorFlow Repository. 15 paragraphs found."
+    },
+    {
+      "step": 4,
+      "tool": "create_document",
+      "args": {
+        "title": "Technical Documentation",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Created: Project Proposal.md"
+    },
+    {
+      "step": 5,
+      "tool": "send_email",
+      "args": {
+        "to": "user@example.com",
+        "subject": "Meeting Notes",
+        "body": "Let's schedule a meeting."
+      },
+      "output": "Email sent to admin@company.com with subject 'Project Update'"
+    },
+    {
+      "step": 6,
+      "tool": "translate",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "source_lang": "fr",
+        "target_lang": "de"
+      },
+      "output": "Translation (es → es):\nBonjour, comment allez-vous?"
+    },
+    {
+      "step": 7,
+      "tool": "list_directory",
+      "args": {
+        "path": "./src"
+      },
+      "output": "Found 5 items in ./src"
+    },
+    {
+      "step": 8,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2024-01-15 14:30:00"
+    },
+    {
+      "step": 9,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=11223"
+      },
+      "output": "Fetched page https://test.org: Hacker News - Latest Discussions\nContent length: 8192 bytes"
+    },
+    {
+      "step": 10,
+      "tool": "create_document",
+      "args": {
+        "title": "Meeting Summary",
+        "content": "Lorem ipsum dolor sit amet.",
+        "format": "markdown"
+      },
+      "output": "Created: Meeting Summary.md"
+    },
+    {
+      "step": 11,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Feature Request",
+        "body": "Please find the attached report."
+      },
+      "output": "Message delivered: <abc123@mail.example.com>"
+    },
+    {
+      "step": 12,
+      "tool": "translate",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "source_lang": "ko",
+        "target_lang": "es"
+      },
+      "output": "こんにちは、世界！"
+    },
+    {
+      "step": 13,
+      "tool": "list_directory",
+      "args": {
+        "path": "/var/log",
+        "recursive": "true"
+      },
+      "output": "Found 12 items in ./src"
+    },
+    {
+      "step": 14,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2024-01-15 14:30:00"
+    },
+    {
+      "step": 15,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/apple/react"
+      },
+      "output": "Page loaded: Wikipedia - Artificial Intelligence. 5 paragraphs found."
+    },
+    {
+      "step": 16,
+      "tool": "create_document",
+      "args": {
+        "title": "Analysis Report",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Document 'Technical Documentation' created (250 words)"
+    },
+    {
+      "step": 17,
+      "tool": "send_email",
+      "args": {
+        "to": "team@startup.io",
+        "subject": "Feature Request",
+        "body": "Let's schedule a meeting."
+      },
+      "output": "Message delivered: <abc123@mail.example.com>"
+    },
+    {
+      "step": 18,
+      "tool": "translate",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "source_lang": "es",
+        "target_lang": "en"
+      },
+      "output": "Translation (zh → es):\n你好，世界！"
+    },
+    {
+      "step": 19,
+      "tool": "list_directory",
+      "args": {
+        "path": "/var/log",
+        "recursive": "true"
+      },
+      "output": "Contents of ./docs:\nindex.html\nstyle.css\napp.js\nimages/"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 19,
+    "generator": "gen_normal_progressive"
+  }
+}

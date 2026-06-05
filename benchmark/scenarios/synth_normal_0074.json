@@ -1,0 +1,29 @@
+{
+  "trajectory_id": "synth_normal_0074",
+  "source": "synthetic",
+  "task_description": "单步 action (1步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "单步 action (1步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "write_file",
+      "args": {
+        "path": "./backend/README.md",
+        "content": "# Data Pipeline\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 32768 bytes to docker-compose.yml"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 1,
+    "generator": "gen_normal_progressive"
+  }
+}

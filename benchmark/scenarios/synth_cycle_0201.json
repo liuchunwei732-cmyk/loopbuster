@@ -1,0 +1,84 @@
+{
+  "trajectory_id": "synth_cycle_0201",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([web_search→web_fetch]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([web_search→web_fetch]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "CI/CD pipeline setup 2024"
+      },
+      "output": "Top result for SQL vs NoSQL databases: Docker containers provide a consistent environment for application deployment. (relevance: 0.92)"
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=44556"
+      },
+      "output": "Page loaded: GitHub - TensorFlow Repository. 15 paragraphs found."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "clean code principles"
+      },
+      "output": "Found 20 results for distributed systems design. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 4,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=12345"
+      },
+      "output": "Fetched page https://demo.io: Hacker News - Latest Discussions\nContent length: 4096 bytes"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "Madrid transportation"
+      },
+      "output": "Search results for 'how to learn Python':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. JavaScript is commonly used for front-end web development alongside HTML and CSS."
+    },
+    {
+      "step": 6,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/uber/go"
+      },
+      "output": "Page loaded: Wikipedia - Artificial Intelligence. 12 paragraphs found."
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "how to deploy in Swift"
+      },
+      "output": "Top result for distributed systems design: Python is a versatile programming language used in web development and data science. (relevance: 0.78)"
+    },
+    {
+      "step": 8,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=12345"
+      },
+      "output": "Page loaded: Hacker News - Latest Discussions. 5 paragraphs found."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_cycle"
+  }
+}

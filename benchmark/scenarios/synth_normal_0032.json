@@ -1,0 +1,46 @@
+{
+  "trajectory_id": "synth_normal_0032",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (3步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (3步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas\nprint(numpy.__version__)"
+      },
+      "output": "Execution result:\nnumpy version: 1.24.3"
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "max_length": "200"
+      },
+      "output": "Summary (80% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "HTTP 500: {\"message\": \"success\"}"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_normal_progressive"
+  }
+}

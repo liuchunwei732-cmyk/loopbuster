@@ -27,8 +27,18 @@ from .async_engine import AsyncLoopBuster
 from .circuit import BreakerAction, BreakerDecision, CircuitBreaker
 from .decorator import buster
 from .engine import LoopBuster, current
+from .explain import LoopExplanation, RootCause, RootCauseAnalyzer
 from .guards import BudgetCeiling, Guard, RepeatCallGuard, StateStasis
+from .progress import ProgressReport, ProgressSignal
+from .risk import RiskReport, RiskScorer
 from .similarity import args_similarity
+from .similarity_backend import (
+    BACKENDS,
+    DefaultSimilarityBackend,
+    EmbeddingSimilarityBackend,
+    SimilarityBackend,
+    get_backend,
+)
 from .strategies import (
     CompositeStrategy,
     CycleDetectionStrategy,
@@ -70,6 +80,14 @@ __all__ = [
     "CircuitBreaker",
     "BreakerAction",
     "BreakerDecision",
+    # Deep detection
+    "ProgressSignal",
+    "ProgressReport",
+    "RiskScorer",
+    "RiskReport",
+    "RootCauseAnalyzer",
+    "RootCause",
+    "LoopExplanation",
     # Types
     "Action",
     "ActionConfig",

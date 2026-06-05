@@ -1,0 +1,196 @@
+{
+  "trajectory_id": "synth_normal_0053",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (19步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (19步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "send_email",
+      "args": {
+        "to": "user@example.com",
+        "subject": "Weekly Report",
+        "body": "Please find the attached report."
+      },
+      "output": "Message delivered: <abc123@mail.example.com>"
+    },
+    {
+      "step": 2,
+      "tool": "translate",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "source_lang": "zh",
+        "target_lang": "zh"
+      },
+      "output": "你好，世界！"
+    },
+    {
+      "step": 3,
+      "tool": "read_news",
+      "args": {
+        "category": "science",
+        "count": "5"
+      },
+      "output": "Top science news:\n1. New AI Model Achieves Breakthrough\n2. Scientists Discover New Species\n3. Olympic Games Opening Ceremony"
+    },
+    {
+      "step": 4,
+      "tool": "create_document",
+      "args": {
+        "title": "Analysis Report",
+        "content": "Lorem ipsum dolor sit amet.",
+        "format": "markdown"
+      },
+      "output": "Created: Meeting Summary.md"
+    },
+    {
+      "step": 5,
+      "tool": "get_weather",
+      "args": {
+        "city": "Melbourne"
+      },
+      "output": "Weather in Bangkok: 30°C, humidity 95%"
+    },
+    {
+      "step": 6,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog."
+      },
+      "output": "mixed (0.87)"
+    },
+    {
+      "step": 7,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Meeting Notes",
+        "body": "Please find the attached report."
+      },
+      "output": "Email sent to user@example.com with subject 'Weekly Report'"
+    },
+    {
+      "step": 8,
+      "tool": "translate",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "source_lang": "fr",
+        "target_lang": "ja"
+      },
+      "output": "你好，世界！"
+    },
+    {
+      "step": 9,
+      "tool": "read_news",
+      "args": {
+        "category": "sports",
+        "count": "5"
+      },
+      "output": "Latest science: New AI Model Achieves Breakthrough"
+    },
+    {
+      "step": 10,
+      "tool": "create_document",
+      "args": {
+        "title": "Project Proposal",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Created: Meeting Summary.md"
+    },
+    {
+      "step": 11,
+      "tool": "get_weather",
+      "args": {
+        "city": "Berlin",
+        "units": "fahrenheit"
+      },
+      "output": "Weather in New York: 30°C, humidity 85%"
+    },
+    {
+      "step": 12,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence."
+      },
+      "output": "positive (0.52)"
+    },
+    {
+      "step": 13,
+      "tool": "send_email",
+      "args": {
+        "to": "user@example.com",
+        "subject": "Project Update",
+        "body": "Please find the attached report."
+      },
+      "output": "Message delivered: <abc123@mail.example.com>"
+    },
+    {
+      "step": 14,
+      "tool": "translate",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "source_lang": "ja",
+        "target_lang": "en"
+      },
+      "output": "Translation (es → ko):\nHola, ¿cómo estás?"
+    },
+    {
+      "step": 15,
+      "tool": "read_news",
+      "args": {
+        "category": "sports",
+        "count": "5"
+      },
+      "output": "Top science news:\n1. New AI Model Achieves Breakthrough\n2. Scientists Discover New Species\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 16,
+      "tool": "create_document",
+      "args": {
+        "title": "Project Proposal",
+        "content": "Lorem ipsum dolor sit amet.",
+        "format": "markdown"
+      },
+      "output": "Created: Technical Documentation.md"
+    },
+    {
+      "step": 17,
+      "tool": "get_weather",
+      "args": {
+        "city": "Beijing"
+      },
+      "output": "Hong Kong: 15°F, rainy"
+    },
+    {
+      "step": 18,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The capital of France is Paris."
+      },
+      "output": "mixed (0.45)"
+    },
+    {
+      "step": 19,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Feature Request",
+        "body": "The deployment was successful."
+      },
+      "output": "Message delivered: <abc123@mail.example.com>"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 19,
+    "generator": "gen_normal_progressive"
+  }
+}

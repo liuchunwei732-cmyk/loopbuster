@@ -1,0 +1,89 @@
+{
+  "trajectory_id": "synth_exact_repeat_0148",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (python_replx4间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (python_replx4间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "import transformers\nprint(torch.__version__)"
+      },
+      "output": "Execution result:\npandas version: 2.0.3"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/users",
+        "method": "POST",
+        "body": "{\"action\": \"start\"}"
+      },
+      "output": "404 OK\n<html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "import transformers\nprint(torch.__version__)"
+      },
+      "output": "Execution result:\npandas version: 2.0.3"
+    },
+    {
+      "step": 4,
+      "tool": "send_email",
+      "args": {
+        "to": "team@startup.io",
+        "subject": "Feature Request",
+        "body": "Please find the attached report."
+      },
+      "output": "Message delivered: <msg_456@mail.example.com>"
+    },
+    {
+      "step": 5,
+      "tool": "python_repl",
+      "args": {
+        "code": "import transformers\nprint(torch.__version__)"
+      },
+      "output": "Execution result:\npandas version: 2.0.3"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python 2025"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. JavaScript is commonly used for front-end web development alongside HTML and CSS."
+    },
+    {
+      "step": 7,
+      "tool": "summarize_text",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "max_length": "500"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Results show significant improvement"
+    },
+    {
+      "step": 8,
+      "tool": "python_repl",
+      "args": {
+        "code": "import transformers\nprint(torch.__version__)"
+      },
+      "output": "Execution result:\npandas version: 2.0.3"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_interleaved_repeat"
+  }
+}

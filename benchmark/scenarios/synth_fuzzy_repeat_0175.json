@@ -1,0 +1,68 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0175",
+  "source": "synthetic",
+  "task_description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx6fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 3,
+    "description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx6fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "distributed simple design"
+      },
+      "output": "Found 10 results for HTTP status codes. Result 1: Docker containers provide a consistent environment for application deployment."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "advanced systems design"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "examples systems design"
+      },
+      "output": "Search results for 'Linux file permissions':\n1. Docker containers provide a consistent environment for application deployment.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "distributed systems basics"
+      },
+      "output": "Top result for Docker compose tutorial: Kubernetes automates deployment, scaling, and management of containerized applications. (relevance: 0.92)"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "distributed tutorial design"
+      },
+      "output": "Search results for 'best machine learning courses':\n1. Python is a versatile programming language used in web development and data science.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "guide systems design"
+      },
+      "output": "Search results for 'distributed systems design':\n1. React is a JavaScript library for building user interfaces maintained by Meta.\n2. PostgreSQL is a powerful open-source relational database management system."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

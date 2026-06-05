@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_exact_repeat_0108",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 3~5 次 (web_searchx3)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "同 (tool, args) 连续重复 3~5 次 (web_searchx3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Bangkok transportation"
+      },
+      "output": "Top result for Git branching strategies: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.95)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Bangkok transportation"
+      },
+      "output": "Top result for Git branching strategies: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.95)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Bangkok transportation"
+      },
+      "output": "Top result for Git branching strategies: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.95)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_exact_repeat"
+  }
+}

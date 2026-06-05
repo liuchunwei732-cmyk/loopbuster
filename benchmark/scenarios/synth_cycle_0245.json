@@ -1,0 +1,95 @@
+{
+  "trajectory_id": "synth_cycle_0245",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([web_search→web_fetch→summarize_text]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([web_search→web_fetch→summarize_text]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Machine Learning vs Rust"
+      },
+      "output": "Top result for Linux file permissions: Python is a versatile programming language used in web development and data science. (relevance: 0.87)"
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=67890"
+      },
+      "output": "Page loaded: Hacker News - Latest Discussions. 15 paragraphs found."
+    },
+    {
+      "step": 3,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "max_length": "500"
+      },
+      "output": "Summary (80% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "how to debug in Kotlin"
+      },
+      "output": "Search results for 'REST API best practices':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 5,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/facebook/linux"
+      },
+      "output": "Fetched page https://demo.io: Wikipedia - Artificial Intelligence\nContent length: 2048 bytes"
+    },
+    {
+      "step": 6,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "max_length": "500"
+      },
+      "output": "Summary (60% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "Dubai population"
+      },
+      "output": "Top result for Git branching strategies: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.92)"
+    },
+    {
+      "step": 8,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/apple/react"
+      },
+      "output": "Page loaded: Wikipedia - Artificial Intelligence. 15 paragraphs found."
+    },
+    {
+      "step": 9,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "max_length": "200"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Further research is needed"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_cycle"
+  }
+}

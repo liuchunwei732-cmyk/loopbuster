@@ -1,0 +1,80 @@
+{
+  "trajectory_id": "synth_exact_repeat_0121",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 6~10 次 (api_callx6)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 4,
+    "description": "同 (tool, args) 连续重复 6~10 次 (api_callx6)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/posts",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "Response from https://test.org: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/posts",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "Response from https://test.org: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/posts",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "Response from https://test.org: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 4,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/posts",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "Response from https://test.org: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/posts",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "Response from https://test.org: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 6,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/posts",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "Response from https://test.org: {\"id\": 123, \"name\": \"test\"}"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_exact_repeat"
+  }
+}

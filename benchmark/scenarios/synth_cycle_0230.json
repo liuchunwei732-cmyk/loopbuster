@@ -1,0 +1,74 @@
+{
+  "trajectory_id": "synth_cycle_0230",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM analytics_events"
+      },
+      "output": "Query returned 100 rows:\n[(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/events",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "400 OK\n{\"message\": \"success\"}"
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "format": "html"
+      },
+      "output": "Parsed json: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM analytics_events"
+      },
+      "output": "Query returned 10 rows:\nNo matching records found."
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/events",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "Response from https://test.org: {\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "format": "csv"
+      },
+      "output": "Extracted status: 42.99"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_cycle"
+  }
+}

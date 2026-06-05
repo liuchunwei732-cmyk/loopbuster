@@ -1,0 +1,108 @@
+{
+  "trajectory_id": "synth_normal_0057",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (10步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (10步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "create_document",
+      "args": {
+        "title": "Technical Documentation",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Document 'Project Proposal' created (2000 words)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Machine Learning vs SQL"
+      },
+      "output": "Search results for 'HTTP status codes':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/posts",
+        "method": "GET"
+      },
+      "output": "HTTP 301: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 4,
+      "tool": "translate",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "source_lang": "fr",
+        "target_lang": "ko"
+      },
+      "output": "Translation (fr → fr):\nこんにちは、世界！"
+    },
+    {
+      "step": 5,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM orders WHERE clear"
+      },
+      "output": "Found 100 records. No matching records found."
+    },
+    {
+      "step": 6,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web."
+      },
+      "output": "positive (0.52)"
+    },
+    {
+      "step": 7,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_csv('<file>')\ndf.head()"
+      },
+      "output": "Execution result:\n3.141592653589793"
+    },
+    {
+      "step": 8,
+      "tool": "create_document",
+      "args": {
+        "title": "Technical Documentation",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Document 'Technical Documentation' created (250 words)"
+    },
+    {
+      "step": 9,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python 2025"
+      },
+      "output": "Top result for Docker compose tutorial: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.92)"
+    },
+    {
+      "step": 10,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "HTTP 201: {\"status\": \"ok\", \"data\": []}"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 10,
+    "generator": "gen_normal_progressive"
+  }
+}

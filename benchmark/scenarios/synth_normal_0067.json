@@ -1,0 +1,28 @@
+{
+  "trajectory_id": "synth_normal_0067",
+  "source": "synthetic",
+  "task_description": "单步 action (1步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "单步 action (1步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "calculate",
+      "args": {
+        "expression": "max([3, 7, 2, 9])"
+      },
+      "output": "sorted([5, 3, 8, 1]) = 0"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 1,
+    "generator": "gen_normal_progressive"
+  }
+}

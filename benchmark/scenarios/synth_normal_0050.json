@@ -1,0 +1,169 @@
+{
+  "trajectory_id": "synth_normal_0050",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (17步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (17步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "get_weather",
+      "args": {
+        "city": "Melbourne"
+      },
+      "output": "Paris: 25°C, rainy"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.postgresql.com/v1/posts",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "Response from https://demo.io: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 3,
+      "tool": "read_news",
+      "args": {
+        "category": "health",
+        "count": "5"
+      },
+      "output": "Top technology news:\n1. Tech Company Launches New Product\n2. Scientists Discover New Species\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM products WHERE rainy"
+      },
+      "output": "Found 5 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/prometheus.log"
+      },
+      "output": "Successfully loaded docker-compose.yml (8 KB)"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "date"
+      },
+      "output": "Parsed yaml: 3 key-value pairs extracted"
+    },
+    {
+      "step": 7,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./config"
+      },
+      "output": "Found 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 8,
+      "tool": "get_weather",
+      "args": {
+        "city": "Singapore",
+        "units": "celsius"
+      },
+      "output": "Weather in Hong Kong: 32°F, humidity 45%"
+    },
+    {
+      "step": 9,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/posts",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "Response from https://example.com: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 10,
+      "tool": "read_news",
+      "args": {
+        "category": "sports",
+        "count": "5"
+      },
+      "output": "Top science news:\n1. New AI Model Achieves Breakthrough\n2. Stock Market Reaches All-Time High\n3. Olympic Games Opening Ceremony"
+    },
+    {
+      "step": 11,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM analytics_events"
+      },
+      "output": "Query returned 25 rows:\n[(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 12,
+      "tool": "read_file",
+      "args": {
+        "path": "data-pipeline/src/main.py"
+      },
+      "output": "Read ./.env: 256 lines, 32768 characters"
+    },
+    {
+      "step": 13,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "count"
+      },
+      "output": "Extracted count: Alice"
+    },
+    {
+      "step": 14,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python train_model.py --input source.txt --output results.csv"
+      },
+      "output": "Command executed. Output:\ntotal 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 15,
+      "tool": "get_weather",
+      "args": {
+        "city": "Melbourne",
+        "units": "celsius"
+      },
+      "output": "Weather in Dubai: 25°F, humidity 45%"
+    },
+    {
+      "step": 16,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.postgresql.com/v1/events",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "HTTP 404: {\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 17,
+      "tool": "read_news",
+      "args": {
+        "category": "science",
+        "count": "5"
+      },
+      "output": "Top technology news:\n1. New AI Model Achieves Breakthrough\n2. Stock Market Reaches All-Time High\n3. Olympic Games Opening Ceremony"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 17,
+    "generator": "gen_normal_progressive"
+  }
+}

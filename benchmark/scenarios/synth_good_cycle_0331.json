@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_good_cycle_0331",
+  "source": "synthetic",
+  "task_description": "迭代优化：每次修改代码/文本，逐步改善 (good_cycle_iterative_improvement)",
+  "task_category": "good_cycle",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": "good_cycle",
+    "severity": 0,
+    "description": "迭代优化：每次修改代码/文本，逐步改善 (good_cycle_iterative_improvement)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/draft_v1.md"
+      },
+      "output": "Written version 1 (244 words)"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/draft_v2.md"
+      },
+      "output": "Written version 2 (369 words)"
+    },
+    {
+      "step": 3,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/draft_v3.md"
+      },
+      "output": "Written version 3 (471 words)"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/draft_v4.md"
+      },
+      "output": "Written version 4 (406 words)"
+    },
+    {
+      "step": 5,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/draft_v5.md"
+      },
+      "output": "Written version 5 (493 words)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_good_cycle_progressive"
+  }
+}

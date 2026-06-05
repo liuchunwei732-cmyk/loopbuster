@@ -1,0 +1,47 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0185",
+  "source": "synthetic",
+  "task_description": "同一工具，参数变化较大但意图相同 (web_searchx3fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 2,
+    "description": "同一工具，参数变化较大但意图相同 (web_searchx3fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "HTTP status codes",
+        "max_results": "10"
+      },
+      "output": "Top result for Git branching strategies: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.95)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "clean code principles",
+        "max_results": "10"
+      },
+      "output": "Search results for 'microservices architecture':\n1. Docker containers provide a consistent environment for application deployment.\n2. PostgreSQL is a powerful open-source relational database management system."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python",
+        "max_results": "10"
+      },
+      "output": "Search results for 'distributed systems design':\n1. Docker containers provide a consistent environment for application deployment.\n2. Vue.js is a progressive framework for building user interfaces."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

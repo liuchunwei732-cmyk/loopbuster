@@ -1,0 +1,91 @@
+{
+  "trajectory_id": "synth_exact_repeat_0134",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (python_replx4间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (python_replx4间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "clean('iris.csv')"
+      },
+      "output": "> 42"
+    },
+    {
+      "step": 2,
+      "tool": "calculate",
+      "args": {
+        "expression": "max([3, 7, 2, 9])"
+      },
+      "output": "Result: 100"
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "clean('iris.csv')"
+      },
+      "output": "> 42"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices"
+      },
+      "output": "Search results for 'microservices architecture':\n1. React is a JavaScript library for building user interfaces maintained by Meta.\n2. JavaScript is commonly used for front-end web development alongside HTML and CSS."
+    },
+    {
+      "step": 5,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2025-03-20 23:45:00"
+    },
+    {
+      "step": 6,
+      "tool": "python_repl",
+      "args": {
+        "code": "clean('iris.csv')"
+      },
+      "output": "> 42"
+    },
+    {
+      "step": 7,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "max_length": "500"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Further research is needed"
+    },
+    {
+      "step": 8,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog."
+      },
+      "output": "Sentiment: mixed (confidence: 0.87)"
+    },
+    {
+      "step": 9,
+      "tool": "python_repl",
+      "args": {
+        "code": "clean('iris.csv')"
+      },
+      "output": "> 42"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_interleaved_repeat"
+  }
+}

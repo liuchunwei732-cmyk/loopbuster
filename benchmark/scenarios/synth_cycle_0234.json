@@ -1,0 +1,95 @@
+{
+  "trajectory_id": "synth_cycle_0234",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([read_file→python_repl→write_file]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([read_file→python_repl→write_file]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/constants.html"
+      },
+      "output": "Successfully loaded docker-compose.yml (8 KB)"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(len('hello world'))"
+      },
+      "output": "Execution result:\n42"
+    },
+    {
+      "step": 3,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/models.md",
+        "content": "Lorem ipsum dolor sit amet."
+      },
+      "output": "Written 32768 bytes to docker-compose.yml"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "frontend/src/handlers.py"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 5,
+      "tool": "python_repl",
+      "args": {
+        "code": "import transformers\nprint(django.__version__)"
+      },
+      "output": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "./backend/README.md",
+        "content": "# API Service\n\nA sample description for the project."
+      },
+      "output": "File saved: ./.env"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "web-app/src/middleware.py"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 8,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sum(range(100)))"
+      },
+      "output": "> numpy version: 1.24.3"
+    },
+    {
+      "step": 9,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/utils.yaml",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "Written 16384 bytes to /etc/config.yaml"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_cycle"
+  }
+}

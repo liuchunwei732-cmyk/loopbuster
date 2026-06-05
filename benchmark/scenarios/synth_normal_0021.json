@@ -1,0 +1,55 @@
+{
+  "trajectory_id": "synth_normal_0021",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "calculate",
+      "args": {
+        "expression": "sorted([5, 3, 8, 1])"
+      },
+      "output": "Result: 2.71"
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "max_length": "200"
+      },
+      "output": "Key points:\n- Data was collected from 1000 participants\n- Results show significant improvement"
+    },
+    {
+      "step": 3,
+      "tool": "read_news",
+      "args": {
+        "category": "science",
+        "count": "5"
+      },
+      "output": "Top sports news:\n1. Tech Company Launches New Product\n2. Scientists Discover New Species\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 4,
+      "tool": "list_directory",
+      "args": {
+        "path": "/data",
+        "recursive": "true"
+      },
+      "output": "Found 3 items in ./docs"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_normal_progressive"
+  }
+}

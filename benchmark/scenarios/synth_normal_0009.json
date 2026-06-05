@@ -1,0 +1,71 @@
+{
+  "trajectory_id": "synth_normal_0009",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (6步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (6步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "name"
+      },
+      "output": "Extracted status: John Doe"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "import transformers\nprint(requests.__version__)"
+      },
+      "output": "> 42"
+    },
+    {
+      "step": 3,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python process_data.py --input input.json --output output.json"
+      },
+      "output": "Command executed. Output:\ntotal 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "React vs Vue comparison",
+        "max_results": "10"
+      },
+      "output": "Search results for 'Git branching strategies':\n1. Python is a versatile programming language used in web development and data science.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 5,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM sessions WHERE cloudy"
+      },
+      "output": "Found 5 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "format": "csv"
+      },
+      "output": "Extracted title: Alice"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_normal_progressive"
+  }
+}

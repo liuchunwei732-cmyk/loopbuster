@@ -1,0 +1,56 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0184",
+  "source": "synthetic",
+  "task_description": "同一工具，参数变化较大但意图相同 (web_searchx4fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 2,
+    "description": "同一工具，参数变化较大但意图相同 (web_searchx4fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "SQL vs NoSQL databases",
+        "max_results": "10"
+      },
+      "output": "Top result for distributed systems design: Docker containers provide a consistent environment for application deployment. (relevance: 0.95)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Python async programming",
+        "max_results": "10"
+      },
+      "output": "Search results for 'microservices architecture':\n1. React is a JavaScript library for building user interfaces maintained by Meta.\n2. Deep learning models require large amounts of data and computational resources."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Docker compose tutorial",
+        "max_results": "10"
+      },
+      "output": "Found 5 results for SQL vs NoSQL databases. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "what is Kubernetes",
+        "max_results": "10"
+      },
+      "output": "Search results for 'React vs Vue comparison':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. Vue.js is a progressive framework for building user interfaces."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

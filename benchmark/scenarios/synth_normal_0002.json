@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_normal_0002",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (3步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (3步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "web-app/src/handlers.py"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 2,
+      "tool": "get_weather",
+      "args": {
+        "city": "Taipei"
+      },
+      "output": "Hong Kong: 18°F, partly cloudy"
+    },
+    {
+      "step": 3,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python cleanup_logs.py --input source.txt --output summary.txt"
+      },
+      "output": "Python 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_normal_progressive"
+  }
+}

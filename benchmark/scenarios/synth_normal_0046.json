@@ -1,0 +1,120 @@
+{
+  "trajectory_id": "synth_normal_0046",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (11步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (11步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Artificial Intelligence"
+      },
+      "output": "Fetched page https://test.org: Wikipedia - Artificial Intelligence\nContent length: 2048 bytes"
+    },
+    {
+      "step": 2,
+      "tool": "create_document",
+      "args": {
+        "title": "Project Proposal",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Created: Analysis Report.md"
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/events",
+        "method": "POST",
+        "body": "{\"action\": \"start\"}"
+      },
+      "output": "HTTP 301: {\"error\": \"not found\"}"
+    },
+    {
+      "step": 4,
+      "tool": "translate",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "source_lang": "de",
+        "target_lang": "es"
+      },
+      "output": "Translation (ko → en):\nこんにちは、世界！"
+    },
+    {
+      "step": 5,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_json('<file>')\ndf.head()"
+      },
+      "output": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 6,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "max_length": "500"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Further research is needed"
+    },
+    {
+      "step": 7,
+      "tool": "parse_data",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "format": "csv"
+      },
+      "output": "Extracted title: 2024-01-15"
+    },
+    {
+      "step": 8,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Software Engineering"
+      },
+      "output": "Wikipedia: Software Engineering\nPython is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 9,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/netflix/tensorflow"
+      },
+      "output": "Page loaded: Wikipedia - Artificial Intelligence. 12 paragraphs found."
+    },
+    {
+      "step": 10,
+      "tool": "create_document",
+      "args": {
+        "title": "Project Proposal",
+        "content": "Data analysis results and conclusions.",
+        "format": "markdown"
+      },
+      "output": "Document 'Meeting Summary' created (250 words)"
+    },
+    {
+      "step": 11,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.nginx.com/v1/analyze",
+        "method": "POST",
+        "body": "{\"action\": \"start\"}"
+      },
+      "output": "HTTP 400: {\"status\": \"ok\", \"data\": []}"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 11,
+    "generator": "gen_normal_progressive"
+  }
+}

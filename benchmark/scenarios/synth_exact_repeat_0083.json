@@ -1,0 +1,52 @@
+{
+  "trajectory_id": "synth_exact_repeat_0083",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 3~5 次 (python_replx4)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "同 (tool, args) 连续重复 3~5 次 (python_replx4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "import requests\nprint(transformers.__version__)"
+      },
+      "output": "3.141592653589793"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "import requests\nprint(transformers.__version__)"
+      },
+      "output": "3.141592653589793"
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "import requests\nprint(transformers.__version__)"
+      },
+      "output": "3.141592653589793"
+    },
+    {
+      "step": 4,
+      "tool": "python_repl",
+      "args": {
+        "code": "import requests\nprint(transformers.__version__)"
+      },
+      "output": "3.141592653589793"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_exact_repeat"
+  }
+}

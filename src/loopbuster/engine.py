@@ -12,6 +12,8 @@ from typing import Any, Callable
 
 from loopbuster.circuit import BreakerDecision, CircuitBreaker
 from loopbuster.guards import BudgetCeiling, Guard, RepeatCallGuard, StateStasis
+from loopbuster.progress import ProgressSignal
+from loopbuster.risk import RiskReport, RiskScorer
 from loopbuster.strategies import CompositeStrategy
 from loopbuster.types import (
     ActionConfig,
@@ -123,6 +125,10 @@ class LoopBuster:
         # --- Circuit breaker ---
         self._circuit_breaker = circuit_breaker
 
+        # --- Deep detection: ProgressSignal + RiskScorer ---
+        self._progress: ProgressSignal = ProgressSignal(window=window_size)
+        self._risk_scorer: RiskScorer = RiskScorer(window=window_size)
+
         # --- State ---
         self._step: int = 0
         self._consecutive_hits: int = 0
@@ -163,6 +169,18 @@ class LoopBuster:
                 return g.spent_usd
         return 0.0
 
+    @property
+    def risk_score(self) -> RiskReport | None:
+        """Current predictive risk score, or None if insufficient data."""
+        if self.step_count < 2:
+            return None
+        return self._risk_scorer.score()
+
+    @property
+    def progress_signal(self) -> ProgressSignal:
+        """Access the underlying ProgressSignal for diagnostics."""
+        return self._progress
+
     # ------------------------------------------------------------------
     # Main check method — pattern-based detection
     # ------------------------------------------------------------------
@@ -194,6 +212,11 @@ class LoopBuster:
         # Circuit breaker records
         if self._circuit_breaker:
             self._circuit_breaker.record(tool, args)
+
+        # --- Deep detection: progress tracking + risk scoring ---
+        if output:
+            self._progress.record(output)
+        self._risk_scorer.observe(record)
 
         confidence, reason, strategy_name = self._strategies.check(record)
 
@@ -389,6 +412,18 @@ class LoopBuster:
         if not recommendations:
             recommendations.append("Agent appears healthy. No intervention needed.")
 
+        # Risk score & progress signal
+        risk = self._risk_scorer.score()
+        if history and history[-1] and history[-1].output:
+            progress = self._progress.score()
+            progress_info = {
+                "gain": progress.gain,
+                "trend": progress.trend,
+                "detail": progress.detail,
+            }
+        else:
+            progress_info = None
+
         # Recent timeline (last 10)
         recent = [
             {"step": r.step, "tool": r.tool, "args": r.args}
@@ -406,6 +441,14 @@ class LoopBuster:
             "tripped": str(self._tripped) if self._tripped else None,
             "spent_usd": round(self.spent_usd, 4),
             "top_repeated_patterns": top_patterns,
+            "risk_score": {
+                "overall": risk.overall,
+                "summary": risk.summary,
+                "entropy": risk.entropy,
+                "revisitation": risk.revisitation,
+                "progress": risk.progress,
+            },
+            "progress_signal": progress_info,
             "recommendations": recommendations,
             "recent_timeline": recent,
         }
@@ -430,6 +473,8 @@ class LoopBuster:
         self._tripped = None
         self._strategies.reset()
         self._action_history.clear()
+        self._progress.reset()
+        self._risk_scorer.reset()
 
     def start_dashboard(self, port: int = 8080):
         """Start the LoopBuster dashboard on the specified port.

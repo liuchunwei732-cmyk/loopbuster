@@ -1,0 +1,88 @@
+{
+  "trajectory_id": "synth_cycle_0208",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([search_database→parse_data]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([search_database→parse_data]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM users WHERE foggy"
+      },
+      "output": "Found 0 records. No matching records found."
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "title"
+      },
+      "output": "Extracted price: active"
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM orders WHERE cloudy"
+      },
+      "output": "Found 0 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 4,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "count"
+      },
+      "output": "Extracted status: 2024-01-15"
+    },
+    {
+      "step": 5,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM logs WHERE foggy"
+      },
+      "output": "Query returned 0 rows:\n[(42,), (57,), (83,)]"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "format": "markdown"
+      },
+      "output": "Extracted price: 2024-01-15"
+    },
+    {
+      "step": 7,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM analytics_events WHERE partly cloudy"
+      },
+      "output": "Query returned 5 rows:\nNo matching records found."
+    },
+    {
+      "step": 8,
+      "tool": "parse_data",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "format": "markdown"
+      },
+      "output": "Parsed xml: 3 key-value pairs extracted"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_cycle"
+  }
+}

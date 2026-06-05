@@ -1,0 +1,85 @@
+{
+  "trajectory_id": "synth_normal_0005",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "get_weather",
+      "args": {
+        "city": "New York"
+      },
+      "output": "Seoul: 30°C, windy"
+    },
+    {
+      "step": 2,
+      "tool": "translate",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "source_lang": "en",
+        "target_lang": "es"
+      },
+      "output": "Translation (ko → ja):\n你好，世界！"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Deep Learning vs GraphQL"
+      },
+      "output": "Found 5 results for Linux file permissions. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 4,
+      "tool": "send_email",
+      "args": {
+        "to": "user@example.com",
+        "subject": "Weekly Report",
+        "body": "Please find the attached report."
+      },
+      "output": "Email sent to admin@company.com with subject 'Meeting Notes'"
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.redis.com/v1/posts",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "HTTP 404: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 6,
+      "tool": "get_weather",
+      "args": {
+        "city": "Toronto",
+        "units": "celsius"
+      },
+      "output": "Weather in Singapore: 18°C, humidity 65%"
+    },
+    {
+      "step": 7,
+      "tool": "translate",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "source_lang": "ja",
+        "target_lang": "ko"
+      },
+      "output": "Translation (fr → es):\nこんにちは、世界！"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_normal_progressive"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "trajectory_id": "synth_cycle_0218",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([search_database→parse_data]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([search_database→parse_data]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM analytics_events WHERE foggy"
+      },
+      "output": "Found 25 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "format": "yaml"
+      },
+      "output": "Parsed csv: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM orders WHERE partly cloudy"
+      },
+      "output": "Found 100 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 4,
+      "tool": "parse_data",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "format": "yaml"
+      },
+      "output": "Parsed xml: 3 key-value pairs extracted"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_cycle"
+  }
+}

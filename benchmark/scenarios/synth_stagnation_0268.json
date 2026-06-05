@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_stagnation_0268",
+  "source": "synthetic",
+  "task_description": "同一工具，输出完全相同（每次返回一样的结果） (web_searchx5stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 3,
+    "description": "同一工具，输出完全相同（每次返回一样的结果） (web_searchx5stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Machine Learning vs NoSQL"
+      },
+      "output": "Found 20 results for microservices architecture. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Machine Learning vs NoSQL"
+      },
+      "output": "Found 20 results for microservices architecture. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Machine Learning vs NoSQL"
+      },
+      "output": "Found 20 results for microservices architecture. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "Machine Learning vs NoSQL"
+      },
+      "output": "Found 20 results for microservices architecture. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "Machine Learning vs NoSQL"
+      },
+      "output": "Found 20 results for microservices architecture. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_output_stagnation"
+  }
+}

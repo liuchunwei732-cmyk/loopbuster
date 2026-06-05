@@ -1,0 +1,52 @@
+{
+  "trajectory_id": "synth_cycle_0222",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([web_search→web_fetch]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([web_search→web_fetch]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices 2024"
+      },
+      "output": "Found 10 results for clean code principles. Result 1: Docker containers provide a consistent environment for application deployment."
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/airbnb/linux"
+      },
+      "output": "Fetched page https://example.com: Wikipedia - Artificial Intelligence\nContent length: 16384 bytes"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "HTTP status codes"
+      },
+      "output": "Search results for 'distributed systems design':\n1. React is a JavaScript library for building user interfaces maintained by Meta.\n2. Deep learning models require large amounts of data and computational resources."
+    },
+    {
+      "step": 4,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/netflix/linux"
+      },
+      "output": "Page loaded: GitHub - TensorFlow Repository. 8 paragraphs found."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_cycle"
+  }
+}

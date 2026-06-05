@@ -1,0 +1,68 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0156",
+  "source": "synthetic",
+  "task_description": "同一工具，参数只有微小的文字差异（编辑距离小） (search_databasex6fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 3,
+    "description": "同一工具，参数只有微小的文字差异（编辑距离小） (search_databasex6fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT basics FROM analytics_events WHERE rainy"
+      },
+      "output": "Query returned 10 rows:\nNo matching records found."
+    },
+    {
+      "step": 2,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM analytics_events examples rainy"
+      },
+      "output": "Found 25 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "overview * FROM analytics_events WHERE rainy"
+      },
+      "output": "Query returned 5 rows:\n[(42,), (57,), (83,)]"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "best * FROM analytics_events WHERE rainy"
+      },
+      "output": "Found 100 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 5,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM analytics_events beginner rainy"
+      },
+      "output": "Query returned 25 rows:\n[(42,), (57,), (83,)]"
+    },
+    {
+      "step": 6,
+      "tool": "search_database",
+      "args": {
+        "query": "simple * FROM analytics_events WHERE rainy"
+      },
+      "output": "Query returned 0 rows:\n[(42,), (57,), (83,)]"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

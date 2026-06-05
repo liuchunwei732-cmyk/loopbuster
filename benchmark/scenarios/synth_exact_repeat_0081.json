@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_exact_repeat_0081",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 3~5 次 (python_replx5)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "同 (tool, args) 连续重复 3~5 次 (python_replx5)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sorted([5, 3, 8, 1]))"
+      },
+      "output": "> True"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sorted([5, 3, 8, 1]))"
+      },
+      "output": "> True"
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sorted([5, 3, 8, 1]))"
+      },
+      "output": "> True"
+    },
+    {
+      "step": 4,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sorted([5, 3, 8, 1]))"
+      },
+      "output": "> True"
+    },
+    {
+      "step": 5,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sorted([5, 3, 8, 1]))"
+      },
+      "output": "> True"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_exact_repeat"
+  }
+}

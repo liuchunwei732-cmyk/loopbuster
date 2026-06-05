@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_edge_0391",
+  "source": "synthetic",
+  "task_description": "空参数重复（tool 被调但没有 args） (get_current_timex4_empty_args)",
+  "task_category": "edge",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 2,
+    "description": "空参数重复（tool 被调但没有 args） (get_current_timex4_empty_args)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2025-03-20 23:45:00"
+    },
+    {
+      "step": 2,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2024-01-15 14:30:00"
+    },
+    {
+      "step": 3,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2024-01-15 14:30:00"
+    },
+    {
+      "step": 4,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2025-03-20 23:45:00"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_edge_empty_args"
+  }
+}

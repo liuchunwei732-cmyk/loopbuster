@@ -1,0 +1,52 @@
+{
+  "trajectory_id": "synth_stagnation_0260",
+  "source": "synthetic",
+  "task_description": "同一工具，输出完全相同（每次返回一样的结果） (web_searchx4stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 3,
+    "description": "同一工具，输出完全相同（每次返回一样的结果） (web_searchx4stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Software Engineering vs Java"
+      },
+      "output": "Top result for distributed systems design: Python is a versatile programming language used in web development and data science. (relevance: 0.92)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Software Engineering vs Java"
+      },
+      "output": "Top result for distributed systems design: Python is a versatile programming language used in web development and data science. (relevance: 0.92)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Software Engineering vs Java"
+      },
+      "output": "Top result for distributed systems design: Python is a versatile programming language used in web development and data science. (relevance: 0.92)"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "Software Engineering vs Java"
+      },
+      "output": "Top result for distributed systems design: Python is a versatile programming language used in web development and data science. (relevance: 0.92)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_output_stagnation"
+  }
+}

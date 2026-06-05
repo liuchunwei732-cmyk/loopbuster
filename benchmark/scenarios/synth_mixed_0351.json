@@ -1,0 +1,105 @@
+{
+  "trajectory_id": "synth_mixed_0351",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup5+loop5)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup5+loop5)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "get_weather",
+      "args": {
+        "city": "Bangkok",
+        "units": "celsius"
+      },
+      "output": "Weather in Rome: 20°F, humidity 95%"
+    },
+    {
+      "step": 2,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM sessions"
+      },
+      "output": "Found 25 records. No matching records found."
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "status"
+      },
+      "output": "Parsed csv: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 4,
+      "tool": "create_document",
+      "args": {
+        "title": "Analysis Report",
+        "content": "Lorem ipsum dolor sit amet.",
+        "format": "markdown"
+      },
+      "output": "Created: Meeting Summary.md"
+    },
+    {
+      "step": 5,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "max_length": "200"
+      },
+      "output": "Summary (80% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/prometheus.log"
+      },
+      "output": "Successfully loaded ./.env (32 KB)"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/prometheus.log"
+      },
+      "output": "Successfully loaded ./.env (32 KB)"
+    },
+    {
+      "step": 8,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/prometheus.log"
+      },
+      "output": "Successfully loaded ./.env (32 KB)"
+    },
+    {
+      "step": 9,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/prometheus.log"
+      },
+      "output": "Successfully loaded ./.env (32 KB)"
+    },
+    {
+      "step": 10,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/prometheus.log"
+      },
+      "output": "Successfully loaded ./.env (32 KB)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 10,
+    "generator": "gen_mixed"
+  }
+}

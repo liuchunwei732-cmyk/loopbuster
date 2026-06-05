@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0155",
+  "source": "synthetic",
+  "task_description": "同一工具，参数只有微小的文字差异（编辑距离小） (search_databasex5fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 3,
+    "description": "同一工具，参数只有微小的文字差异（编辑距离小） (search_databasex5fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) basics analytics_events"
+      },
+      "output": "Query returned 0 rows:\n[(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 2,
+      "tool": "search_database",
+      "args": {
+        "query": "overview COUNT(*) FROM analytics_events"
+      },
+      "output": "Query returned 10 rows:\nNo matching records found."
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "tutorial COUNT(*) FROM analytics_events"
+      },
+      "output": "Query returned 0 rows:\nNo matching records found."
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT beginner FROM analytics_events"
+      },
+      "output": "Query returned 100 rows:\n[(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 5,
+      "tool": "search_database",
+      "args": {
+        "query": "best COUNT(*) FROM analytics_events"
+      },
+      "output": "Query returned 5 rows:\n[(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

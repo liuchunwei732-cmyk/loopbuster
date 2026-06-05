@@ -1,0 +1,78 @@
+{
+  "trajectory_id": "synth_mixed_0352",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup4+loop3)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup4+loop3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-01-15/postgresql.log"
+      },
+      "output": "Successfully loaded package.json (2 KB)"
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "format": "xml"
+      },
+      "output": "Parsed csv: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "import numpy\nprint(django.__version__)"
+      },
+      "output": "3.141592653589793"
+    },
+    {
+      "step": 4,
+      "tool": "list_directory",
+      "args": {
+        "path": "/var/log",
+        "recursive": "true"
+      },
+      "output": "Contents of /data:\nindex.html\nstyle.css\napp.js\nimages/"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/constants.yaml"
+      },
+      "output": "Read package.json: 256 lines, 8192 characters"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/constants.yaml"
+      },
+      "output": "Read package.json: 256 lines, 8192 characters"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/constants.yaml"
+      },
+      "output": "Read package.json: 256 lines, 8192 characters"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_mixed"
+  }
+}

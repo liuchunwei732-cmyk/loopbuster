@@ -1,0 +1,54 @@
+{
+  "trajectory_id": "synth_normal_0003",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "get_weather",
+      "args": {
+        "city": "Moscow",
+        "units": "celsius"
+      },
+      "output": "Vancouver: 30°F, windy"
+    },
+    {
+      "step": 2,
+      "tool": "read_news",
+      "args": {
+        "category": "science",
+        "count": "5"
+      },
+      "output": "Top world news:\n1. Tech Company Launches New Product\n2. Stock Market Reaches All-Time High\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/data.yaml"
+      },
+      "output": "Read package.json: 512 lines, 32768 characters"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "Singapore history"
+      },
+      "output": "Search results for 'Linux file permissions':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Vue.js is a progressive framework for building user interfaces."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_normal_progressive"
+  }
+}

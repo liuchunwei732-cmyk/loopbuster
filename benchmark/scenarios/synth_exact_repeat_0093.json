@@ -1,0 +1,56 @@
+{
+  "trajectory_id": "synth_exact_repeat_0093",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 3~5 次 (get_weatherx4)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "同 (tool, args) 连续重复 3~5 次 (get_weatherx4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "get_weather",
+      "args": {
+        "city": "London",
+        "units": "celsius"
+      },
+      "output": "Weather in Paris: 18°F, humidity 45%"
+    },
+    {
+      "step": 2,
+      "tool": "get_weather",
+      "args": {
+        "city": "London",
+        "units": "celsius"
+      },
+      "output": "Weather in Paris: 18°F, humidity 45%"
+    },
+    {
+      "step": 3,
+      "tool": "get_weather",
+      "args": {
+        "city": "London",
+        "units": "celsius"
+      },
+      "output": "Weather in Paris: 18°F, humidity 45%"
+    },
+    {
+      "step": 4,
+      "tool": "get_weather",
+      "args": {
+        "city": "London",
+        "units": "celsius"
+      },
+      "output": "Weather in Paris: 18°F, humidity 45%"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_exact_repeat"
+  }
+}

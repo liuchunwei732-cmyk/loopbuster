@@ -1,0 +1,122 @@
+{
+  "trajectory_id": "synth_cycle_0246",
+  "source": "synthetic",
+  "task_description": "4-tool 循环 ([web_search→web_fetch→parse_data→summarize_text]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "4-tool 循环 ([web_search→web_fetch→parse_data→summarize_text]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Seoul population"
+      },
+      "output": "Search results for 'Linux file permissions':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. PostgreSQL is a powerful open-source relational database management system."
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Reinforcement Learning"
+      },
+      "output": "Fetched page https://demo.io: Hacker News - Latest Discussions\nContent length: 4096 bytes"
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "date"
+      },
+      "output": "Parsed json: {'name': 'Alice', 'age': 30}"
+    },
+    {
+      "step": 4,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "max_length": "500"
+      },
+      "output": "Summary (60% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "how to debug in Swift"
+      },
+      "output": "Top result for Linux file permissions: Python is a versatile programming language used in web development and data science. (relevance: 0.78)"
+    },
+    {
+      "step": 6,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/microsoft/kubernetes"
+      },
+      "output": "Fetched page https://example.com: Hacker News - Latest Discussions\nContent length: 4096 bytes"
+    },
+    {
+      "step": 7,
+      "tool": "parse_data",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "format": "yaml"
+      },
+      "output": "Parsed json: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 8,
+      "tool": "summarize_text",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "max_length": "500"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Results show significant improvement"
+    },
+    {
+      "step": 9,
+      "tool": "web_search",
+      "args": {
+        "query": "Reinforcement Learning vs JavaScript"
+      },
+      "output": "Search results for 'Git branching strategies':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. JavaScript is commonly used for front-end web development alongside HTML and CSS."
+    },
+    {
+      "step": 10,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Natural Language Processing"
+      },
+      "output": "Page loaded: Hacker News - Latest Discussions. 8 paragraphs found."
+    },
+    {
+      "step": 11,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "name"
+      },
+      "output": "Extracted title: 42.99"
+    },
+    {
+      "step": 12,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "max_length": "100"
+      },
+      "output": "Key points:\n- Data was collected from 1000 participants\n- Further research is needed"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_cycle"
+  }
+}

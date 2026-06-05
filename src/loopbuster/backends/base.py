@@ -47,6 +47,7 @@ class MemoryBackend(StateBackend):
     async def set_metadata(self, session_id: str, metadata: dict[str, Any]) -> None:
         self._metadata[session_id] = metadata
 
+<<<<<<< HEAD
 
 class RedisBackend(StateBackend):
     """Redis-based state backend for distributed environments.
@@ -63,6 +64,17 @@ class RedisBackend(StateBackend):
                 "Install it with: pip install loopbuster[redis]"
             )
         self.redis = AsyncRedis.from_url(redis_url, decode_responses=True)
+=======
+class AsyncRedisBackend(StateBackend):
+    """Async Redis-based state backend for distributed environments.
+
+    Uses redis.asyncio for non-blocking operations.
+    """
+    def __init__(self, redis_url: str = "redis://localhost", prefix: str = "loopbuster:"):
+        if Redis is None:
+            raise ImportError("redis package is required for RedisBackend. Install it with `pip install redis`.")
+        self.redis = Redis.from_url(redis_url, decode_responses=True)
+>>>>>>> codex/deep-detection-v0.3.0
         self.prefix = prefix
 
     def _hist_key(self, session_id: str) -> str:

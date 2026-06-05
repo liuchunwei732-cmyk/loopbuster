@@ -1,0 +1,68 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0152",
+  "source": "synthetic",
+  "task_description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx6fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 3,
+    "description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx6fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "simple Language Processing vs GraphQL"
+      },
+      "output": "Found 5 results for what is Kubernetes. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Natural Language examples vs GraphQL"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Docker containers provide a consistent environment for application deployment.\n2. Deep learning models require large amounts of data and computational resources."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Natural tutorial Processing vs GraphQL"
+      },
+      "output": "Top result for best machine learning courses: Kubernetes automates deployment, scaling, and management of containerized applications. (relevance: 0.92)"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "Natural Language Processing vs beginner"
+      },
+      "output": "Top result for SQL vs NoSQL databases: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.87)"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "Natural Language Processing vs tips"
+      },
+      "output": "Found 5 results for React vs Vue comparison. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "tutorial Language Processing vs GraphQL"
+      },
+      "output": "Found 10 results for CI/CD pipeline setup. Result 1: Python is a versatile programming language used in web development and data science."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

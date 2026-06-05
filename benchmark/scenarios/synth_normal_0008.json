@@ -1,0 +1,53 @@
+{
+  "trajectory_id": "synth_normal_0008",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Natural Language Processing"
+      },
+      "output": "Wikipedia: Database Systems\nPython is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pytest\nprint(pytest.__version__)"
+      },
+      "output": "Execution result:\nTrue"
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "/data",
+        "recursive": "true"
+      },
+      "output": "Contents of ./config:\nindex.html\nstyle.css\napp.js\nimages/"
+    },
+    {
+      "step": 4,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Operating Systems"
+      },
+      "output": "Fetched page https://example.com: Hacker News - Latest Discussions\nContent length: 16384 bytes"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_normal_progressive"
+  }
+}

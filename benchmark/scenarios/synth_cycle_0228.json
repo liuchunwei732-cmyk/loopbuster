@@ -1,0 +1,128 @@
+{
+  "trajectory_id": "synth_cycle_0228",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([search_database→api_call→parse_data]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM logs WHERE cloudy"
+      },
+      "output": "Query returned 100 rows:\nNo matching records found."
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.postgresql.com/v1/users",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "Response from https://demo.io: {\"error\": \"not found\"}"
+    },
+    {
+      "step": 3,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "status"
+      },
+      "output": "Extracted status: 2024-01-15"
+    },
+    {
+      "step": 4,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM logs WHERE foggy"
+      },
+      "output": "Found 100 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.redis.com/v1/search",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "HTTP 301: {\"message\": \"success\"}"
+    },
+    {
+      "step": 6,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "price"
+      },
+      "output": "Parsed xml: {'name': 'Alice', 'age': 30}"
+    },
+    {
+      "step": 7,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM products"
+      },
+      "output": "Query returned 0 rows:\n[(42,), (57,), (83,)]"
+    },
+    {
+      "step": 8,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.redis.com/v1/posts",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "HTTP 301: {\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 9,
+      "tool": "parse_data",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "format": "html"
+      },
+      "output": "Parsed json: [Row(id=1), Row(id=2), Row(id=3)]"
+    },
+    {
+      "step": 10,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM users"
+      },
+      "output": "Found 5 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 11,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/messages",
+        "method": "POST",
+        "body": "{\"action\": \"start\"}"
+      },
+      "output": "HTTP 204: {\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 12,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "name"
+      },
+      "output": "Extracted title: 42.99"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_cycle"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "trajectory_id": "synth_exact_repeat_0136",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (read_filex5间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (read_filex5间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/views.py"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 2,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' ./docs"
+      },
+      "output": "Exit code: 0\ntotal 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "./docs"
+      },
+      "output": "Contents of ./src:\nmain.py\nutils.py\nmodels.py\ntests/\nREADME.md\nrequirements.txt"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/views.py"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 5,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Operating Systems",
+        "lang": "en"
+      },
+      "output": "Wikipedia: Data Structures\nMachine learning is the study of computer algorithms that improve through experience."
+    },
+    {
+      "step": 6,
+      "tool": "create_document",
+      "args": {
+        "title": "Analysis Report",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Created: Project Proposal.md"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/views.py"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 8,
+      "tool": "summarize_text",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "max_length": "100"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Results show significant improvement"
+    },
+    {
+      "step": 9,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/views.py"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 10,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The capital of France is Paris."
+      },
+      "output": "negative (0.95)"
+    },
+    {
+      "step": 11,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/views.py"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 11,
+    "generator": "gen_interleaved_repeat"
+  }
+}

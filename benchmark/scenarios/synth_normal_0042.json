@@ -1,0 +1,190 @@
+{
+  "trajectory_id": "synth_normal_0042",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (20步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (20步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "London transportation"
+      },
+      "output": "Search results for 'React vs Vue comparison':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "format": "json"
+      },
+      "output": "Parsed xml: 3 key-value pairs extracted"
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/posts",
+        "method": "GET"
+      },
+      "output": "404 OK\n<html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 4,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The capital of France is Paris."
+      },
+      "output": "neutral (0.95)"
+    },
+    {
+      "step": 5,
+      "tool": "python_repl",
+      "args": {
+        "code": "train('sales_data.csv')"
+      },
+      "output": "Execution result:\n{'name': 'Alice', 'age': 30, 'city': 'New York'}"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "SQL vs NoSQL databases",
+        "max_results": "10"
+      },
+      "output": "Found 5 results for Git branching strategies. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 7,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "status"
+      },
+      "output": "Extracted title: Alice"
+    },
+    {
+      "step": 8,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/users",
+        "method": "POST",
+        "body": "{\"query\": \"search_term\"}"
+      },
+      "output": "HTTP 400: {\"message\": \"success\"}"
+    },
+    {
+      "step": 9,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The capital of France is Paris."
+      },
+      "output": "Sentiment: positive (confidence: 0.87)"
+    },
+    {
+      "step": 10,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(2 + 2)"
+      },
+      "output": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 11,
+      "tool": "web_search",
+      "args": {
+        "query": "Computer Vision vs Rust"
+      },
+      "output": "Search results for 'Docker compose tutorial':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 12,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "author"
+      },
+      "output": "Extracted author: Alice"
+    },
+    {
+      "step": 13,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "HTTP 201: {\"error\": \"not found\"}"
+    },
+    {
+      "step": 14,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius."
+      },
+      "output": "Sentiment: neutral (confidence: 0.95)"
+    },
+    {
+      "step": 15,
+      "tool": "python_repl",
+      "args": {
+        "code": "analyze('sales_data.csv')"
+      },
+      "output": "Execution result:\npandas version: 2.0.3"
+    },
+    {
+      "step": 16,
+      "tool": "web_search",
+      "args": {
+        "query": "distributed systems design"
+      },
+      "output": "Search results for 'SQL vs NoSQL databases':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Git is a distributed version control system for tracking changes in source code."
+    },
+    {
+      "step": 17,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "count"
+      },
+      "output": "Parsed csv: {'name': 'Alice', 'age': 30}"
+    },
+    {
+      "step": 18,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/search",
+        "method": "GET"
+      },
+      "output": "204 OK\n<html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 19,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web."
+      },
+      "output": "negative (0.87)"
+    },
+    {
+      "step": 20,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_csv('<file>')\ndf.head()"
+      },
+      "output": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 20,
+    "generator": "gen_normal_progressive"
+  }
+}

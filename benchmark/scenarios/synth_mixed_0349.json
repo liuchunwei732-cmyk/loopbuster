@@ -1,0 +1,95 @@
+{
+  "trajectory_id": "synth_mixed_0349",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup4+loop5)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup4+loop5)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "calculate",
+      "args": {
+        "expression": "len('hello world')"
+      },
+      "output": "Result: 0"
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "max_length": "500"
+      },
+      "output": "Summary (75% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 3,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Natural Language Processing",
+        "lang": "ja"
+      },
+      "output": "Wikipedia: Algorithm Design\nMachine learning is the study of computer algorithms that improve through experience."
+    },
+    {
+      "step": 4,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "price"
+      },
+      "output": "Extracted status: John Doe"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-01-15/nginx.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-01-15/nginx.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-01-15/nginx.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 8,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-01-15/nginx.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 9,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-01-15/nginx.log"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_mixed"
+  }
+}

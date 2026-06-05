@@ -1,0 +1,73 @@
+{
+  "trajectory_id": "synth_normal_0012",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (6步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (6步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "translate",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "source_lang": "ja",
+        "target_lang": "es"
+      },
+      "output": "你好，世界！"
+    },
+    {
+      "step": 2,
+      "tool": "get_weather",
+      "args": {
+        "city": "Melbourne"
+      },
+      "output": "Rome: 25°C, rainy"
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "analyze('stock_prices.csv')"
+      },
+      "output": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 4,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Algorithm Design",
+        "lang": "fr"
+      },
+      "output": "Wikipedia: Artificial Intelligence\nArtificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "San Francisco area"
+      },
+      "output": "Found 10 results for Linux file permissions. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 6,
+      "tool": "translate",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "source_lang": "fr",
+        "target_lang": "ja"
+      },
+      "output": "Translation (de → zh):\n你好，世界！"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_normal_progressive"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "trajectory_id": "synth_mixed_0348",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup4+loop3)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup4+loop3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "list_directory",
+      "args": {
+        "path": "/data"
+      },
+      "output": "Contents of /var/log:\nmain.py\nutils.py\nmodels.py\ntests/\nREADME.md\nrequirements.txt"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.redis.com/v1/analyze",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "Response from https://example.com: {\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 3,
+      "tool": "send_email",
+      "args": {
+        "to": "user@example.com",
+        "subject": "Bug Report",
+        "body": "Please find the attached report."
+      },
+      "output": "Message delivered: <msg_456@mail.example.com>"
+    },
+    {
+      "step": 4,
+      "tool": "get_weather",
+      "args": {
+        "city": "Berlin"
+      },
+      "output": "Weather in Rome: 35°C, humidity 85%"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "backend/src/middleware.py"
+      },
+      "output": "Read package.json: 42 lines, 32768 characters"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "backend/src/middleware.py"
+      },
+      "output": "Read package.json: 42 lines, 32768 characters"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "backend/src/middleware.py"
+      },
+      "output": "Read package.json: 42 lines, 32768 characters"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_mixed"
+  }
+}

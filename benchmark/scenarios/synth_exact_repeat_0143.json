@@ -1,0 +1,75 @@
+{
+  "trajectory_id": "synth_exact_repeat_0143",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (web_searchx3间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (web_searchx3间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "clean code principles"
+      },
+      "output": "Found 5 results for React vs Vue comparison. Result 1: Docker containers provide a consistent environment for application deployment."
+    },
+    {
+      "step": 2,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' ./config"
+      },
+      "output": "Command executed. Output:\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM users"
+      },
+      "output": "Found 0 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "clean code principles"
+      },
+      "output": "Found 5 results for React vs Vue comparison. Result 1: Docker containers provide a consistent environment for application deployment."
+    },
+    {
+      "step": 5,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2024-06-30 09:15:00"
+    },
+    {
+      "step": 6,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Deep Learning",
+        "lang": "fr"
+      },
+      "output": "Machine Learning: Artificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "clean code principles"
+      },
+      "output": "Found 5 results for React vs Vue comparison. Result 1: Docker containers provide a consistent environment for application deployment."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_interleaved_repeat"
+  }
+}

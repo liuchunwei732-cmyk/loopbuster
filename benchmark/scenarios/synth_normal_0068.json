@@ -1,0 +1,26 @@
+{
+  "trajectory_id": "synth_normal_0068",
+  "source": "synthetic",
+  "task_description": "单步 action (1步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "单步 action (1步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2024-06-30 09:15:00"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 1,
+    "generator": "gen_normal_progressive"
+  }
+}

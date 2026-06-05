@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_exact_repeat_0109",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 3~5 次 (api_callx4)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "同 (tool, args) 连续重复 3~5 次 (api_callx4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/search",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "HTTP 201: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/search",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "HTTP 201: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 3,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/search",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "HTTP 201: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 4,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/search",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "HTTP 201: <html><body><h1>Hello</h1></body></html>"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_exact_repeat"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "trajectory_id": "synth_normal_0017",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (7步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "max_length": "200"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Further research is needed"
+    },
+    {
+      "step": 2,
+      "tool": "get_weather",
+      "args": {
+        "city": "Paris",
+        "units": "celsius"
+      },
+      "output": "Sydney: 18°C, rainy"
+    },
+    {
+      "step": 3,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2024-06-30 09:15:00"
+    },
+    {
+      "step": 4,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python train_model.py --input config.yaml --output summary.txt"
+      },
+      "output": "Found 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 5,
+      "tool": "parse_data",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "format": "markdown"
+      },
+      "output": "Extracted name: active"
+    },
+    {
+      "step": 6,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=78901"
+      },
+      "output": "Fetched page https://demo.io: Hacker News - Latest Discussions\nContent length: 2048 bytes"
+    },
+    {
+      "step": 7,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "max_length": "500"
+      },
+      "output": "Summary (75% reduction):\nThe document discusses machine learning applications in healthcare."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_normal_progressive"
+  }
+}

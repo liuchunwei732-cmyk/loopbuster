@@ -1,0 +1,119 @@
+{
+  "trajectory_id": "synth_cycle_0248",
+  "source": "synthetic",
+  "task_description": "4-tool 循环 ([read_file→python_repl→bash_shell→write_file]x3)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "4-tool 循环 ([read_file→python_repl→bash_shell→write_file]x3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "backend/src/handlers.py"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "import torch\nprint(django.__version__)"
+      },
+      "output": "> 42"
+    },
+    {
+      "step": 3,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python generate_report.py --input data.csv --output summary.txt"
+      },
+      "output": "Python 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/models.txt",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "File saved: ./.env"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/models.yaml"
+      },
+      "output": "File content:\nname,age,city\nAlice,30,New York\nBob,25,London\nCharlie,35,Tokyo"
+    },
+    {
+      "step": 6,
+      "tool": "python_repl",
+      "args": {
+        "code": "validate('stock_prices.csv')"
+      },
+      "output": "> {'name': 'Alice', 'age': 30, 'city': 'New York'}"
+    },
+    {
+      "step": 7,
+      "tool": "bash_shell",
+      "args": {
+        "command": "python process_data.py --input log.txt --output summary.txt"
+      },
+      "output": "Exit code: 0\ntotal 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 8,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/main.txt",
+        "content": "This is a sample content for testing."
+      },
+      "output": "Written 2048 bytes to package.json"
+    },
+    {
+      "step": 9,
+      "tool": "read_file",
+      "args": {
+        "path": "backend/src/handlers.py"
+      },
+      "output": "Successfully loaded Makefile (32 KB)"
+    },
+    {
+      "step": 10,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(len('hello world'))"
+      },
+      "output": "Hello, World!"
+    },
+    {
+      "step": 11,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' /var/log"
+      },
+      "output": "Command executed. Output:\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 12,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/main.py",
+        "content": "This is a sample content for testing."
+      },
+      "output": "Written 2048 bytes to package.json"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_cycle"
+  }
+}

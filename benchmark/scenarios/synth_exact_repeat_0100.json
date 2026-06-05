@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_exact_repeat_0100",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 3~5 次 (python_replx3)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "同 (tool, args) 连续重复 3~5 次 (python_replx3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_excel('<file>')\ndf.head()"
+      },
+      "output": "> True"
+    },
+    {
+      "step": 2,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_excel('<file>')\ndf.head()"
+      },
+      "output": "> True"
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_excel('<file>')\ndf.head()"
+      },
+      "output": "> True"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_exact_repeat"
+  }
+}

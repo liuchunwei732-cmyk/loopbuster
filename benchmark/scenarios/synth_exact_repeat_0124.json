@@ -1,0 +1,92 @@
+{
+  "trajectory_id": "synth_exact_repeat_0124",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 6~10 次 (web_searchx8)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 4,
+    "description": "同 (tool, args) 连续重复 6~10 次 (web_searchx8)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Top result for microservices architecture: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Top result for microservices architecture: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Top result for microservices architecture: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Top result for microservices architecture: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Top result for microservices architecture: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Top result for microservices architecture: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Top result for microservices architecture: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    },
+    {
+      "step": 8,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Top result for microservices architecture: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_exact_repeat"
+  }
+}

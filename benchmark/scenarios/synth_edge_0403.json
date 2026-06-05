@@ -1,0 +1,19 @@
+{
+  "trajectory_id": "synth_edge_0403",
+  "source": "synthetic",
+  "task_description": "空轨迹（没有任何 action） (empty)",
+  "task_category": "edge",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "空轨迹（没有任何 action） (empty)"
+  },
+  "actions": [],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 0,
+    "generator": "gen_empty_trajectory"
+  }
+}

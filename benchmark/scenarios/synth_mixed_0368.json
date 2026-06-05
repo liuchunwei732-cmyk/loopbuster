@@ -1,0 +1,115 @@
+{
+  "trajectory_id": "synth_mixed_0368",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后段进入 cycle (warmup4+loop8)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "前 3~5 步正常，后段进入 cycle (warmup4+loop8)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=78901"
+      },
+      "output": "Page loaded: GitHub - TensorFlow Repository. 12 paragraphs found."
+    },
+    {
+      "step": 2,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2024-01-15 14:30:00"
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "./docs"
+      },
+      "output": "Found 8 items in ./config"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "./cli-tool/README.md",
+        "content": "# My Project\n\nA sample description for the project."
+      },
+      "output": "File saved: ./.env"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "Natural Language Processing vs Java"
+      },
+      "output": "Top result for CI/CD pipeline setup: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    },
+    {
+      "step": 6,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Software Engineering"
+      },
+      "output": "Page loaded: MDN Web Docs - JavaScript Guide. 5 paragraphs found."
+    },
+    {
+      "step": 7,
+      "tool": "web_search",
+      "args": {
+        "query": "how to test in Kotlin"
+      },
+      "output": "Found 20 results for REST API best practices. Result 1: Machine learning algorithms can be categorized into supervised and unsupervised learning."
+    },
+    {
+      "step": 8,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Natural Language Processing"
+      },
+      "output": "Fetched page https://test.org: Wikipedia - Artificial Intelligence\nContent length: 8192 bytes"
+    },
+    {
+      "step": 9,
+      "tool": "web_search",
+      "args": {
+        "query": "Database Systems vs JavaScript"
+      },
+      "output": "Top result for Python async programming: Kubernetes automates deployment, scaling, and management of containerized applications. (relevance: 0.87)"
+    },
+    {
+      "step": 10,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Machine Learning"
+      },
+      "output": "Page loaded: Hacker News - Latest Discussions. 15 paragraphs found."
+    },
+    {
+      "step": 11,
+      "tool": "web_search",
+      "args": {
+        "query": "Software Engineering vs Java"
+      },
+      "output": "Search results for 'microservices architecture':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 12,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=44556"
+      },
+      "output": "Fetched page https://example.com: MDN Web Docs - JavaScript Guide\nContent length: 8192 bytes"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 12,
+    "generator": "gen_mixed"
+  }
+}

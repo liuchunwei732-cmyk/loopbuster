@@ -1,0 +1,69 @@
+{
+  "trajectory_id": "synth_exact_repeat_0139",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (python_replx3间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (python_replx3间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sorted([5, 3, 8, 1]))"
+      },
+      "output": "numpy version: 1.24.3"
+    },
+    {
+      "step": 2,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Software Engineering"
+      },
+      "output": "Natural Language Processing: Python is a high-level, interpreted programming language with dynamic semantics."
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM orders"
+      },
+      "output": "Found 0 records. [(1, 'Alice', 'active'), (2, 'Bob', 'active')]"
+    },
+    {
+      "step": 4,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sorted([5, 3, 8, 1]))"
+      },
+      "output": "numpy version: 1.24.3"
+    },
+    {
+      "step": 5,
+      "tool": "get_weather",
+      "args": {
+        "city": "Tokyo",
+        "units": "celsius"
+      },
+      "output": "Weather in San Francisco: 12°C, humidity 85%"
+    },
+    {
+      "step": 6,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sorted([5, 3, 8, 1]))"
+      },
+      "output": "numpy version: 1.24.3"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_interleaved_repeat"
+  }
+}

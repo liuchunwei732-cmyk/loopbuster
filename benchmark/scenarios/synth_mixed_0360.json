@@ -1,0 +1,97 @@
+{
+  "trajectory_id": "synth_mixed_0360",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后段进入 cycle (warmup3+loop6)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "前 3~5 步正常，后段进入 cycle (warmup3+loop6)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.celery-worker.com/v1/posts",
+        "method": "GET"
+      },
+      "output": "HTTP 500: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 2,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/config.csv"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "/var/log",
+        "recursive": "true"
+      },
+      "output": "Found 5 items in ./tests"
+    },
+    {
+      "step": 4,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2024-06-30/redis.log"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 5,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/constants.md",
+        "content": "Lorem ipsum dolor sit amet."
+      },
+      "output": "Written 8192 bytes to Makefile"
+    },
+    {
+      "step": 6,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/models.py"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 7,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/schema.js",
+        "content": "This is a sample content for testing."
+      },
+      "output": "File saved: Makefile"
+    },
+    {
+      "step": 8,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/config.ts"
+      },
+      "output": "File content:\nimport os\nimport sys\n\ndef main():\n    print('hello world')\n\nif __name__ == '__main__':\n    main()"
+    },
+    {
+      "step": 9,
+      "tool": "write_file",
+      "args": {
+        "path": "./backend/README.md",
+        "content": "# My Project\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 8192 bytes to docker-compose.yml"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 9,
+    "generator": "gen_mixed"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0186",
+  "source": "synthetic",
+  "task_description": "同一工具，参数变化较大但意图相同 (search_wikipediax4fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 2,
+    "description": "同一工具，参数变化较大但意图相同 (search_wikipediax4fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Algorithm Design",
+        "lang": "en"
+      },
+      "output": "Wikipedia: Natural Language Processing\nMachine learning is the study of computer algorithms that improve through experience."
+    },
+    {
+      "step": 2,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Computer Networks",
+        "lang": "en"
+      },
+      "output": "Reinforcement Learning: Artificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 3,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Operating Systems",
+        "lang": "fr"
+      },
+      "output": "Algorithm Design: Machine learning is the study of computer algorithms that improve through experience."
+    },
+    {
+      "step": 4,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Deep Learning",
+        "lang": "en"
+      },
+      "output": "Algorithm Design: Artificial intelligence is intelligence demonstrated by machines."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

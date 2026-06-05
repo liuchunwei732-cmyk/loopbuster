@@ -1,0 +1,76 @@
+{
+  "trajectory_id": "synth_exact_repeat_0118",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 6~10 次 (bash_shellx7)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 4,
+    "description": "同 (tool, args) 连续重复 6~10 次 (bash_shellx7)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 2,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 3,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 4,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 5,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 6,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 7,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nPython 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_exact_repeat"
+  }
+}

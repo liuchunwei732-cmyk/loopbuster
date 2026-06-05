@@ -1,0 +1,68 @@
+{
+  "trajectory_id": "synth_exact_repeat_0127",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 6~10 次 (web_searchx6)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 4,
+    "description": "同 (tool, args) 连续重复 6~10 次 (web_searchx6)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python"
+      },
+      "output": "Top result for distributed systems design: Docker containers provide a consistent environment for application deployment. (relevance: 0.87)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python"
+      },
+      "output": "Top result for distributed systems design: Docker containers provide a consistent environment for application deployment. (relevance: 0.87)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python"
+      },
+      "output": "Top result for distributed systems design: Docker containers provide a consistent environment for application deployment. (relevance: 0.87)"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python"
+      },
+      "output": "Top result for distributed systems design: Docker containers provide a consistent environment for application deployment. (relevance: 0.87)"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python"
+      },
+      "output": "Top result for distributed systems design: Docker containers provide a consistent environment for application deployment. (relevance: 0.87)"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python"
+      },
+      "output": "Top result for distributed systems design: Docker containers provide a consistent environment for application deployment. (relevance: 0.87)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_exact_repeat"
+  }
+}

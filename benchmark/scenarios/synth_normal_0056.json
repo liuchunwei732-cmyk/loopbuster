@@ -1,0 +1,184 @@
+{
+  "trajectory_id": "synth_normal_0056",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (18步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (18步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_news",
+      "args": {
+        "category": "business",
+        "count": "5"
+      },
+      "output": "Top business news:\n1. Tech Company Launches New Product\n2. Stock Market Reaches All-Time High\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 2,
+      "tool": "translate",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "source_lang": "fr",
+        "target_lang": "de"
+      },
+      "output": "Translation (ko → es):\nBonjour, comment allez-vous?"
+    },
+    {
+      "step": 3,
+      "tool": "summarize_text",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "max_length": "100"
+      },
+      "output": "Summary (60% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 4,
+      "tool": "calculate",
+      "args": {
+        "expression": "max([3, 7, 2, 9])"
+      },
+      "output": "Result: 3.14"
+    },
+    {
+      "step": 5,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.postgresql.com/v1/analyze",
+        "method": "POST",
+        "body": "{\"name\": \"test\"}"
+      },
+      "output": "HTTP 400: {\"id\": 123, \"name\": \"test\"}"
+    },
+    {
+      "step": 6,
+      "tool": "read_news",
+      "args": {
+        "category": "science",
+        "count": "5"
+      },
+      "output": "Top entertainment news:\n1. Tech Company Launches New Product\n2. Scientists Discover New Species\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 7,
+      "tool": "translate",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "source_lang": "en",
+        "target_lang": "ko"
+      },
+      "output": "Translation (fr → de):\nBonjour, comment allez-vous?"
+    },
+    {
+      "step": 8,
+      "tool": "summarize_text",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "max_length": "500"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Further research is needed"
+    },
+    {
+      "step": 9,
+      "tool": "calculate",
+      "args": {
+        "expression": "sorted([5, 3, 8, 1])"
+      },
+      "output": "sorted([5, 3, 8, 1]) = 0"
+    },
+    {
+      "step": 10,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/posts",
+        "method": "GET"
+      },
+      "output": "HTTP 204: {\"error\": \"not found\"}"
+    },
+    {
+      "step": 11,
+      "tool": "read_news",
+      "args": {
+        "category": "technology",
+        "count": "5"
+      },
+      "output": "Top business news:\n1. New AI Model Achieves Breakthrough\n2. Scientists Discover New Species\n3. Olympic Games Opening Ceremony"
+    },
+    {
+      "step": 12,
+      "tool": "translate",
+      "args": {
+        "text": "Python is a high-level programming language.",
+        "source_lang": "en",
+        "target_lang": "de"
+      },
+      "output": "你好，世界！"
+    },
+    {
+      "step": 13,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "max_length": "500"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Results show significant improvement"
+    },
+    {
+      "step": 14,
+      "tool": "calculate",
+      "args": {
+        "expression": "sorted([5, 3, 8, 1])"
+      },
+      "output": "sorted([5, 3, 8, 1]) = 15"
+    },
+    {
+      "step": 15,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.nginx.com/v1/analyze",
+        "method": "GET"
+      },
+      "output": "404 OK\n{\"error\": \"not found\"}"
+    },
+    {
+      "step": 16,
+      "tool": "read_news",
+      "args": {
+        "category": "science",
+        "count": "5"
+      },
+      "output": "Top entertainment news:\n1. New AI Model Achieves Breakthrough\n2. Stock Market Reaches All-Time High\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 17,
+      "tool": "translate",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "source_lang": "en",
+        "target_lang": "de"
+      },
+      "output": "Translation (en → ja):\n你好，世界！"
+    },
+    {
+      "step": 18,
+      "tool": "summarize_text",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "max_length": "500"
+      },
+      "output": "Summary (60% reduction):\nThe document discusses machine learning applications in healthcare."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 18,
+    "generator": "gen_normal_progressive"
+  }
+}

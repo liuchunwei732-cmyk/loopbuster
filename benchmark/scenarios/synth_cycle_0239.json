@@ -1,0 +1,71 @@
+{
+  "trajectory_id": "synth_cycle_0239",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([web_search→web_fetch→summarize_text]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([web_search→web_fetch→summarize_text]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Paris history"
+      },
+      "output": "Found 10 results for best machine learning courses. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=12345"
+      },
+      "output": "Page loaded: Hacker News - Latest Discussions. 12 paragraphs found."
+    },
+    {
+      "step": 3,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "max_length": "500"
+      },
+      "output": "Summary (60% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture",
+        "max_results": "10"
+      },
+      "output": "Top result for HTTP status codes: Python is a versatile programming language used in web development and data science. (relevance: 0.78)"
+    },
+    {
+      "step": 5,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=44556"
+      },
+      "output": "Fetched page https://test.org: MDN Web Docs - JavaScript Guide\nContent length: 16384 bytes"
+    },
+    {
+      "step": 6,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The capital of France is Paris.",
+        "max_length": "500"
+      },
+      "output": "Summary (60% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_cycle"
+  }
+}

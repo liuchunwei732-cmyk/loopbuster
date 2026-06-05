@@ -1,0 +1,60 @@
+{
+  "trajectory_id": "synth_exact_repeat_0095",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 3~5 次 (get_weatherx5)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "同 (tool, args) 连续重复 3~5 次 (get_weatherx5)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "get_weather",
+      "args": {
+        "city": "Madrid"
+      },
+      "output": "Paris: 12°C, partly cloudy"
+    },
+    {
+      "step": 2,
+      "tool": "get_weather",
+      "args": {
+        "city": "Madrid"
+      },
+      "output": "Paris: 12°C, partly cloudy"
+    },
+    {
+      "step": 3,
+      "tool": "get_weather",
+      "args": {
+        "city": "Madrid"
+      },
+      "output": "Paris: 12°C, partly cloudy"
+    },
+    {
+      "step": 4,
+      "tool": "get_weather",
+      "args": {
+        "city": "Madrid"
+      },
+      "output": "Paris: 12°C, partly cloudy"
+    },
+    {
+      "step": 5,
+      "tool": "get_weather",
+      "args": {
+        "city": "Madrid"
+      },
+      "output": "Paris: 12°C, partly cloudy"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_exact_repeat"
+  }
+}

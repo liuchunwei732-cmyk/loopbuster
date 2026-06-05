@@ -1,0 +1,70 @@
+{
+  "trajectory_id": "synth_cycle_0231",
+  "source": "synthetic",
+  "task_description": "3-tool 循环：A→B→C→A→B→C ([web_search→web_fetch→summarize_text]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 4,
+    "description": "3-tool 循环：A→B→C→A→B→C ([web_search→web_fetch→summarize_text]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Reinforcement Learning vs GraphQL"
+      },
+      "output": "Search results for 'clean code principles':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. PostgreSQL is a powerful open-source relational database management system."
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=44556"
+      },
+      "output": "Page loaded: Hacker News - Latest Discussions. 12 paragraphs found."
+    },
+    {
+      "step": 3,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "max_length": "500"
+      },
+      "output": "Summary (60% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture 2025"
+      },
+      "output": "Top result for how to learn Python: Python is a versatile programming language used in web development and data science. (relevance: 0.78)"
+    },
+    {
+      "step": 5,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/facebook/linux"
+      },
+      "output": "Fetched page https://demo.io: Wikipedia - Artificial Intelligence\nContent length: 2048 bytes"
+    },
+    {
+      "step": 6,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The Earth orbits around the Sun.",
+        "max_length": "200"
+      },
+      "output": "Summary (60% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_cycle"
+  }
+}

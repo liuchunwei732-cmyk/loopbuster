@@ -1,0 +1,176 @@
+{
+  "trajectory_id": "synth_normal_0048",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (18步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (18步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_excel('<file>')\ndf.head()"
+      },
+      "output": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "step": 2,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "The capital of France is Paris."
+      },
+      "output": "Sentiment: negative (confidence: 0.52)"
+    },
+    {
+      "step": 3,
+      "tool": "create_document",
+      "args": {
+        "title": "Analysis Report",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Created: Analysis Report.md"
+    },
+    {
+      "step": 4,
+      "tool": "summarize_text",
+      "args": {
+        "text": "An algorithm is a step-by-step procedure for solving a problem.",
+        "max_length": "500"
+      },
+      "output": "Summary (60% reduction):\nThe document discusses machine learning applications in healthcare."
+    },
+    {
+      "step": 5,
+      "tool": "list_directory",
+      "args": {
+        "path": "./tests",
+        "recursive": "true"
+      },
+      "output": "Found 3 items in ./config"
+    },
+    {
+      "step": 6,
+      "tool": "get_weather",
+      "args": {
+        "city": "Moscow"
+      },
+      "output": "Weather in Osaka: 12°F, humidity 95%"
+    },
+    {
+      "step": 7,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Reinforcement Learning"
+      },
+      "output": "Deep Learning: Artificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 8,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_json('<file>')\ndf.head()"
+      },
+      "output": "numpy version: 1.24.3"
+    },
+    {
+      "step": 9,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius."
+      },
+      "output": "mixed (0.95)"
+    },
+    {
+      "step": 10,
+      "tool": "create_document",
+      "args": {
+        "title": "Meeting Summary",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Created: Technical Documentation.md"
+    },
+    {
+      "step": 11,
+      "tool": "summarize_text",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "max_length": "100"
+      },
+      "output": "Summary (75% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 12,
+      "tool": "list_directory",
+      "args": {
+        "path": "./tests",
+        "recursive": "true"
+      },
+      "output": "Contents of ./config:\nindex.html\nstyle.css\napp.js\nimages/"
+    },
+    {
+      "step": 13,
+      "tool": "get_weather",
+      "args": {
+        "city": "Singapore",
+        "units": "fahrenheit"
+      },
+      "output": "Seoul: 20°F, foggy"
+    },
+    {
+      "step": 14,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Algorithm Design"
+      },
+      "output": "Wikipedia: Natural Language Processing\nArtificial intelligence is intelligence demonstrated by machines."
+    },
+    {
+      "step": 15,
+      "tool": "python_repl",
+      "args": {
+        "code": "validate('stock_prices.csv')"
+      },
+      "output": "> True"
+    },
+    {
+      "step": 16,
+      "tool": "analyze_sentiment",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web."
+      },
+      "output": "Sentiment: mixed (confidence: 0.45)"
+    },
+    {
+      "step": 17,
+      "tool": "create_document",
+      "args": {
+        "title": "Analysis Report",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Document 'Analysis Report' created (1000 words)"
+    },
+    {
+      "step": 18,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Machine learning is a subset of artificial intelligence.",
+        "max_length": "500"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Results show significant improvement"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 18,
+    "generator": "gen_normal_progressive"
+  }
+}

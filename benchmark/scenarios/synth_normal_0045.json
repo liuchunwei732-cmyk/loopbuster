@@ -1,0 +1,139 @@
+{
+  "trajectory_id": "synth_normal_0045",
+  "source": "synthetic",
+  "task_description": "长序列正常行为（10+ 步） (14步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "长序列正常行为（10+ 步） (14步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_news",
+      "args": {
+        "category": "technology",
+        "count": "5"
+      },
+      "output": "Latest world: New AI Model Achieves Breakthrough"
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "author"
+      },
+      "output": "Parsed markdown: {'name': 'Alice', 'age': 30}"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/models.ts"
+      },
+      "output": "Read docker-compose.yml: 42 lines, 32768 characters"
+    },
+    {
+      "step": 4,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "max_length": "100"
+      },
+      "output": "Summary (75% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 5,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM analytics_events"
+      },
+      "output": "Found 5 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python"
+      },
+      "output": "Top result for SQL vs NoSQL databases: Docker containers provide a consistent environment for application deployment. (relevance: 0.92)"
+    },
+    {
+      "step": 7,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/facebook/linux"
+      },
+      "output": "Page loaded: GitHub - TensorFlow Repository. 12 paragraphs found."
+    },
+    {
+      "step": 8,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/users",
+        "method": "GET"
+      },
+      "output": "HTTP 301: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 9,
+      "tool": "read_news",
+      "args": {
+        "category": "business",
+        "count": "5"
+      },
+      "output": "Top sports news:\n1. Tech Company Launches New Product\n2. Scientists Discover New Species\n3. Climate Summit Concludes with Agreement"
+    },
+    {
+      "step": 10,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "name"
+      },
+      "output": "Extracted name: John Doe"
+    },
+    {
+      "step": 11,
+      "tool": "read_file",
+      "args": {
+        "path": "myapp/src/controllers.py"
+      },
+      "output": "Successfully loaded Makefile (32 KB)"
+    },
+    {
+      "step": 12,
+      "tool": "summarize_text",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "max_length": "100"
+      },
+      "output": "Summary (60% reduction):\nKey topics include data preprocessing, model selection, and evaluation."
+    },
+    {
+      "step": 13,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM transactions WHERE clear"
+      },
+      "output": "Query returned 5 rows:\nNo matching records found."
+    },
+    {
+      "step": 14,
+      "tool": "web_search",
+      "args": {
+        "query": "how to deploy in Kotlin"
+      },
+      "output": "Top result for Linux file permissions: Docker containers provide a consistent environment for application deployment. (relevance: 0.87)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 14,
+    "generator": "gen_normal_progressive"
+  }
+}

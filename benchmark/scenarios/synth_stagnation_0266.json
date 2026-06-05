@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_stagnation_0266",
+  "source": "synthetic",
+  "task_description": "同一工具，输出完全相同（每次返回一样的结果） (web_searchx3stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 3,
+    "description": "同一工具，输出完全相同（每次返回一样的结果） (web_searchx3stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Data Structures vs Svelte"
+      },
+      "output": "Search results for 'Git branching strategies':\n1. Docker containers provide a consistent environment for application deployment.\n2. PostgreSQL is a powerful open-source relational database management system."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "Data Structures vs Svelte"
+      },
+      "output": "Search results for 'Git branching strategies':\n1. Docker containers provide a consistent environment for application deployment.\n2. PostgreSQL is a powerful open-source relational database management system."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Data Structures vs Svelte"
+      },
+      "output": "Search results for 'Git branching strategies':\n1. Docker containers provide a consistent environment for application deployment.\n2. PostgreSQL is a powerful open-source relational database management system."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_output_stagnation"
+  }
+}

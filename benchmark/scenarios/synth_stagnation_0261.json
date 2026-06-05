@@ -1,0 +1,74 @@
+{
+  "trajectory_id": "synth_stagnation_0261",
+  "source": "synthetic",
+  "task_description": "同一工具，输出完全相同（每次返回一样的结果） (web_searchx6stagnation)",
+  "task_category": "stagnation",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "output_stagnation",
+    "severity": 3,
+    "description": "同一工具，输出完全相同（每次返回一样的结果） (web_searchx6stagnation)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Search results for 'microservices architecture':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Search results for 'microservices architecture':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Search results for 'microservices architecture':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Search results for 'microservices architecture':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Search results for 'microservices architecture':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "best machine learning courses",
+        "max_results": "10"
+      },
+      "output": "Search results for 'microservices architecture':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. Vue.js is a progressive framework for building user interfaces."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_output_stagnation"
+  }
+}

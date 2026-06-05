@@ -1,0 +1,53 @@
+{
+  "trajectory_id": "synth_normal_0039",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (4步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Algorithm Design"
+      },
+      "output": "Algorithm Design: Machine learning is the study of computer algorithms that improve through experience."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "New York population"
+      },
+      "output": "Top result for React vs Vue comparison: React is a JavaScript library for building user interfaces maintained by Meta. (relevance: 0.95)"
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "/var/log"
+      },
+      "output": "Found 12 items in ./config"
+    },
+    {
+      "step": 4,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.app-server.com/v1/search",
+        "method": "GET"
+      },
+      "output": "204 OK\n{\"message\": \"success\"}"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_normal_progressive"
+  }
+}

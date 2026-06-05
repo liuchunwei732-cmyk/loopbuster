@@ -1,0 +1,113 @@
+{
+  "trajectory_id": "synth_mixed_0365",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后段进入 cycle (warmup5+loop6)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "前 3~5 步正常，后段进入 cycle (warmup5+loop6)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "python_repl",
+      "args": {
+        "code": "import pandas as pd\ndf = pd.read_excel('<file>')\ndf.head()"
+      },
+      "output": "Hello, World!"
+    },
+    {
+      "step": 2,
+      "tool": "summarize_text",
+      "args": {
+        "text": "The quick brown fox jumps over the lazy dog.",
+        "max_length": "100"
+      },
+      "output": "Key points:\n- The model achieved 95% accuracy\n- Results show significant improvement"
+    },
+    {
+      "step": 3,
+      "tool": "list_directory",
+      "args": {
+        "path": "./tests",
+        "recursive": "true"
+      },
+      "output": "Contents of /data:\nmain.py\nutils.py\nmodels.py\ntests/\nREADME.md\nrequirements.txt"
+    },
+    {
+      "step": 4,
+      "tool": "translate",
+      "args": {
+        "text": "Water freezes at 0 degrees Celsius.",
+        "source_lang": "es",
+        "target_lang": "en"
+      },
+      "output": "Bonjour, comment allez-vous?"
+    },
+    {
+      "step": 5,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Deep Learning"
+      },
+      "output": "Computer Networks: Machine learning is the study of computer algorithms that improve through experience."
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "how to debug in TypeScript"
+      },
+      "output": "Found 5 results for microservices architecture. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    },
+    {
+      "step": 7,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://api.github.com/repos/uber/kubernetes"
+      },
+      "output": "Page loaded: Wikipedia - Artificial Intelligence. 12 paragraphs found."
+    },
+    {
+      "step": 8,
+      "tool": "web_search",
+      "args": {
+        "query": "Computer Vision vs Angular"
+      },
+      "output": "Search results for 'CI/CD pipeline setup':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. JavaScript is commonly used for front-end web development alongside HTML and CSS."
+    },
+    {
+      "step": 9,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://news.ycombinator.com/item?id=44556"
+      },
+      "output": "Page loaded: MDN Web Docs - JavaScript Guide. 5 paragraphs found."
+    },
+    {
+      "step": 10,
+      "tool": "web_search",
+      "args": {
+        "query": "SQL vs NoSQL databases",
+        "max_results": "10"
+      },
+      "output": "Found 10 results for clean code principles. Result 1: Docker containers provide a consistent environment for application deployment."
+    },
+    {
+      "step": 11,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Natural Language Processing"
+      },
+      "output": "Page loaded: Wikipedia - Artificial Intelligence. 15 paragraphs found."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 11,
+    "generator": "gen_mixed"
+  }
+}

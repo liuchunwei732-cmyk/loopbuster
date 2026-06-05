@@ -1,0 +1,45 @@
+{
+  "trajectory_id": "synth_normal_0031",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (3步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (3步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/main.ts",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "Written 2048 bytes to ./.env"
+    },
+    {
+      "step": 2,
+      "tool": "search_wikipedia",
+      "args": {
+        "query": "Computer Networks"
+      },
+      "output": "Computer Networks: Machine learning is the study of computer algorithms that improve through experience."
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "transform('iris.csv')"
+      },
+      "output": "True"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_normal_progressive"
+  }
+}

@@ -5,11 +5,19 @@ build-backend = "hatchling.build"
 [project]
 name = "loopbuster"
 version = "0.3.0"
+<<<<<<< HEAD
 description = "Break the infinite loops of your AI Agents. Pattern detection, budget ceilings, state stasis guards, and circuit breakers in one library."
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.9"
 authors = [{ name = "Jake Liu" }]
+=======
+description = "Break the infinite loops of your AI Agents. Stop burning tokens on dead-ends."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [{name = "Jake Liu"}]
+>>>>>>> codex/deep-detection-v0.3.0
 keywords = [
     "agent", "loop", "detection", "guardrail", "safety",
     "llm", "ai-agent", "circuit-breaker", "infinite-loop",
@@ -30,9 +38,15 @@ dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0", "pytest-asyncio>=0.21", "ruff>=0.6", "build>=1.0"]
+<<<<<<< HEAD
 redis = ["redis"]
 dashboard = ["fastapi", "uvicorn"]
 all = ["redis", "fastapi", "uvicorn"]
+=======
+all = ["openai", "anthropic"]
+dashboard = ["fastapi", "uvicorn"]
+redis = ["redis"]
+>>>>>>> codex/deep-detection-v0.3.0
 
 [project.urls]
 Homepage = "https://github.com/liuchunwei732-cmyk/loopbuster"
@@ -46,5 +60,10 @@ line-length = 100
 target-version = "py39"
 
 [tool.pytest.ini_options]
+<<<<<<< HEAD
 testpaths = ["tests"]
 asyncio_mode = "auto"
+=======
+asyncio_mode = "auto"
+testpaths = ["tests"]
+>>>>>>> codex/deep-detection-v0.3.0

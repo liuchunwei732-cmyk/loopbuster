@@ -1,0 +1,88 @@
+{
+  "trajectory_id": "synth_cycle_0220",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([read_file→write_file]x4)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([read_file→write_file]x4)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/schema.yaml"
+      },
+      "output": "Successfully loaded docker-compose.yml (128 KB)"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "./backend/README.md",
+        "content": "# API Service\n\nA sample description for the project."
+      },
+      "output": "File saved: ./.env"
+    },
+    {
+      "step": 3,
+      "tool": "read_file",
+      "args": {
+        "path": "./logs/2025-03-20/app-server.log"
+      },
+      "output": "Successfully loaded ./.env (2 KB)"
+    },
+    {
+      "step": 4,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/utils.py",
+        "content": "Data analysis results and conclusions."
+      },
+      "output": "File saved: package.json"
+    },
+    {
+      "step": 5,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/test_main.js"
+      },
+      "output": "Read ./.env: 42 lines, 8192 characters"
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "./api-service/README.md",
+        "content": "# API Service\n\nA sample description for the project."
+      },
+      "output": "Written 8192 bytes to /etc/config.yaml"
+    },
+    {
+      "step": 7,
+      "tool": "read_file",
+      "args": {
+        "path": "/data/data.js"
+      },
+      "output": "Successfully loaded docker-compose.yml (32 KB)"
+    },
+    {
+      "step": 8,
+      "tool": "write_file",
+      "args": {
+        "path": "./cli-tool/README.md",
+        "content": "# API Service\n\nThis project handles data processing tasks."
+      },
+      "output": "Written 32768 bytes to Makefile"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_cycle"
+  }
+}

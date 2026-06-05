@@ -1,0 +1,53 @@
+{
+  "trajectory_id": "synth_cycle_0209",
+  "source": "synthetic",
+  "task_description": "2-tool 循环：A→B→A→B ([web_search→web_fetch]x2)",
+  "task_category": "cycle",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "cycle",
+    "severity": 3,
+    "description": "2-tool 循环：A→B→A→B ([web_search→web_fetch]x2)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "how to migrate in JavaScript"
+      },
+      "output": "Search results for 'Rust memory safety':\n1. Python is a versatile programming language used in web development and data science.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 2,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Data Structures"
+      },
+      "output": "Fetched page https://test.org: Hacker News - Latest Discussions\nContent length: 4096 bytes"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "REST API best practices",
+        "max_results": "10"
+      },
+      "output": "Found 10 results for HTTP status codes. Result 1: React is a JavaScript library for building user interfaces maintained by Meta."
+    },
+    {
+      "step": 4,
+      "tool": "web_fetch",
+      "args": {
+        "url": "https://en.wikipedia.org/wiki/Artificial Intelligence"
+      },
+      "output": "Fetched page https://example.com: MDN Web Docs - JavaScript Guide\nContent length: 8192 bytes"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 4,
+    "generator": "gen_cycle"
+  }
+}

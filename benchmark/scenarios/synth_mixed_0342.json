@@ -1,0 +1,68 @@
+{
+  "trajectory_id": "synth_mixed_0342",
+  "source": "synthetic",
+  "task_description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup3+loop3)",
+  "task_category": "mixed",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "前 3~5 步正常，后 3~5 步 exact repeat (warmup3+loop3)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "create_document",
+      "args": {
+        "title": "Technical Documentation",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Created: Analysis Report.md"
+    },
+    {
+      "step": 2,
+      "tool": "read_file",
+      "args": {
+        "path": "api-service/src/controllers.py"
+      },
+      "output": "File content:\n# Configuration\nDEBUG = True\nDATABASE_URL = 'postgresql://localhost/db'\nSECRET_KEY = 'your-secret-key'"
+    },
+    {
+      "step": 3,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "Current time: 2025-03-20 23:45:00"
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "New York economy"
+      },
+      "output": "Found 10 results for REST API best practices. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "New York economy"
+      },
+      "output": "Found 10 results for REST API best practices. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "New York economy"
+      },
+      "output": "Found 10 results for REST API best practices. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_mixed"
+  }
+}

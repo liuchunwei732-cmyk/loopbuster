@@ -1,0 +1,68 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0163",
+  "source": "synthetic",
+  "task_description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx6fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 3,
+    "description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx6fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Computer Vision basics Svelte"
+      },
+      "output": "Top result for Python async programming: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.87)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "tutorial Vision vs Svelte"
+      },
+      "output": "Top result for Python async programming: Python is a versatile programming language used in web development and data science. (relevance: 0.95)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Computer Vision vs best"
+      },
+      "output": "Found 20 results for REST API best practices. Result 1: Docker containers provide a consistent environment for application deployment."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "Computer beginner vs Svelte"
+      },
+      "output": "Search results for 'Python async programming':\n1. Python is a versatile programming language used in web development and data science.\n2. Vue.js is a progressive framework for building user interfaces."
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "Computer Vision examples Svelte"
+      },
+      "output": "Top result for SQL vs NoSQL databases: Machine learning algorithms can be categorized into supervised and unsupervised learning. (relevance: 0.87)"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "beginner Vision vs Svelte"
+      },
+      "output": "Search results for 'what is Kubernetes':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. PostgreSQL is a powerful open-source relational database management system."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

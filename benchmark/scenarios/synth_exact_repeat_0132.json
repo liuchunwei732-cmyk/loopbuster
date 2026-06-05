@@ -1,0 +1,84 @@
+{
+  "trajectory_id": "synth_exact_repeat_0132",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (web_searchx4间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (web_searchx4间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "Artificial Intelligence vs gRPC"
+      },
+      "output": "Found 5 results for REST API best practices. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 2,
+      "tool": "parse_data",
+      "args": {
+        "data": "{\"a\": 1, \"b\": 2}",
+        "extract": "date"
+      },
+      "output": "Extracted date: John Doe"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "Artificial Intelligence vs gRPC"
+      },
+      "output": "Found 5 results for REST API best practices. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 4,
+      "tool": "parse_data",
+      "args": {
+        "data": "2024-01-01,2024-01-02,2024-01-03",
+        "extract": "title"
+      },
+      "output": "Extracted count: John Doe"
+    },
+    {
+      "step": 5,
+      "tool": "get_weather",
+      "args": {
+        "city": "Vancouver"
+      },
+      "output": "Amsterdam: 12°F, partly cloudy"
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "Artificial Intelligence vs gRPC"
+      },
+      "output": "Found 5 results for REST API best practices. Result 1: Python is a versatile programming language used in web development and data science."
+    },
+    {
+      "step": 7,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2024-01-15 14:30:00"
+    },
+    {
+      "step": 8,
+      "tool": "web_search",
+      "args": {
+        "query": "Artificial Intelligence vs gRPC"
+      },
+      "output": "Found 5 results for REST API best practices. Result 1: Python is a versatile programming language used in web development and data science."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_interleaved_repeat"
+  }
+}

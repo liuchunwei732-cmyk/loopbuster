@@ -1,0 +1,44 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0162",
+  "source": "synthetic",
+  "task_description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx3fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 3,
+    "description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx3fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "how to optimize simple C++"
+      },
+      "output": "Top result for Linux file permissions: Docker containers provide a consistent environment for application deployment. (relevance: 0.95)"
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "how tutorial optimize in C++"
+      },
+      "output": "Top result for SQL vs NoSQL databases: Kubernetes automates deployment, scaling, and management of containerized applications. (relevance: 0.95)"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "how to optimize simple C++"
+      },
+      "output": "Found 20 results for microservices architecture. Result 1: Python is a versatile programming language used in web development and data science."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 3,
+    "generator": "gen_fuzzy_repeat"
+  }
+}

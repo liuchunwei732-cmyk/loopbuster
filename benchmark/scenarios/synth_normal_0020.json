@@ -1,0 +1,88 @@
+{
+  "trajectory_id": "synth_normal_0020",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (8步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "parse_data",
+      "args": {
+        "text": "HTTP is the foundation of data communication on the web.",
+        "format": "yaml"
+      },
+      "output": "Parsed json: {'name': 'Alice', 'age': 30}"
+    },
+    {
+      "step": 2,
+      "tool": "write_file",
+      "args": {
+        "path": "./cli-tool/README.md",
+        "content": "# Web Application\n\nThis project handles data processing tasks."
+      },
+      "output": "File saved: ./.env"
+    },
+    {
+      "step": 3,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT * FROM products WHERE partly cloudy"
+      },
+      "output": "Found 25 records. [(42,), (57,), (83,)]"
+    },
+    {
+      "step": 4,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Python 3.11.4\npip 23.1.2\nsetuptools 67.8.0"
+    },
+    {
+      "step": 5,
+      "tool": "parse_data",
+      "args": {
+        "data": "[1, 2, 3, 4, 5]",
+        "extract": "date"
+      },
+      "output": "Parsed json: {'name': 'Alice', 'age': 30}"
+    },
+    {
+      "step": 6,
+      "tool": "write_file",
+      "args": {
+        "path": "/output/config.json",
+        "content": "Lorem ipsum dolor sit amet."
+      },
+      "output": "File saved: package.json"
+    },
+    {
+      "step": 7,
+      "tool": "search_database",
+      "args": {
+        "query": "SELECT COUNT(*) FROM orders"
+      },
+      "output": "Query returned 5 rows:\n[(42,), (57,), (83,)]"
+    },
+    {
+      "step": 8,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' ./config"
+      },
+      "output": "Command executed. Output:\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 8,
+    "generator": "gen_normal_progressive"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "trajectory_id": "synth_normal_0013",
+  "source": "synthetic",
+  "task_description": "不同工具、不同参数、逐步推进的正常 agent 行为 (5步渐进)",
+  "task_category": "normal",
+  "ground_truth": {
+    "is_loop": false,
+    "loop_type": null,
+    "severity": 0,
+    "description": "不同工具、不同参数、逐步推进的正常 agent 行为 (5步渐进)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "bash_shell",
+      "args": {
+        "command": "grep -r '<pattern>' /home/user/projects"
+      },
+      "output": "total 24\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 src\ndrwxr-xr-x  2 user group  4096 Jan 15 10:30 tests"
+    },
+    {
+      "step": 2,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.nginx.com/v1/events",
+        "method": "POST",
+        "body": "{\"id\": 123}"
+      },
+      "output": "400 OK\n{\"status\": \"ok\", \"data\": []}"
+    },
+    {
+      "step": 3,
+      "tool": "python_repl",
+      "args": {
+        "code": "print(sum(range(100)))"
+      },
+      "output": "pandas version: 2.0.3"
+    },
+    {
+      "step": 4,
+      "tool": "create_document",
+      "args": {
+        "title": "Technical Documentation",
+        "content": "This is a sample content for testing.",
+        "format": "markdown"
+      },
+      "output": "Created: Project Proposal.md"
+    },
+    {
+      "step": 5,
+      "tool": "get_current_time",
+      "args": {},
+      "output": "2025-03-20 23:45:00"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_normal_progressive"
+  }
+}

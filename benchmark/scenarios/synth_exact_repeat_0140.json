@@ -1,0 +1,62 @@
+{
+  "trajectory_id": "synth_exact_repeat_0140",
+  "source": "synthetic",
+  "task_description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (web_searchx3间隔重复)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 3,
+    "description": "间隔重复：中间有其他工具调用，但最终回到相同 (tool, args) (web_searchx3间隔重复)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python 2026"
+      },
+      "output": "Search results for 'best machine learning courses':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. JavaScript is commonly used for front-end web development alongside HTML and CSS."
+    },
+    {
+      "step": 2,
+      "tool": "calculate",
+      "args": {
+        "expression": "len('hello world')"
+      },
+      "output": "Result: 42"
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python 2026"
+      },
+      "output": "Search results for 'best machine learning courses':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. JavaScript is commonly used for front-end web development alongside HTML and CSS."
+    },
+    {
+      "step": 4,
+      "tool": "api_call",
+      "args": {
+        "url": "https://api.prometheus.com/v1/events",
+        "method": "POST",
+        "body": "{\"action\": \"start\"}"
+      },
+      "output": "HTTP 400: <html><body><h1>Hello</h1></body></html>"
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "how to learn Python 2026"
+      },
+      "output": "Search results for 'best machine learning courses':\n1. Machine learning algorithms can be categorized into supervised and unsupervised learning.\n2. JavaScript is commonly used for front-end web development alongside HTML and CSS."
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 5,
+    "generator": "gen_interleaved_repeat"
+  }
+}

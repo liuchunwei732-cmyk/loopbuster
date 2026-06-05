@@ -1,0 +1,90 @@
+{
+  "trajectory_id": "synth_exact_repeat_0128",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 6~10 次 (send_emailx7)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 4,
+    "description": "同 (tool, args) 连续重复 6~10 次 (send_emailx7)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Bug Report",
+        "body": "Please find the attached report."
+      },
+      "output": "Email sent to support@service.com with subject 'Feature Request'"
+    },
+    {
+      "step": 2,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Bug Report",
+        "body": "Please find the attached report."
+      },
+      "output": "Email sent to support@service.com with subject 'Feature Request'"
+    },
+    {
+      "step": 3,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Bug Report",
+        "body": "Please find the attached report."
+      },
+      "output": "Email sent to support@service.com with subject 'Feature Request'"
+    },
+    {
+      "step": 4,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Bug Report",
+        "body": "Please find the attached report."
+      },
+      "output": "Email sent to support@service.com with subject 'Feature Request'"
+    },
+    {
+      "step": 5,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Bug Report",
+        "body": "Please find the attached report."
+      },
+      "output": "Email sent to support@service.com with subject 'Feature Request'"
+    },
+    {
+      "step": 6,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Bug Report",
+        "body": "Please find the attached report."
+      },
+      "output": "Email sent to support@service.com with subject 'Feature Request'"
+    },
+    {
+      "step": 7,
+      "tool": "send_email",
+      "args": {
+        "to": "admin@company.com",
+        "subject": "Bug Report",
+        "body": "Please find the attached report."
+      },
+      "output": "Email sent to support@service.com with subject 'Feature Request'"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 7,
+    "generator": "gen_exact_repeat"
+  }
+}

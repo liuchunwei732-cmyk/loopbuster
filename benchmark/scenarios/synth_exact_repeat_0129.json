@@ -1,0 +1,100 @@
+{
+  "trajectory_id": "synth_exact_repeat_0129",
+  "source": "synthetic",
+  "task_description": "同 (tool, args) 连续重复 6~10 次 (bash_shellx10)",
+  "task_category": "exact_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "exact_repeat",
+    "severity": 4,
+    "description": "同 (tool, args) 连续重复 6~10 次 (bash_shellx10)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 2,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 3,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 4,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 5,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 6,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 7,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 8,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 9,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    },
+    {
+      "step": 10,
+      "tool": "bash_shell",
+      "args": {
+        "command": "ls -la ./docs"
+      },
+      "output": "Exit code: 0\nFound 2 matching files:\n  ./src/main.py\n  ./src/utils.py"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 10,
+    "generator": "gen_exact_repeat"
+  }
+}

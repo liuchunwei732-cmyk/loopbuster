@@ -1,0 +1,68 @@
+{
+  "trajectory_id": "synth_fuzzy_repeat_0153",
+  "source": "synthetic",
+  "task_description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx6fuzzy)",
+  "task_category": "fuzzy_repeat",
+  "ground_truth": {
+    "is_loop": true,
+    "loop_type": "fuzzy_repeat",
+    "severity": 3,
+    "description": "同一工具，参数只有微小的文字差异（编辑距离小） (web_searchx6fuzzy)"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture"
+      },
+      "output": "Search results for 'CI/CD pipeline setup':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. PostgreSQL is a powerful open-source relational database management system."
+    },
+    {
+      "step": 2,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture"
+      },
+      "output": "Search results for 'SQL vs NoSQL databases':\n1. Docker containers provide a consistent environment for application deployment.\n2. Deep learning models require large amounts of data and computational resources."
+    },
+    {
+      "step": 3,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture"
+      },
+      "output": "Search results for 'SQL vs NoSQL databases':\n1. Kubernetes automates deployment, scaling, and management of containerized applications.\n2. Deep learning models require large amounts of data and computational resources."
+    },
+    {
+      "step": 4,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture"
+      },
+      "output": "Found 5 results for CI/CD pipeline setup. Result 1: Kubernetes automates deployment, scaling, and management of containerized applications."
+    },
+    {
+      "step": 5,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture"
+      },
+      "output": "Search results for 'React vs Vue comparison':\n1. React is a JavaScript library for building user interfaces maintained by Meta.\n2. Deep learning models require large amounts of data and computational resources."
+    },
+    {
+      "step": 6,
+      "tool": "web_search",
+      "args": {
+        "query": "microservices architecture"
+      },
+      "output": "Top result for REST API best practices: Python is a versatile programming language used in web development and data science. (relevance: 0.92)"
+    }
+  ],
+  "metadata": {
+    "agent_framework": "synthetic",
+    "model": null,
+    "total_steps": 6,
+    "generator": "gen_fuzzy_repeat"
+  }
+}
